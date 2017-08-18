@@ -1,0 +1,320 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div style="position:absolute; background-image: url(https://i.imgur.com/b54DM6d.png); height: 607px; width: 312px;">
+<div style="position:relative; left: 30px; top: 75px;">
+ <textarea id="log" style="position:absolute; left: -1px; top: 0px; resize: none; width: 256px;
+ height: 420px; font-size: 1em;"></textarea>
+<form class="form-inline" onsubmit="return false" style="position:relative; left: 0px; top: 430px;">
+    <div class="form-group" style="display:inline;">
+         <label for="textline"></label>
+         <input id="textline" type="text" class="form-control" style="border: none; width: 190px;
+ height: 24px; font-size: 1em;">
+    </div>
+    <button id="send" class="btn btn-default" disabled>invia</button>
+
+    <div class="form-group" style="display:none;">
+        <label for="account">Account:</label>
+        <input id="account" type="text" class="form-control" value="64096141">
+    </div>
+   
+    <button id="connect" class="btn btn-default" style="display:none;">connect</button>
+ </form>
+</div>
+</div>
+
+
+<script>
+"use strict";
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var LPUtils = function () {
+  function LPUtils() {
+    _classCallCheck(this, LPUtils);
+  }
+  LPUtils.getDomain = function getDomain(account, name) {
+    var domains = account.startsWith("le") ? "hc1n.dev.lprnd.net" : "adminlogin.liveperson.net";
+    return new Promise(function (res, rej) {
+      return $.ajax({
+        url: "https://" + domains + "/csdr/account/" + account + "/service/" + name + "/baseURI.lpCsds?version=1.0",
+        jsonp: "cb",
+        jsonpCallback: "domainCallback",
+        cache: true,
+        dataType: "jsonp",
+        success: function success(data) {
+          return res(data.ResultSet.lpData[0].lpServer);
+        },
+        error: function error(e, text) {
+          return rej(text);
+        }
+      });
+    });
+  };
+  LPUtils.agentProfile = function agentProfile(account, agentID) {
+    var _this = this;
+    return new Promise(function (res, rej) {
+      return _this.getDomain(account, "acCdnDomain").then(function (accdnDomain) {
+        return $.ajax({
+          url: "https://" + accdnDomain + "/api/account/" + account + "/configuration/le-users/users/" + agentID,
+          jsonp: "cb",
+          jsonpCallback: "apCallback",
+          cache: true,
+          dataType: "jsonp",
+          success: function success(accdnResp) {
+            return res(accdnResp);
+          }
+        });
+      });
+    });
+  };
+  LPUtils.signup = function signup(account) {
+    var _this2 = this;
+    return new Promise(function (res, rej) {
+      return _this2.getDomain(account, "idp").then(function (idpDomain) {
+        return $.ajax({
+          url: "https://" + idpDomain + "/api/account/" + account + "/signup.jsonp",
+          jsonp: "callback",
+          dataType: "jsonp",
+          success: function success(idpResp) {
+            return res(idpResp.jwt);
+          }
+        });
+      });
+    });
+  };
+  // fetch jwt from localstorage or create one
+  LPUtils.getJWT = function getJWT(account) {
+    var localJWT = localStorage.getItem(account + "-jwt");
+    if (localJWT) return Promise.resolve(localJWT);else return this.signup(account).then(function (newJWT) {
+      localStorage.setItem(account + "-jwt", newJWT);
+      return Promise.resolve(newJWT);
+    });
+  };
+  LPUtils.clearJWT = function clearJWT(account) {
+    localStorage.removeItem(account + "-jwt");
+  };
+  return LPUtils;
+}();
+// LPUtils.getDomain("qa20971604", "idp").then(r => console.log(r));
+// LPUtils.signup("qa20971604").then(r => console.log(r));
+var LPWs = function () {
+  LPWs.connect = function connect(url) {
+    return new LPWs(url)._connect();
+  };
+  LPWs.connectDebug = function connectDebug(url) {
+    return new LPWs(url, true)._connect();
+  };
+  function LPWs(url, debug) {
+    _classCallCheck(this, LPWs);
+    this.reqs = {};
+    this.subs = [];
+    this.url = url;
+    this.debug = debug;
+  }
+  LPWs.prototype._connect = function _connect() {
+    var _this3 = this;
+    return new Promise(function (resolve, reject) {
+      var ws = new WebSocket(_this3.url);
+      _this3.ws = ws;
+      ws.onopen = function () {
+        return resolve(_this3);
+      };
+      ws.onmessage = function (msg) {
+        return _this3.onmessage(msg);
+      };
+      ws.onclose = function (evt) {
+        _this3.ws = null;
+        reject(evt);
+      };
+    });
+  };
+  LPWs.prototype.request = function request(type, body, headers) {
+    var _this4 = this;
+    return new Promise(function (resolve, reject) {
+      var obj = {
+        "kind": "req",
+        "type": type,
+        "body": body || {},
+        "id": Math.floor(Math.random() * 1e9),
+        "headers": headers
+      };
+      _this4.reqs[obj.id] = function (type, code, body) {
+        return resolve({
+          type: type,
+          code: code,
+          body: body
+        });
+      };
+      var str = JSON.stringify(obj);
+      if (_this4.debug) console.log("sending: " + str);
+      _this4.ws.send(str);
+    });
+  };
+  LPWs.prototype.onNotification = function onNotification(filterFunc, _onNotification) {
+    this.subs.push({
+      filter: filterFunc,
+      cb: _onNotification
+    });
+  };
+  LPWs.prototype.toFuncName = function toFuncName(reqType) {
+    var str = reqType.substr(1 + reqType.lastIndexOf('.'));
+    return str.charAt(0).toLowerCase() + str.slice(1);
+  };
+  LPWs.prototype.registerRequests = function registerRequests(arr) {
+    var _this5 = this;
+    arr.forEach(function (reqType) {
+      return _this5[_this5.toFuncName(reqType)] = function (body, headers) {
+        return _this5.request(reqType, body, headers);
+      };
+    });
+  };
+  LPWs.prototype.onmessage = function onmessage(msg) {
+    if (this.debug) console.log("recieved: " + msg.data);
+    var obj = JSON.parse(msg.data);
+    if (obj.kind == "resp") {
+      var id = obj.reqId;
+      delete obj.reqId;
+      delete obj.kind;
+      this.reqs[id].call(this, obj.type, obj.code, obj.body);
+      delete this.reqs[id];
+    } else if (obj.kind == "notification") {
+      this.subs.forEach(function (sub) {
+        if (sub.filter.call(this, obj)) {
+          sub.cb.call(this, obj.body);
+        };
+      });
+    }
+  };
+  return LPWs;
+}();
+// LPWs.connect("wss://echo.websocket.org").then(lpws => console.log(`lpws was opened.`));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(() => {
+  prepareToConnect();
+  $('#connect').click();  
+});
+function prepareToConnect() {
+  $('#connect').text('connect').unbind('click').click(() => {
+    $('#connect').text('connecting...');
+    const account = $('#account').prop('disabled',true).val();
+    LPUtils.getJWT(account).then(jwt => {
+      LPUtils.getDomain(account, 'asyncMessagingEnt').then(umsDomain => {
+        LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`)
+        .then(
+          openedSocket => handleOpenedSocket(openedSocket,jwt), 
+          errorOpening => {
+            $('#log').append(`error opening connection ${errorOpening}\n`);
+            prepareToConnect();
+          });
+      });
+    }, errorGettingJwt => {
+      $('#connect').text('connect');
+      $('#account').prop('disabled',false).val();      
+      $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
+    });
+  });
+}
+function handleOpenedSocket(socket,jwt) {
+  $('#log').html(`\nBenvenuti nel nuovo servizio di Messaging asincrono di Vodafone.\n\nI nostri Agenti saranno presto disponibili.\n`);
+  socket.registerRequests(apiRequestTypes);
+  const me = myId(jwt);
+  
+  socket.initConnection({},[{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  socket.onNotification(withType('MessagingEvent'),
+    body => body.changes.forEach(change => {
+      switch (change.event.type) {
+        case 'ContentEvent':
+          $('#log').append(`${change.originatorId===me? 'Tu':'Agente'}: ${change.event.message}\n`);
+          var textarea = document.getElementById('log');
+          textarea.scrollTop = textarea.scrollHeight;
+      }
+    }));
+  // subscribe to open conversations metadata
+  socket.subscribeExConversations({
+    'convState': ['OPEN']
+  }).then(resp => {
+    var openConvs = {};
+    socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
+      (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
+    $('#send').prop('disabled', false).click(() => {
+      if (Object.keys(openConvs)[0]) {
+        publishTo(socket,Object.keys(openConvs)[0]);
+      } else  {
+        socket.consumerRequestConversation()
+          .then(resp => publishTo(socket,resp.body.conversationId));
+      }
+    });
+    $('#close').prop('disabled', false).click(() => {
+      if (Object.keys(openConvs)[0]) {
+        socket.updateConversationField({
+            conversationId: Object.keys(openConvs)[0],
+            conversationField: [{
+                    field: "ConversationStateField",
+                    conversationState: "CLOSE"
+                }]
+        });
+      }
+    });
+  });
+  $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
+  socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
+}
+function handleConversationNotification(socket,notificationBody,openConvs) {
+  notificationBody.changes.forEach(change => {
+    if (change.type === 'UPSERT') {
+      if (!openConvs[change.result.convId]) {
+        openConvs[change.result.convId] = change.result;
+        socket.subscribeMessagingEvents({
+          fromSeq: 0,
+          dialogId: change.result.convId
+        });
+      }
+    } else if (change.type === 'DELETE') {
+      delete openConvs[change.result.convId];
+      $('#log').append(`La conversazione e' stata chiusa.\n`);
+    }
+  });
+}
+function onCloseSocket(socket,evt) {
+  socket.ws = null;
+  // $('#log').append(`connection was closed with code ${evt.code}\n`);
+  prepareToConnect();
+  $('#send').prop('disabled', true).unbind('click');
+  $('#account').prop('disabled',false).val();
+  $('#connect').click();        
+}
+function publishTo(socket,convID) {
+  socket.publishEvent({
+    dialogId: convID,
+    event: {
+      type: 'ContentEvent',
+      contentType: 'text/plain',
+      message: $('#textline').val()
+    }
+  })
+  .then(resp => $('#textline').val(''));
+}
+function withSubscriptionID(subscriptionID) {
+  return notif => notif.body.subscriptionId === subscriptionID;
+}
+function withType(type) {
+  return notif => notif.type.includes(type);
+}
+function myId(jwt) {
+  return JSON.parse(atob(jwt.split('.')[1])).sub;
+}
+const apiRequestTypes = ['cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
+</script>
