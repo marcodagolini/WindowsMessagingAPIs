@@ -229,7 +229,7 @@ function prepareToConnect() {
   });
 }
 function handleOpenedSocket(socket,jwt) {
-  $('#log').html(`\nBenvenuti nel nuovo servizio di Messaging asincrono di Vodafone.\n\nI nostri Agenti saranno presto disponibili.\n`);
+  $('#log').html(`\nBenvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br>`);
   socket.registerRequests(apiRequestTypes);
   const me = myId(jwt);
   
@@ -238,7 +238,7 @@ function handleOpenedSocket(socket,jwt) {
     body => body.changes.forEach(change => {
       switch (change.event.type) {
         case 'ContentEvent':
-          $('#log').append(`${change.originatorId===me? 'Tu':'Agente'}: ${change.event.message}\n`);
+          $('#log').append(`${change.originatorId===me? 'Tu':'Agente'}: ${change.event.message}<br>`);
           var textarea = document.getElementById('log');
           textarea.scrollTop = textarea.scrollHeight;
       }
