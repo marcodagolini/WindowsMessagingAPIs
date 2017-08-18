@@ -254,7 +254,7 @@ function handleOpenedSocket(socket,jwt) {
       switch (change.event.type) {
         case 'ContentEvent':
           $('#log').prepend($("<div class='agent'></div>"));
-          $('#log').html(change.event.message);
+          $('.agent').html(change.event.message);
           // $('#log').append(`${change.originatorId===me? 'Tu':'Agente'}: ${change.event.message}<br>`);
           var textarea = document.getElementById('log');
           textarea.scrollTop = textarea.scrollHeight;
