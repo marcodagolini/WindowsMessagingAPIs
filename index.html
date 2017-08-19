@@ -245,14 +245,7 @@ var LPWs = function () {
 
 
 <script>
-$(document).ready(() => {
-    
-  var newdiv = document.createElement('div');
-  newdiv.setAttribute("class","intro");
-  newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
-  var mydiv = document.getElementById('log');
-  mydiv.appendChild(newdiv);
-    
+$(document).ready(() => { 
   prepareToConnect();
   $('#connect').click();  
 });
@@ -279,7 +272,11 @@ function prepareToConnect() {
 }
 function handleOpenedSocket(socket,jwt) {
     
-  
+  var newdiv = document.createElement('div');
+  newdiv.setAttribute("class","intro");
+  newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
+  var mydiv = document.getElementById('log');
+  mydiv.appendChild(newdiv);
     
     
    socket.request({"kind":"req","id":"1","type":".GetClock"}) 
