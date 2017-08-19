@@ -256,6 +256,22 @@ function prepareToConnect() {
   });
 }
 function handleOpenedSocket(socket,jwt) {
+    
+    
+    
+    
+    
+  var newdiv = document.createElement('div');
+  newdiv.setAttribute("class","intro");
+  newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
+  var mydiv = document.getElementById('log');
+  mydiv.appendChild(newdiv);
+    
+    
+    
+    
+    
+    
   $('#log').append($("<div class='intro'></div>"));
   $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
   // $('#log').html(`\nBenvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>`);
