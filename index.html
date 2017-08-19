@@ -266,7 +266,7 @@ function handleOpenedSocket(socket,jwt) {
     body => body.changes.forEach(change => {
       switch (change.event.type) {
         case 'ContentEvent':
-          $('#log').append($("<div class='agent'></div>"));
+          ($("<div class='agent'></div>")).insertAfter('.intro');
           $('.agent').html(change.event.message);
           // $('#log').append(`${change.originatorId===me? 'Tu':'Agente'}: ${change.event.message}<br>`);
           var textarea = document.getElementById('log');
