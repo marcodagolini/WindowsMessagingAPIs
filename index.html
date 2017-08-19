@@ -273,15 +273,7 @@ function prepareToConnect() {
 }
 function handleOpenedSocket(socket,jwt) {
     
-    
-      
-    
-    
-  var newdiv = document.createElement('div');
-  newdiv.setAttribute("class","intro");
-  newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
-  var mydiv = document.getElementById('log');
-  mydiv.appendChild(newdiv);
+  
     
     
    socket.request({"kind":"req","id":"1","type":".GetClock"}) 
@@ -317,6 +309,12 @@ function handleOpenedSocket(socket,jwt) {
     var openConvs = {};
     socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
+
+    var newdiv = document.createElement('div');
+    newdiv.setAttribute("class","intro");
+    newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
+    var mydiv = document.getElementById('log');
+    mydiv.appendChild(newdiv);
     $('#send').prop('disabled', false).click(() => {
       if (Object.keys(openConvs)[0]) {
         publishTo(socket,Object.keys(openConvs)[0]);
