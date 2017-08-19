@@ -273,7 +273,7 @@ function prepareToConnect() {
 function handleOpenedSocket(socket,jwt) {
     
     
-      socket.publishEvent({"kind":"req","id":"1","type":".GetClock"})
+      socket.request({"kind":"req","id":"1","type":".GetClock"})
     
     
   var newdiv = document.createElement('div');
