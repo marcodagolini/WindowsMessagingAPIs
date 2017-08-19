@@ -8,6 +8,17 @@
     padding: 20px;
     position: absolute;
 }
+
+    
+.intro {
+    background-color: #f8f8f8;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    width: 110px;
+    text-align: left;
+    padding: 20px;
+    position: absolute;
+}
 </style>
 
 
@@ -244,8 +255,8 @@ function prepareToConnect() {
   });
 }
 function handleOpenedSocket(socket,jwt) {
-  $('#log').append($("<div class='agent'></div>"));
-  $('.agent').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
+  $('#log').append($("<div class='intro'></div>"));
+  $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
   // $('#log').html(`\nBenvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>`);
   socket.registerRequests(apiRequestTypes);
   const me = myId(jwt);
