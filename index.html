@@ -264,7 +264,7 @@ function handleOpenedSocket(socket,jwt) {
   var newdiv = document.createElement('div');
   newdiv.setAttribute("class","intro");
   newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
-  var mydiv = document.getElementById('log');
+  var mydiv = document.getElementById('log').lastchild;
   mydiv.appendChild(newdiv);
     
     
@@ -287,7 +287,7 @@ function handleOpenedSocket(socket,jwt) {
            var newdiv = document.createElement('div');
            newdiv.setAttribute("class","agent");
            newdiv.innerHTML = change.event.message;
-           var mydiv = document.getElementById('log');
+           var mydiv = document.getElementById('log').lastchild;
            mydiv.appendChild(newdiv);
               
           var textarea = document.getElementById('log');
