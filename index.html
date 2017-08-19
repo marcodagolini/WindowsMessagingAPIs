@@ -272,8 +272,8 @@ function handleOpenedSocket(socket,jwt) {
     
     
     
-  $('#log').append($("<div class='intro'></div>"));
-  $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
+  // $('#log').append($("<div class='intro'></div>"));
+  // $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
   // $('#log').html(`\nBenvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>`);
   socket.registerRequests(apiRequestTypes);
   const me = myId(jwt);
@@ -283,10 +283,13 @@ function handleOpenedSocket(socket,jwt) {
     body => body.changes.forEach(change => {
       switch (change.event.type) {
         case 'ContentEvent':
-          <div class='agent'></div>
-          $('.agent').html(change.event.message);
-          $('.agent').appendTo('.intro');
-          // $('#log').append(`${change.originatorId===me? 'Tu':'Agente'}: ${change.event.message}<br>`);
+              
+           var newdiv = document.createElement('div');
+           newdiv.setAttribute("class","agent");
+           newdiv.innerHTML = change.event.message;
+           var mydiv = document.getElementById('log');
+           mydiv.appendChild(newdiv);
+              
           var textarea = document.getElementById('log');
           textarea.scrollTop = textarea.scrollHeight;
       }
