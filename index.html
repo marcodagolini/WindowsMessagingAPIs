@@ -281,6 +281,8 @@ function handleOpenedSocket(socket,jwt) {
   $('.agent').remove();
   $('.customer').remove();
   
+  socket.getClock({});
+    
   var newdiv = document.createElement('div');
   newdiv.setAttribute("class","intro");
   newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
