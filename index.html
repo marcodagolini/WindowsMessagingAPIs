@@ -272,8 +272,7 @@ function prepareToConnect() {
       $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
     });
   });
-    openedSocket.request({"kind":"req","id":"100000000","type":".GetClock"})
-    console.log("ok"); 
+ 
 }
 function handleOpenedSocket(socket,jwt) {
     
@@ -283,7 +282,8 @@ function handleOpenedSocket(socket,jwt) {
   var mydiv = document.getElementById('log');
   mydiv.appendChild(newdiv);
     
-    
+    // socket.request({"kind":"req","id":"100000000","type":".GetClock"})
+    console.log("ok");   
 
     
     
