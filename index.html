@@ -375,7 +375,7 @@ function onCloseSocket(socket,evt) {
   socket.ws = null;
   // $('#log').append(`connection was closed with code ${evt.code}\n`);
   console.log("closed");
-  prepareToConnect();
+  // prepareToConnect();
   $('#send').prop('disabled', true).unbind('click');
   $('#account').prop('disabled',false).val();
   $('#connect').click();        
