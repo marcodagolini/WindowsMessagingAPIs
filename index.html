@@ -260,7 +260,7 @@ function prepareToConnect() {
       LPUtils.getDomain(account, 'asyncMessagingEnt').then(umsDomain => {
         LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`)
         .then(
-          openedSocket.request({"kind":"req","id":"100000000","type":".GetClock"}) 
+          openedSocket.request({"kind":"req","id":"100000000","type":".GetClock"}); 
           console.log("ok"); 
           openedSocket => handleOpenedSocket(openedSocket,jwt), 
           errorOpening => {
