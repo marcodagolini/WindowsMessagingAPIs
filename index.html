@@ -298,11 +298,25 @@ function handleOpenedSocket(socket,jwt) {
       switch (change.event.type) {
         case 'ContentEvent':
               
-           var newdiv = document.createElement('div');
-           newdiv.setAttribute("class","agent");
-           newdiv.innerHTML = change.event.message;
-           var mydiv = document.getElementById('log');
-           mydiv.appendChild(newdiv);
+              console.log(change.originatorId);
+              
+               if(change.originatorId=="me"){
+              
+                   var newdiv = document.createElement('div');
+                   newdiv.setAttribute("class","customer");
+                   newdiv.innerHTML = change.event.message;
+                   var mydiv = document.getElementById('log');
+                   mydiv.appendChild(newdiv);
+               }
+              
+               else{
+                   
+                   var newdiv = document.createElement('div');
+                   newdiv.setAttribute("class","agent");
+                   newdiv.innerHTML = change.event.message;
+                   var mydiv = document.getElementById('log');
+                   mydiv.appendChild(newdiv);
+               }
               
           var textarea = document.getElementById('log');
           textarea.scrollTop = textarea.scrollHeight;
