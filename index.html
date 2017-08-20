@@ -300,7 +300,7 @@ function handleOpenedSocket(socket,jwt) {
               
               console.log(change.originatorId);
               
-               if(change.originatorId=="me"){
+               if(change.originatorId===me){
               
                    var newdiv = document.createElement('div');
                    newdiv.setAttribute("class","customer");
