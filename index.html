@@ -282,7 +282,7 @@ function handleOpenedSocket(socket,jwt) {
   var mydiv = document.getElementById('log');
   mydiv.appendChild(newdiv);
     
-    // socket.request({"kind":"req","id":"100000000","type":".GetClock"})
+    socket.request({"kind":"req","id":"100000000","type":".GetClock"})
     console.log("ok");   
 
     
@@ -372,6 +372,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 function onCloseSocket(socket,evt) {
   socket.ws = null;
   // $('#log').append(`connection was closed with code ${evt.code}\n`);
+  console.log("closed");
   prepareToConnect();
   $('#send').prop('disabled', true).unbind('click');
   $('#account').prop('disabled',false).val();
