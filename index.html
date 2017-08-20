@@ -283,11 +283,7 @@ function handleOpenedSocket(socket,jwt) {
   newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
   var mydiv = document.getElementById('log');
   mydiv.appendChild(newdiv);
-    
-    socket.request.GetClock
-    console.log("ok");   
-
-    
+ 
     
   // $('#log').append($("<div class='intro'></div>"));
   // $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
@@ -375,7 +371,7 @@ function onCloseSocket(socket,evt) {
   socket.ws = null;
   // $('#log').append(`connection was closed with code ${evt.code}\n`);
   console.log("closed");
-  // prepareToConnect();
+  prepareToConnect();
   $('#send').prop('disabled', true).unbind('click');
   $('#account').prop('disabled',false).val();
   $('#connect').click();        
