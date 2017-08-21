@@ -391,7 +391,7 @@ function resume(socket,jwt){
   
   socket.initConnection({},[{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   socket.onNotification(withType('MessagingEvent'),
-    body => body.changes(change => {
+    body => body.changes.forEach(change => {
       switch (change.event.type) {
         case 'ContentEvent':
               
