@@ -256,6 +256,7 @@ var LPWs = function () {
 
 
 <script>
+var messagenr = 0;
 $(document).ready(() => { 
   prepareToConnect();
   $('#connect').click();  
@@ -307,7 +308,8 @@ function handleOpenedSocket(socket,jwt) {
       switch (change.event.type) {
         case 'ContentEvent':
               
-              console.log(change.originatorId);
+              console.log(change);
+              messagenr++;
               
                if(change.originatorId===me){
               
