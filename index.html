@@ -45,11 +45,21 @@
 }
     
     
-.space {
+.spaceagent {
     background-color: #ffffff;  
-    text-align: center;
+    text-align: left;
     width: 256px;
-    font-size: 4px;
+    font-size: 8px;
+    height: 5px;
+    
+}
+    
+    
+.spacecustomer {
+    background-color: #ffffff;  
+    text-align: right;
+    width: 256px;
+    font-size: 8px;
     height: 5px;
     
 }
@@ -359,6 +369,13 @@ function handleOpenedSocket(socket,jwt) {
               maindiv.appendChild(space);
               
                if(change.originatorId===me){
+                   var space = document.createElement('div');
+                   space.setAttribute("class","customerspace");
+                   var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(space);
+                   
                    var hostdiv = document.createElement('div');
                    hostdiv.setAttribute("class","hostcustomer");
                    var newdiv = document.createElement('div');
@@ -370,6 +387,12 @@ function handleOpenedSocket(socket,jwt) {
                }
               
                else{
+                   var space = document.createElement('div');
+                   space.setAttribute("class","agentspace");
+                   var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(space);
                    
                    var hostdiv = document.createElement('div');
                    hostdiv.setAttribute("class","hostagent");
