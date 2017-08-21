@@ -50,6 +50,14 @@
     width: 244px;
     padding: 5px;
 }
+    
+    
+    
+.host {
+    background-color: #ffffff;
+    text-align: center;
+    width: 244px;
+}
 </style>
 
 
@@ -260,7 +268,7 @@ var LPWs = function () {
 
 
 <script>
-var messagenr = 0;
+
 $(document).ready(() => { 
   prepareToConnect();
   $('#connect').click();  
@@ -313,15 +321,17 @@ function handleOpenedSocket(socket,jwt) {
         case 'ContentEvent':
               
               console.log(change);
-              messagenr++;
+            
               
                if(change.originatorId===me){
-              
+                   var hostdiv = document.createElement('div');
+                   hostdiv.setAttribute("class","host");
                    var newdiv = document.createElement('div');
                    newdiv.setAttribute("class","customer");
-                   newdiv.innerHTML = change.event.message;
-                   var mydiv = document.getElementById('log');
-                   mydiv.appendChild(newdiv);
+                   newdiv.innerHTML = change.event.message;                
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(hostdiv);
+                   hostdiv.appendChild(newdiv);
                }
               
                else{
