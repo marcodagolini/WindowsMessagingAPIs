@@ -390,6 +390,35 @@ function resume(socket,jwt){
   const me = myId(jwt);
   
   socket.initConnection({},[{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  socket.onNotification(withType('MessagingEvent'),
+    body => body.changes(change => {
+      switch (change.event.type) {
+        case 'ContentEvent':
+              
+              console.log(change.originatorId);
+              
+               if(change.originatorId===me){
+              
+                   var newdiv = document.createElement('div');
+                   newdiv.setAttribute("class","customer");
+                   newdiv.innerHTML = change.event.message;
+                   var mydiv = document.getElementById('log');
+                   mydiv.appendChild(newdiv);
+               }
+              
+               else{
+                   
+                   var newdiv = document.createElement('div');
+                   newdiv.setAttribute("class","agent");
+                   newdiv.innerHTML = change.event.message;
+                   var mydiv = document.getElementById('log');
+                   mydiv.appendChild(newdiv);
+               }
+              
+          var textarea = document.getElementById('log');
+          textarea.scrollTop = textarea.scrollHeight;
+      }
+    }));
   socket.subscribeExConversations({
     'convState': ['OPEN']
   }).then(resp => {
