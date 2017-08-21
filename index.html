@@ -354,7 +354,7 @@ function handleOpenedSocket(socket,jwt) {
             
               var space = document.createElement('div');
               space.setAttribute("class","space");
-              space.innerHTML = change.serverTimestamp;
+              space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
               var maindiv = document.getElementById('log');
               maindiv.appendChild(space);
               
