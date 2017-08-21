@@ -47,11 +47,19 @@
 }
     
     
+.space {
+    background-color: #ffffff;  
+    text-align: center;
+    width: 256px;
+    height: 5px;
+    
+}
+    
+    
 .chiusura {
     background-color: #ffffff;
     text-align: center;
     width: 244px;
-    padding: 5px;
 }
     
     
@@ -321,6 +329,10 @@ function handleOpenedSocket(socket,jwt) {
   var mydiv = document.getElementById('log');
   mydiv.appendChild(newdiv);
  
+  var space = document.createElement('div');
+  space.setAttribute("class","space");        
+  var maindiv = document.getElementById('log');
+  maindiv.appendChild(space);
     
   // $('#log').append($("<div class='intro'></div>"));
   // $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
@@ -360,8 +372,14 @@ function handleOpenedSocket(socket,jwt) {
                    hostdiv.appendChild(newdiv);
                }
               
-          var textarea = document.getElementById('log');
-          textarea.scrollTop = textarea.scrollHeight;
+              var space = document.createElement('div');
+              space.setAttribute("class","space");        
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(space);
+              
+              
+              var textarea = document.getElementById('log');
+              textarea.scrollTop = textarea.scrollHeight;
       }
     }));
   // subscribe to open conversations metadata
