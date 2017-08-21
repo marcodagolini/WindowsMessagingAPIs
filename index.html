@@ -445,7 +445,7 @@ function handleOpenedSocket(socket,jwt) {
                 var panelgroup = document.createElement("div");
                 panelgroup.classList.add("lp-panel-group");
                 var typelist = "verticalhorizontal";
-                if (!!json.hasOwnProperty('type') && !!json.hasOwnProperty('elements') && typelist.indexOf(json.type) > -1) {
+                if (json.hasOwnProperty('type') && json.hasOwnProperty('elements') && typelist.indexOf(json.type) > -1) {
 
                   function appendHorizontalLayout(jsonElements, macroGroup) {
                     var panelchoice = document.createElement("div");
@@ -478,7 +478,7 @@ function handleOpenedSocket(socket,jwt) {
 
 
                             //**** types
-                            if (!!element.hasOwnProperty('type')) {
+                            if (element.hasOwnProperty('type')) {
                               switch (element.type) {
                                 case "vertical":
                                 appendHorizontalLayout(element.elements, el_macropanelel_wrapper);
@@ -537,7 +537,7 @@ function handleOpenedSocket(socket,jwt) {
 
 
                             //**** Set Action
-                            if (!!element.hasOwnProperty('action') && !!element.action.hasOwnProperty('type')) {
+                            if (element.hasOwnProperty('action') && element.action.hasOwnProperty('type')) {
                               switch (element.action.type) {
                                 case 'link':
                                 el_macropanelel_wrapper.innerHTML = linkOut(element.action.uri);
