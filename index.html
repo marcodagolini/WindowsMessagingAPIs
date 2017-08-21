@@ -58,11 +58,22 @@
     
     
     
-.host {
+.hostcustomer {
     background-color: #ffffff;
     text-align: right;
     width: 256px;
 }
+    
+
+    
+.hostagent {
+    background-color: #ffffff;
+    text-align: left;
+    width: 256px;
+}
+    
+    
+    
 </style>
 
 
@@ -330,7 +341,7 @@ function handleOpenedSocket(socket,jwt) {
               
                if(change.originatorId===me){
                    var hostdiv = document.createElement('div');
-                   hostdiv.setAttribute("class","host");
+                   hostdiv.setAttribute("class","hostcustomer");
                    var newdiv = document.createElement('div');
                    newdiv.setAttribute("class","customer");
                    newdiv.innerHTML = change.event.message;                
@@ -342,7 +353,7 @@ function handleOpenedSocket(socket,jwt) {
                else{
                    
                    var hostdiv = document.createElement('div');
-                   hostdiv.setAttribute("class","host");
+                   hostdiv.setAttribute("class","hostagent");
                    var newdiv = document.createElement('div');
                    newdiv.setAttribute("class","agent");
                    newdiv.innerHTML = change.event.message;                
