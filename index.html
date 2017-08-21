@@ -575,7 +575,11 @@ outerScroll.style.overflowX = "auto";
 outerScroll.style.whiteSpace = "nowrap";
 outerScroll.style.height = "auto";
 outerScroll.title = json.id;
-
+                  
+var wrap = document.createElement('div');
+wrap.appendChild(outerScroll);
+var messageLine = $('<span class="agent"></span>');
+messageLine.append($(wrap.innerHTML));
 
 } catch (e) {
   console.log(e);
