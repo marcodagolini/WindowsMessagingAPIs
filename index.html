@@ -332,7 +332,7 @@ function handleOpenedSocket(socket,jwt) {
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
     $('#send').prop('disabled', false).click(() => {
         
-       if($(this).val()) {
+       if($('#textline').val()) {
          if (Object.keys(openConvs)[0]) {
            publishTo(socket,Object.keys(openConvs)[0]);
          } else  {
