@@ -384,8 +384,13 @@ function prepareToConnectResumed() {
     
     
 function resume(socket,jwt){
+     
+ 
+  socket.registerRequests(apiRequestTypes);
+  const me = myId(jwt);
   
-    socket.subscribeExConversations({
+  socket.initConnection({},[{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  socket.subscribeExConversations({
     'convState': ['OPEN']
   }).then(resp => {
     var openConvs = {};
