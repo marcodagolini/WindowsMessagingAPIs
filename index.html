@@ -35,7 +35,7 @@
     font-size: 16px;
     word-wrap: break-word;
     display: inline-block;
-}
+
 }
    
     
@@ -341,11 +341,14 @@ function handleOpenedSocket(socket,jwt) {
               
                else{
                    
+                   var hostdiv = document.createElement('div');
+                   hostdiv.setAttribute("class","host");
                    var newdiv = document.createElement('div');
                    newdiv.setAttribute("class","agent");
-                   newdiv.innerHTML = change.event.message;
-                   var mydiv = document.getElementById('log');
-                   mydiv.appendChild(newdiv);
+                   newdiv.innerHTML = change.event.message;                
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(hostdiv);
+                   hostdiv.appendChild(newdiv);
                }
               
           var textarea = document.getElementById('log');
