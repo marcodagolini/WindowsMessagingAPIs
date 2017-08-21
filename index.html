@@ -39,6 +39,14 @@
     width: 244px;
     padding: 5px;
 }
+    
+    
+.chiusura {
+    background-color: #ffffff;
+    text-align: center;
+    width: 244px;
+    padding: 5px;
+}
 </style>
 
 
@@ -376,7 +384,12 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       }
     } else if (change.type === 'DELETE') {
       delete openConvs[change.result.convId];
-      $('#log').append(`La conversazione e' stata chiusa.\n`);
+      // $('#log').append(`La conversazione e' stata chiusa.\n`);
+      var newdiv = document.createElement('div');
+      newdiv.setAttribute("class","chiusura");
+      newdiv.innerHTML = "- La conversazione e' stata chiusa -";
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(newdiv);
     }
   });
 }
