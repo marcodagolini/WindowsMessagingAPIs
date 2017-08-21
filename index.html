@@ -332,12 +332,16 @@ function handleOpenedSocket(socket,jwt) {
     socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
     $('#send').prop('disabled', false).click(() => {
-      if (Object.keys(openConvs)[0]) {
-        publishTo(socket,Object.keys(openConvs)[0]);
-      } else  {
-        socket.consumerRequestConversation()
-          .then(resp => publishTo(socket,resp.body.conversationId));
-      }
+        
+       if(('#send).val()) {
+         if (Object.keys(openConvs)[0]) {
+           publishTo(socket,Object.keys(openConvs)[0]);
+         } else  {
+           socket.consumerRequestConversation()
+             .then(resp => publishTo(socket,resp.body.conversationId));
+         }
+       }
+        
     });
     $('#close').prop('disabled', false).click(() => {
       if (Object.keys(openConvs)[0]) {
