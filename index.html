@@ -355,6 +355,69 @@ function handleOpenedSocket(socket,jwt) {
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
+    
+
+    
+function prepareToConnectResumed() {
+  $('#connect').text('connect').unbind('click').click(() => {
+    $('#connect').text('connecting...');
+    const account = $('#account').prop('disabled',true).val();
+    LPUtils.getJWT(account).then(jwt => {
+      LPUtils.getDomain(account, 'asyncMessagingEnt').then(umsDomain => {
+        LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`)
+        .then(
+          openedSocket => resume(openedSocket,jwt), 
+          errorOpening => {
+            $('#log').append(`error opening connection ${errorOpening}\n`);
+            prepareToConnectResumed();
+          });
+      });
+    }, errorGettingJwt => {
+      $('#connect').text('connect');
+      $('#account').prop('disabled',false).val();      
+      $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
+    });
+  });
+ 
+}
+    
+    
+    
+function resume(socket,jwt){
+  
+    socket.subscribeExConversations({
+    'convState': ['OPEN']
+  }).then(resp => {
+    var openConvs = {};
+    socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
+      (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
+    $('#send').prop('disabled', false).click(() => {
+      if (Object.keys(openConvs)[0]) {
+        publishTo(socket,Object.keys(openConvs)[0]);
+      } else  {
+        socket.consumerRequestConversation()
+          .then(resp => publishTo(socket,resp.body.conversationId));
+      }
+    });
+    $('#close').prop('disabled', false).click(() => {
+      if (Object.keys(openConvs)[0]) {
+        socket.updateConversationField({
+            conversationId: Object.keys(openConvs)[0],
+            conversationField: [{
+                    field: "ConversationStateField",
+                    conversationState: "CLOSE"
+                }]
+        });
+      }
+    });
+  });
+  $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
+  socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
+    
+}
+    
+    
+    
 function handleConversationNotification(socket,notificationBody,openConvs) {
   notificationBody.changes.forEach(change => {
     if (change.type === 'UPSERT') {
@@ -375,7 +438,7 @@ function onCloseSocket(socket,evt) {
   socket.ws = null;
   // $('#log').append(`connection was closed with code ${evt.code}\n`);
   console.log("closed");
-  prepareToConnect();
+  prepareToConnectResumed();
   $('#send').prop('disabled', true).unbind('click');
   $('#account').prop('disabled',false).val();
   $('#connect').click();        
