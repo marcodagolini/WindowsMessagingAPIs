@@ -337,10 +337,7 @@ function handleOpenedSocket(socket,jwt) {
   var mydiv = document.getElementById('log');
   mydiv.appendChild(newdiv);
  
-  var space = document.createElement('div');
-  space.setAttribute("class","space");        
-  var maindiv = document.getElementById('log');
-  maindiv.appendChild(space);
+  
     
   // $('#log').append($("<div class='intro'></div>"));
   // $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
@@ -356,6 +353,11 @@ function handleOpenedSocket(socket,jwt) {
               
               console.log(change);
             
+              var space = document.createElement('div');
+              space.setAttribute("class","space");
+              space.innerHTML = change.serverTimestamp;
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(space);
               
                if(change.originatorId===me){
                    var hostdiv = document.createElement('div');
@@ -380,10 +382,7 @@ function handleOpenedSocket(socket,jwt) {
                    hostdiv.appendChild(newdiv);
                }
               
-              var space = document.createElement('div');
-              space.setAttribute("class","space");        
-              var maindiv = document.getElementById('log');
-              maindiv.appendChild(space);
+              
               
               
               var textarea = document.getElementById('log');
