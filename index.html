@@ -326,10 +326,10 @@ var LPWs = function () {
     
     
 //**** actions
-var publishText = '<div onclick="console.log(this.firstChild.title); (document.getElementsByClassName(\'lp-message-input\')[0]).value = this.firstChild.title; return false;" ></div>';
+var publishText = '<div onclick="console.log(this.firstChild.title); (document.getElementsByClassName(\'form-control\')[0]).value = this.firstChild.title; return false;" ></div>';
 var publishTextData = function publishTextData(message){
   var message2 = message.replace(/'/ig, "\\'");
-  return '<div onclick="console.log(\''+ message2 +'\'); (document.getElementsByClassName(\'lp-message-input\')[0]).value = \''+ message2 +'\'; return false;" ></div>';
+  return '<div onclick="console.log(\''+ message2 +'\'); (document.getElementsByClassName(\'form-control\')[0]).value = \''+ message2 +'\'; return false;" ></div>';
 }
 
 var linkOut = function linkOut(url) {
