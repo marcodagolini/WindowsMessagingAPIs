@@ -579,18 +579,8 @@ var wrap = document.createElement('div');
 wrap.appendChild(outerScroll);
 var messageLine = $('<span class="agent"></span>');
 messageLine.append($(wrap.innerHTML));
-                  var $lpline = 
-$('<div class="lp-body-line transition-left" style="display:none;">'+
-  '<img class="agent-image-'+profile.id+'" src="'+(!!profile.pictureUrl ? profile.pictureUrl : _agentImageUrl) +'">'+
-  '<div class="name_and_time"><span class="agent-name-'+profile.id+'">'+(!!profile.nickname ? profile.nickname : _agentName)+'</span> at '+new Date(time).toLocaleDateString()+', '+new Date().toLocaleTimeString()+'</div>'+
-  '</div>');
-$lpline.append(messageLine);
-$('.messaging-body').append($lpline); 
-$lpline.show();
-$lpline.addClass('show-left');
-$lpline.animate({opacity: 0}, 0);
-$lpline.animate({opacity: 1}, 800);
-$('.messaging-body').stop(true, true).animate({ scrollTop: $('.messaging-body').prop('scrollHeight') }, "slow");
+newdiv.append(messageLine);
+
           
 
 } catch (e) {
