@@ -670,6 +670,11 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
     } else if (change.type === 'DELETE') {
       delete openConvs[change.result.convId];
       // $('#log').append(`La conversazione e' stata chiusa.\n`);
+      var space = document.createElement('div');
+      space.setAttribute("class","space");        
+      var maindiv = document.getElementById('log');
+      maindiv.appendChild(space);
+        
       var newdiv = document.createElement('div');
       newdiv.setAttribute("class","chiusura");
       newdiv.innerHTML = "- La conversazione e' stata chiusa -";
