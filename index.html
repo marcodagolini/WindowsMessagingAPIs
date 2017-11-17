@@ -414,6 +414,8 @@ function handleOpenedSocket(socket,jwt) {
   socket.initConnection({},[{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
+      
+      alert(JSON.stringify(change));
       switch (change.event.type) {
               
          case 'RichContent':
