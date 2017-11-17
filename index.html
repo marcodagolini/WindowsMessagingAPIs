@@ -430,7 +430,7 @@ function handleOpenedSocket(socket,jwt) {
                    hostdiv.setAttribute("class","hostagent");
                    var newdiv = document.createElement('div');
                    newdiv.setAttribute("class","agent");
-                                   
+                   newdiv.innerHTML = change.event.content;               
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(hostdiv);
                    hostdiv.appendChild(newdiv);
