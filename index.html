@@ -417,7 +417,7 @@ function handleOpenedSocket(socket,jwt) {
     body => body.changes.forEach(change => {
       switch (change.event.type) {
               
-         case 'ContentEvent':
+         case 'RichContent':
               
                    var space = document.createElement('div');
                    space.setAttribute("class","spaceagent");
