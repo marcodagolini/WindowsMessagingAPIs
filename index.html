@@ -414,6 +414,30 @@ function handleOpenedSocket(socket,jwt) {
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       switch (change.event.type) {
+              
+         case 'ContentEvent':
+              
+                   var space = document.createElement('div');
+                   space.setAttribute("class","spaceagent");
+                   var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(space);
+                   
+                   var hostdiv = document.createElement('div');
+                   hostdiv.setAttribute("class","hostagent");
+                   var newdiv = document.createElement('div');
+                   newdiv.setAttribute("class","agent");
+                                   
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(hostdiv);
+                   hostdiv.appendChild(newdiv);
+              
+         break;
+              
+              
+              
+              
         case 'ContentEvent':
               
               console.log(change);
