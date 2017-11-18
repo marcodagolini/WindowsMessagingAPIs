@@ -611,7 +611,7 @@ function handleOpenedSocket(socket,jwt) {
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
-      alert(change);
+      alert(JSON.stringify(change));
       
       switch (change.event.type) {
               
