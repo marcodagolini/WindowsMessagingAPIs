@@ -587,7 +587,7 @@ function handleOpenedSocket(socket,jwt) {
   $('.spaceagent').remove();
   $('.spacecustomer').remove();
     
-  socket.GetClock{"kind":"req","id":"1","type":"GetClock"};
+  socket.GetClock({"kind":"req","id":"1","type":"GetClock"});
     
   var space = document.createElement('div');
   space.setAttribute("class","space");        
