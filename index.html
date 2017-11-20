@@ -433,10 +433,10 @@ function handleOpenedSocket(socket,jwt) {
                    space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(space);
+                  
               
               
-              
-              
+              <!-- TODO: structured content rendering
                   
               var json = change.event.content;
               try {
@@ -586,17 +586,17 @@ newdiv.append(outerScroll);
 
 
 
-
+TODO: structured content rendering -->
               
                    
-                   // var hostdiv = document.createElement('div');
-                   // hostdiv.setAttribute("class","hostagent");
-                   // var newdiv = document.createElement('div');
-                   // newdiv.setAttribute("class","agent");
-                   // newdiv.innerHTML = JSON.stringify(change.event.content);               
-                   // var maindiv = document.getElementById('log');
-                   // maindiv.appendChild(hostdiv);
-                   // hostdiv.appendChild(newdiv);
+                   var hostdiv = document.createElement('div');
+                   hostdiv.setAttribute("class","hostagent");
+                   var newdiv = document.createElement('div');
+                   newdiv.setAttribute("class","agent");
+                   newdiv.innerHTML = JSON.stringify(change.event.content);               
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(hostdiv);
+                   hostdiv.appendChild(newdiv);
               
          break;
               
