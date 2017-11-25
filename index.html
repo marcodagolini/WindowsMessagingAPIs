@@ -444,7 +444,6 @@ function handleOpenedSocket(socket,jwt) {
               var json = change.event.content;
               try {
                 //console.log(json);
-                json = json.layout;
                 var panelgroup = document.createElement("div");
                 panelgroup.classList.add("lp-panel-group");
                 var typelist = "verticalhorizontal";
