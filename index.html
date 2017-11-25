@@ -447,16 +447,6 @@ function handleOpenedSocket(socket,jwt) {
                 var panelgroup = document.createElement("div");
                 panelgroup.classList.add("lp-panel-group");
                 var typelist = "verticalhorizontal";
-                  if(json.hasOwnProperty("type")){
-                      alert("ok");
-                  }
-                  if(json.hasOwnProperty("elements")){
-                      alert("ok");
-                  }
-                  if(typelist.indexOf(json.type) > -1){
-                      alert("ok");
-                  }
-                  
                 if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
               
                   function appendHorizontalLayout(jsonElements, macroGroup) {
