@@ -430,12 +430,12 @@ function handleOpenedSocket(socket,jwt) {
               
          case 'RichContentEvent':
               
-                   var space = document.createElement('div');
-                   space.setAttribute("class","spaceagent");
-                   var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
-                   var maindiv = document.getElementById('log');
-                   maindiv.appendChild(space);
+              var space = document.createElement('div');
+              space.setAttribute("class","spaceagent");
+              var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+              space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(space);
                   
               
               
@@ -443,61 +443,63 @@ function handleOpenedSocket(socket,jwt) {
                   
               var json = change.event.content;
               try {
+                  
                 //console.log(json);
                 var panelgroup = document.createElement("div");
                 panelgroup.classList.add("lp-panel-group");
                 var typelist = "verticalhorizontal";
                 if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
-              
-                  function appendHorizontalLayout(jsonElements, macroGroup) {
-                    var panelchoice = document.createElement("div");
-                    panelchoice.classList.add("lp-panel");
-                    panelchoice.classList.add("lp-panel-default");
-                    macroGroup.appendChild(panelchoice);
-                    panelchoice.style.border = "1px solid #cacaca";
-                    panelchoice.style.backgroundColor = "#FAFAFA";
-                    panelchoice.style.clear = "both";
-                    panelchoice.style.width = "220px";
-                    panelchoice.style.textAlign = "center";
-                    panelchoice.style.whiteSpace = "nowrap";
-                    var k = -1;
-                    jsonElements.forEach(function(element) {
-                      k++;
-                      if (k == 0) {
-                        panelchoice.style.borderTopLeftRadius = "4px";
-                        panelchoice.style.borderBottomLeftRadius = "4px";
+                    function appendHorizontalLayout(jsonElements, macroGroup) {
+
+                        var panelchoice = document.createElement("div");
+                        panelchoice.classList.add("lp-panel");
+                        panelchoice.classList.add("lp-panel-default");
+                        macroGroup.appendChild(panelchoice);
+                        panelchoice.style.border = "1px solid #cacaca";
+                        panelchoice.style.backgroundColor = "#FAFAFA";
+                        panelchoice.style.clear = "both";
+                        panelchoice.style.width = "220px";
+                        panelchoice.style.textAlign = "center";
+                        panelchoice.style.whiteSpace = "nowrap";
+                        var k = -1;
+                        jsonElements.forEach(function(element) {
+                            k++;
+                            if (k == 0) {
+                                panelchoice.style.borderTopLeftRadius = "4px";
+                                panelchoice.style.borderBottomLeftRadius = "4px";
                                 //panelchoice.style.borderRadius = "4px 0px 0px 4px";
-                              }
-                              if (k == jsonElements.length - 1) {
+                            }
+                            if (k == jsonElements.length - 1) {
                                 panelchoice.style.borderTopRightRadius = "4px";
                                 panelchoice.style.borderBottomRightRadius = "4px";
                                 //panelchoice.style.borderRadius = "0px 4px 4px 0px";
-                              }
+                            }
 
-                              var el_macropanelel_wrapper = document.createElement('div');
-                              var el_panelelement = document.createElement("div");
+                            var el_macropanelel_wrapper = document.createElement('div');
+                            var el_panelelement = document.createElement("div");
 
 
 
                             //**** types
                             if (element.hasOwnProperty("type")) {
-                              switch (element.type) {
-                                case "vertical":
-                                appendHorizontalLayout(element.elements, el_macropanelel_wrapper);
-                                break;
-                                case "horizontal":
-                                console.error("le_enh_vis:: Horizontal subgroups not allowed!");
+                                
+                                switch (element.type) {
+                                    case "vertical":
+                                        appendHorizontalLayout(element.elements, el_macropanelel_wrapper);
+                                        break;
+                                    case "horizontal":
+                                        console.error("le_enh_vis:: Horizontal subgroups not allowed!");
                                         //This should result in an error
                                         break;
-                                        case "linkPreview":
+                                    case "linkPreview":
                                         //TODO - add in link preview
 
                                         el_panelelement.innerHTML = "<div><a href='" + element.url + "'>" + element.title + "</a></div>";
                                         el_panelelement = el_panelelement.firstChild;
                                         el_panelelement.style.textAlign = "center";
-
                                         break;
-                                        case "map":
+                                        
+                                    case "map":
                                         //var itemDataTruncated = item.data.text.length > 20 ? (item.data.text.substring(0, 20) + "...") : item.data.text;
                                         el_panelelement.innerHTML = "<div><img src='https://maps.googleapis.com/maps/api/staticmap?center=" + element.la + "," + element.lo + "&markers=color:blue%7Clabel:A%7C" + element.la + "," + element.lo + "&zoom=14&size=167x111&key=AIzaSyD0FAiv_la9dq8c70_ETYu1i-eoaJktNEo' style='width:auto;height:90%;max-height:111px;'></div>";
                                         el_panelelement = el_panelelement.firstChild;
@@ -505,86 +507,87 @@ function handleOpenedSocket(socket,jwt) {
                                         el_panelelement.style.textAlign = "center";
                                         //panelchoice.innerHTML = panelchoice.innerHTML + '<div class="lp-panel-body" title="' + item.data.text + '" '+
                                         //' onclick="console.log(this.title);  (document.getElementsByClassName(\'lp-message-input\')[0]).value = this.title; return false;">'+itemDataTruncated+'</div>';
-
                                         break;
-                                        case "button":
+                                        
+                                    case "button":
                                         var itemDataTruncated = element.title ? (element.title.length > 20 ? (element.title.substring(0, 20) + "...") : element.title) : "";
                                         el_panelelement.innerHTML = '<div style="text-align:center;" title="' + element.title + '"  ' +
                                         ' ">' + itemDataTruncated + '</div>';
                                         el_panelelement = el_panelelement.firstChild;
                                         el_macropanelel_wrapper.classList.add("lp-panel-body");
                                         break;
-                                        case "text":
+                                        
+                                    case "text":
                                         //var itemDataTruncated = element.text ? (element.text.length > 20 ? (element.text.substring(0, 20) + "...") : element.text) : "";
                                         var styleString = 'style =\"';
                                         Object.keys(element.style).forEach(function(prop) {
-                                          if (element.style.hasOwnProperty(prop)) {
-                                            styleString += prop + ': ' + element.style[prop] + ' !important; ';
-                                          }
+                                            if (element.style.hasOwnProperty(prop)) {
+                                                styleString += prop + ': ' + element.style[prop] + ' !important; ';
+                                            }
                                         });
                                         styleString += '\";';
                                         el_panelelement.innerHTML = '<div class="lp-panel-text" ' + styleString + ' title="' + element.text + '">' + element.text + '</div>';
                                         el_panelelement = el_panelelement.firstChild;
-
                                         break;
-                                        case "image":
+                                        
+                                    case "image":
                                         el_panelelement.innerHTML = element.url ? "<div><img src='" + element.url + "'></div>" : "<img />";
                                         el_panelelement = el_panelelement.firstChild;
                                         el_panelelement.classList.add("lp-panel-heading");
                                         el_panelelement.style.textAlign = "center";
                                         break;
-                                      }
-                                    }
+                                 }
+                            }
                             //**** types
 
 
                             //**** Set Action
                             if (element.hasOwnProperty("action") && element.action.hasOwnProperty("type")) {
-                              switch (element.action.type) {
-                                case 'link':
-                                el_macropanelel_wrapper.innerHTML = linkOut(element.action.uri);
-                                break;
-                                case 'publishText':
-                                el_macropanelel_wrapper.innerHTML = publishTextData(element.action.text);
-                                break;
-                                case 'navigate':
-                                el_macropanelel_wrapper.innerHTML = navigate(element.action.la, element.action.lo);
-                                break;
-                              }
-                              el_macropanelel_wrapper.firstChild.appendChild(el_panelelement);
+                                switch (element.action.type) {
+                                    case 'link':
+                                        el_macropanelel_wrapper.innerHTML = linkOut(element.action.uri);
+                                        break;
+                                    case 'publishText':
+                                        el_macropanelel_wrapper.innerHTML = publishTextData(element.action.text);
+                                        break;
+                                    case 'navigate':
+                                        el_macropanelel_wrapper.innerHTML = navigate(element.action.la, element.action.lo);
+                                        break;
+                                }
+                                el_macropanelel_wrapper.firstChild.appendChild(el_panelelement);
                             } else {
-                              el_macropanelel_wrapper.appendChild(el_panelelement);
+                                el_macropanelel_wrapper.appendChild(el_panelelement);
                             }
                             panelchoice.appendChild(el_macropanelel_wrapper);
-                          });
-}
-var orientation = json.type;
-if (orientation === "horizontal") {
-  panelgroup.style.width = (210 * json.elements.length) + "px";
-  json.elements.forEach(function(el) {
-    appendHorizontalLayout([el], panelgroup);
-  });
-} else {
-  panelgroup.style.width = (210 + "px");
-  appendHorizontalLayout(json.elements, panelgroup);
-}
-}
-var outerScroll = document.createElement('div');
-outerScroll.appendChild(panelgroup);
-outerScroll.style.maxWidth = "260px";
-outerScroll.style.overflowX = "auto";
-outerScroll.style.whiteSpace = "nowrap";
-outerScroll.style.height = "auto";
-outerScroll.title = json.id;
+                       });
+                    }
+                var orientation = json.type;
+                if (orientation === "horizontal") {
+                    panelgroup.style.width = (210 * json.elements.length) + "px";
+                    json.elements.forEach(function(el) {
+                        appendHorizontalLayout([el], panelgroup);
+                    });
+                } else {
+                    panelgroup.style.width = (210 + "px");
+                    appendHorizontalLayout(json.elements, panelgroup);
+                }
+            }
+            var outerScroll = document.createElement('div');
+            outerScroll.appendChild(panelgroup);
+            outerScroll.style.maxWidth = "260px";
+            outerScroll.style.overflowX = "auto";
+            outerScroll.style.whiteSpace = "nowrap";
+            outerScroll.style.height = "auto";
+            outerScroll.title = json.id;
                   
-var wrap = document.createElement('div');
-newdiv.append(outerScroll);
+            var wrap = document.createElement('div');
+            newdiv.append(outerScroll);
 
           
 
-} catch (e) {
-  console.log(e);
-}
+         } catch (e) {
+            console.log(e);
+         }
 
 
 
