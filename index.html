@@ -456,7 +456,7 @@ function handleOpenedSocket(socket,jwt) {
                       alert("ok");
                   }
                   
-                if (json.hasOwnProperty("type") && json.hasOwnProperty("elements") && (typelist.indexOf(json.type) > -1)) {
+                if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
               
                   function appendHorizontalLayout(jsonElements, macroGroup) {
                     var panelchoice = document.createElement("div");
