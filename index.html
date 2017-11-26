@@ -671,7 +671,7 @@ function handleOpenedSocket(socket,jwt) {
   });
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
   
-  socket.GetClock();
+  socket.getClock();
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
@@ -744,5 +744,5 @@ function withType(type) {
 function myId(jwt) {
   return JSON.parse(atob(jwt.split('.')[1])).sub;
 }
-const apiRequestTypes = ['GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
+const apiRequestTypes = ['getClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
 </script>
