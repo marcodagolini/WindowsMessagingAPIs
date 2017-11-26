@@ -425,7 +425,7 @@ function handleOpenedSocket(socket,jwt) {
   const me = myId(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
-  socket.GetClock();
+  socket.getClock();
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
@@ -740,5 +740,5 @@ function withType(type) {
 function myId(jwt) {
   return JSON.parse(atob(jwt.split('.')[1])).sub;
 }
-const apiRequestTypes = ['GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
+const apiRequestTypes = ['getClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
 </script>
