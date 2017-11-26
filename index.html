@@ -426,8 +426,13 @@ function handleOpenedSocket(socket,jwt) {
   const me = myId(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
-
-    
+  socket.publishEvent({
+    dialogId: convID,
+    event: {
+      type: 'GetClock'
+    }
+  })
+  .then(alert(JSON.stringify(resp))); 
     
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
