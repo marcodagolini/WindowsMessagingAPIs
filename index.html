@@ -396,14 +396,7 @@ function prepareToConnect() {
 }
 function handleOpenedSocket(socket,jwt) {
   
-    
- /*   socket.GetClock({"kind":"req","id":"1","type":"GetClock"});
-  
-  setInterval(function(){
-      socket.GetClock
-  }, 3000);  
-   */ 
-    
+ 
     
   $('.intro').remove();
   $('.agent').remove();
@@ -433,11 +426,7 @@ function handleOpenedSocket(socket,jwt) {
   const me = myId(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
-  
-    
-  alert(JSON.stringify(socket));
-  socket.GetClock({kind:"req", id:"1"})
-    .then(resp => alert(JSON.stringify(resp)));
+
     
     
   socket.onNotification(withType('MessagingEvent'),
@@ -745,5 +734,5 @@ function withType(type) {
 function myId(jwt) {
   return JSON.parse(atob(jwt.split('.')[1])).sub;
 }
-const apiRequestTypes = ['GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
+const apiRequestTypes = ['cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
 </script>
