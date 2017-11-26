@@ -672,9 +672,10 @@ function handleOpenedSocket(socket,jwt) {
   function explode(socket){
         socket.getClock();
   }
-    alert(JSON.stringify(socket));
+    // alert(JSON.stringify(socket));
   // setTimeout(explode, 2000);
   // socket.getClock().then(resp => alert(JSON.stringify(resp)));
+  socket.reqs = {"kind":"req","id": Math.floor(Math.random() * 1e9),"type":"getClock"};
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
