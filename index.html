@@ -718,7 +718,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 function onCloseSocket(socket,evt) {
   socket.ws = null;
   // $('#log').append(`connection was closed with code ${evt.code}\n`);
-  console.log("closed");
+  console.log("closed with code: " + evt.code);
   prepareToConnect();
   $('#send').prop('disabled', true).unbind('click');
   $('#account').prop('disabled',false).val();
