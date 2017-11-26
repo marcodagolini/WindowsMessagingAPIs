@@ -424,7 +424,11 @@ function handleOpenedSocket(socket,jwt) {
   socket.registerRequests(apiRequestTypes);
   const me = myId(jwt);
   
-  socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]).then(alert(JSON.stringify(resp)));
+  
+    
+    
+    /*
   socket.publishEvent({
     dialogId: convID,
     event: {
@@ -432,7 +436,7 @@ function handleOpenedSocket(socket,jwt) {
     }
   })
   .then(alert(JSON.stringify(resp))); 
-    
+    */
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
