@@ -672,7 +672,7 @@ function handleOpenedSocket(socket,jwt) {
   });
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
   
-  socket.GetClock();
+  socket.getClock();
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
