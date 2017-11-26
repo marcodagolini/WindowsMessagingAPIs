@@ -396,8 +396,7 @@ function prepareToConnect() {
 function handleOpenedSocket(socket,jwt) {
   
     alert(JSON.stringify(socket));
-    socket.GetClock()
-             .then(resp => alert(resp));
+    socket.GetClock({"kind":"req","id":"1","type":"GetClock"});
   /*  
   setInterval(function(){
       socket.GetClock
