@@ -398,9 +398,7 @@ function prepareToConnect() {
 }
 function handleOpenedSocket(socket,jwt) {
   
-    alert(JSON.stringify(socket));
-    socket.publishEvent({"kind":"req","id":"1","type":"GetClock"})
-  .then(resp => alert(resp));
+    
  /*   socket.GetClock({"kind":"req","id":"1","type":"GetClock"});
   
   setInterval(function(){
@@ -437,6 +435,13 @@ function handleOpenedSocket(socket,jwt) {
   const me = myId(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  
+    
+  alert(JSON.stringify(socket));
+  socket.publishEvent({"kind":"req","id":"1","type":"GetClock"})
+    .then(resp => alert(resp));
+    
+    
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
