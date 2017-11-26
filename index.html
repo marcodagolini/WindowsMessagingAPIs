@@ -670,14 +670,11 @@ function handleOpenedSocket(socket,jwt) {
     });
   });
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
-  function explode(socket){
-        socket.getClock();
-  }
-    // alert(JSON.stringify(socket));
-  // setTimeout(explode, 2000);
+  
   // socket.getClock().then(resp => alert(JSON.stringify(resp)));
-  socket.reqs.push = {"kind":"req","id": Math.floor(Math.random() * 1e9),"type":"getClock"};
-    alert(JSON.stringify(socket));
+  // socket.reqs.push = {"kind":"req","id": Math.floor(Math.random() * 1e9),"type":"getClock"};
+    socket.getClock();
+    // alert(JSON.stringify(socket));
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
