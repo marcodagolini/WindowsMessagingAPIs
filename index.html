@@ -430,7 +430,7 @@ function handleOpenedSocket(socket,jwt) {
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
-      
+      alert(JSON.stringify(body));
       switch (change.event.type) {
               
          case 'RichContentEvent':
@@ -744,5 +744,5 @@ function withType(type) {
 function myId(jwt) {
   return JSON.parse(atob(jwt.split('.')[1])).sub;
 }
-const apiRequestTypes = ['GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
+const apiRequestTypes = ['cqm.ExConversationChangeNotification','GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
 </script>
