@@ -641,6 +641,7 @@ function handleOpenedSocket(socket,jwt) {
   socket.subscribeExConversations({
     'convState': ['OPEN']
   }).then(resp => {
+      alert(JSON.stringify(resp));
     var openConvs = {};
     socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
