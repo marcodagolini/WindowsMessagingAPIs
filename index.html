@@ -577,47 +577,18 @@ function handleOpenedSocket(socket,jwt) {
                     appendHorizontalLayout(json.elements, panelgroup);
                 }
             }
-            /*var outerScroll = document.createElement('div');
-            outerScroll.appendChild(panelgroup);
-            outerScroll.style.maxWidth = "260px";
-            outerScroll.style.overflowX = "auto";
-            outerScroll.style.whiteSpace = "nowrap";
-            outerScroll.style.height = "auto";
-            outerScroll.title = json.id;
-                  
-            var wrap = document.createElement('div');
-            newdiv.append(outerScroll);*/
-
-          
 
          } catch (e) {
             console.log(e);
          }
 
-
-
-/**************** TODO: structured content rendering ****************
+        break;
               
-                   
-                   var hostdiv = document.createElement('div');
-                   hostdiv.setAttribute("class","hostagent");
-                   var newdiv = document.createElement('div');
-                   newdiv.setAttribute("class","agent");
-                   newdiv.innerHTML = JSON.stringify(change.event.content);               
-                   var maindiv = document.getElementById('log');
-                   maindiv.appendChild(hostdiv);
-                   hostdiv.appendChild(newdiv); */
-              
-         break;
-              
-              
-              
-              
+        
         case 'ContentEvent':
               
               console.log(change);
-            
-             
+              
                if(change.originatorId===me){
                    var space = document.createElement('div');
                    space.setAttribute("class","spacecustomer");
