@@ -741,5 +741,5 @@ function withType(type) {
 function myId(jwt) {
   return JSON.parse(atob(jwt.split('.')[1])).sub;
 }
-const apiRequestTypes = ['cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
+const apiRequestTypes = ['GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField'];
 </script>
