@@ -393,7 +393,7 @@ function prepareToConnect() {
 }
 function handleOpenedSocket(socket,jwt) {
   
- 
+ alert(JSON.stringify(socket));
     
   $('.intro').remove();
   $('.agent').remove();
@@ -425,7 +425,7 @@ function handleOpenedSocket(socket,jwt) {
   const me = myId(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
-  alert(JSON.stringify(socket));
+  // alert(JSON.stringify(socket));
     
     
     /*
