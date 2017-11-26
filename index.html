@@ -426,7 +426,7 @@ function handleOpenedSocket(socket,jwt) {
   const me = myId(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
-  socket.getClock();
+  
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
@@ -669,6 +669,7 @@ function handleOpenedSocket(socket,jwt) {
     });
   });
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
+  socket.getClock();
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
