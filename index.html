@@ -668,7 +668,7 @@ function handleOpenedSocket(socket,jwt) {
     });
   });
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
-  socket.getClock();
+  socket.getClock().then(resp => alert(JSON.stringify(resp)));
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
