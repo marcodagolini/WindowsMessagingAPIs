@@ -718,6 +718,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
   });
 }
 function onCloseSocket(socket,evt) {
+    alert(JSON.stringify(evt));
   socket.ws = null;
   // $('#log').append(`connection was closed with code ${evt.code}\n`);
   console.log("closed");
