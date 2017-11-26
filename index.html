@@ -450,11 +450,9 @@ function handleOpenedSocket(socket,jwt) {
                 //console.log(json);
                 var panelgroup = document.createElement("div");
                 panelgroup.setAttribute("class","hostagent");
-                var newdiv = document.createElement('div');
-                newdiv.setAttribute("class","agent");               
                 var maindiv = document.getElementById('log');
                 maindiv.appendChild(panelgroup);
-                panelgroup.appendChild(newdiv);
+               
                   
                 var typelist = "verticalhorizontal";
                 if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
