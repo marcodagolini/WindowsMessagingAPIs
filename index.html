@@ -676,7 +676,7 @@ function handleOpenedSocket(socket,jwt) {
     // alert(JSON.stringify(socket));
   // setTimeout(explode, 2000);
   // socket.getClock().then(resp => alert(JSON.stringify(resp)));
-  socket.reqs = {"kind":"req","id": Math.floor(Math.random() * 1e9),"type":"getClock"};
+  socket.reqs.push = {"kind":"req","id": Math.floor(Math.random() * 1e9),"type":"getClock"};
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
