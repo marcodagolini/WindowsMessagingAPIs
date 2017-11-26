@@ -400,6 +400,8 @@ function prepareToConnect() {
 function handleOpenedSocket(socket,jwt) {
   
     alert(JSON.stringify(socket));
+    socket.publishEvent({"kind":"req","id":"1","type":"GetClock"})
+  .then(resp => alert(resp));
  /*   socket.GetClock({"kind":"req","id":"1","type":"GetClock"});
   
   setInterval(function(){
