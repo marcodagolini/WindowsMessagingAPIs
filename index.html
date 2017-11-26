@@ -437,7 +437,7 @@ function handleOpenedSocket(socket,jwt) {
   
     
   alert(JSON.stringify(socket));
-  socket.GetClock()
+  socket.GetClock({"kind":"req","id":"1"})
     .then(resp => alert(JSON.stringify(resp)));
     
     
