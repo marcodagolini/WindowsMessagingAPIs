@@ -553,15 +553,15 @@ function handleOpenedSocket(socket,jwt) {
 
                             //**** Set Action
                             if (element.click.hasOwnProperty("actions")) {
-                                switch (element.click.actions.type) {
+                                switch (element.click.actions[0].type) {
                                     case 'link':
-                                        el_macropanelel_wrapper.innerHTML = linkOut(element.click.actions.uri);
+                                        el_macropanelel_wrapper.innerHTML = linkOut(element.click.actions[0].uri);
                                         break;
                                     case 'publishText':
-                                        el_macropanelel_wrapper.innerHTML = publishTextData(element.click.actions.text);
+                                        el_macropanelel_wrapper.innerHTML = publishTextData(element.click.actions[0].text);
                                         break;
                                     case 'navigate':
-                                        el_macropanelel_wrapper.innerHTML = navigate(element.click.actions.la, element.click.actions.lo);
+                                        el_macropanelel_wrapper.innerHTML = navigate(element.click.actions.la, element.click.actions[0].lo);
                                         break;
                                 }
                                 el_macropanelel_wrapper.firstChild.appendChild(el_panelelement);
