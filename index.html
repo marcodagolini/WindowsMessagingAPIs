@@ -662,8 +662,7 @@ function handleOpenedSocket(socket,jwt) {
   });
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
   
-  var keepalive = socket.getClock();
-  setInterval("keepalive",10000);
+  setInterval(socket.getClock(),10000);
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
