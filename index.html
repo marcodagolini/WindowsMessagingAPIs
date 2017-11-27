@@ -664,7 +664,7 @@ function handleOpenedSocket(socket,jwt) {
   $('#connect').text('disconnect').unbind('click').click(() => socket.ws.close());
   
   var keepalive = socket.getClock();
-  setInterval(function(keepalive),10000);
+  setInterval("keepalive",10000);
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
