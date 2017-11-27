@@ -551,8 +551,8 @@ function handleOpenedSocket(socket,jwt) {
 
 
                             //**** Set Action
-                            if (element.hasOwnProperty("action") && element.action.hasOwnProperty("type")) {
-                                switch (element.action.type) {
+                            if (element.click.hasOwnProperty("action")) {
+                                switch (element.click.action) {
                                     case 'link':
                                         el_macropanelel_wrapper.innerHTML = linkOut(element.action.uri);
                                         break;
