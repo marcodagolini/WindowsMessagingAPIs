@@ -379,7 +379,7 @@ function prepareToConnect() {
       LPUtils.getDomain(account, 'asyncMessagingEnt').then(umsDomain => {
         LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`)
         .then(
-          openedSocket => {handleOpenedSocket(openedSocket,jwt); alert(JSON.stringify(openedSocket));}, 
+          openedSocket => {handleOpenedSocket(openedSocket,jwt);}, 
           errorOpening => {
             $('#log').append(`error opening connection ${errorOpening}\n`);
             prepareToConnect();
@@ -432,6 +432,7 @@ function handleOpenedSocket(socket,jwt) {
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
+      alert(JSON.stringify(body));
       switch (change.event.type) {
               
          case 'RichContentEvent':
