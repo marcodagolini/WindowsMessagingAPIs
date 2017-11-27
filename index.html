@@ -378,7 +378,7 @@ function prepareToConnect() {
       LPUtils.getDomain(account, 'asyncMessagingEnt').then(umsDomain => {
         LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`)
         .then(
-          openedSocket => handleOpenedSocket(openedSocket,jwt), 
+          openedSocket => {handleOpenedSocket(openedSocket,jwt); alert(JSON.stringify(openedSocket));}, 
           errorOpening => {
             $('#log').append(`error opening connection ${errorOpening}\n`);
             prepareToConnect();
