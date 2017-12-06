@@ -415,9 +415,10 @@ function handleOpenedSocket(socket,jwt) {
   socket.registerRequests(apiRequestTypes);
   const me = myId(jwt);
     
-  console.log(jwt);
+  //console.log(jwt);
   jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCTEJMQSBDT05WIiwiaXNzIjoidG9iaS52b2RhZm9uZS5pdCIsImV4cCI6MTUxMzg3ODczMywiaWF0IjoxNTEyNTgyNzMzLCJscF9zZGVzIjpbeyJ0eXBlIjoiY3RtcmluZm8iLCJpbmZvIjp7ImN0eXBlIjoiVklQIn19XX0.a8EVUcVrDmhNBwpm2VjiY-1Ecmv2Tyb62HB2zkO1r72gSgsAfvOilgBe8g5mIffZvdKHH4HrZ5CeDSdePfzb4DKYQDEcKjWwp5JX5cOU6UCjY1HdhqzHoUIMoEisdMnLPbyOwrwFoMgxd2twTXgIo7YMOzyUVvegJynsOUp89fXk3CQb5jnjsDjxms88_wnVgt5Ye9Wd1MEH4NP-FycPXab411KVJO4xOh-YaJjWYbnt1zerzsQA4aIpAaEvvd0maiweBGN3fToKa85OWbZg3w1x5f1NWl_UqQ08nKXvroNfWGgScczWIAnMyFkbR-IsHuxzQGXZR9ssVbeYMIInJw";
-  socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  // socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  socket.initConnection({},[{"type":".ams.headers.ConsumerAuthentication","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
   // socket.ExConversationChangeNotification(), body => alert(JSON.stringify(body));
     
