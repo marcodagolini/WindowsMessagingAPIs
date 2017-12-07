@@ -375,10 +375,10 @@ function prepareToConnect() {
             prepareToConnect();
           });
       });
-    }, errorGettingJwt => {
-      $('#connect').text('connect');
-      $('#account').prop('disabled',false).val();      
-      $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
+    // }, errorGettingJwt => {
+      // $('#connect').text('connect');
+      // $('#account').prop('disabled',false).val();      
+      // $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
     // });
   });
  
