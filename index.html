@@ -212,6 +212,8 @@ var LPUtils = function () {
           jsonp: "callback",
           dataType: "jsonp",
           success: function success(idpResp) {
+              alert(idpResp.jwt);
+              alert(jwt);
             return res(idpResp.jwt);
           }
         });
