@@ -367,7 +367,7 @@ function prepareToConnect() {
   $('#connect').text('connect').unbind('click').click(() => {
     $('#connect').text('connecting...');
     const account = $('#account').prop('disabled',true).val();
-    // LPUtils.getJWT(account).then(jwt => {
+    LPUtils.getJWT(account).then(jwt => {
       LPUtils.getDomain(account, 'asyncMessagingEnt').then(umsDomain => {
         LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`)
         .then(
@@ -377,11 +377,11 @@ function prepareToConnect() {
             prepareToConnect();
           });
       });
-    // }, errorGettingJwt => {
-      // $('#connect').text('connect');
-      // $('#account').prop('disabled',false).val();      
-      // $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
-    // });
+    }, errorGettingJwt => {
+      $('#connect').text('connect');
+      $('#account').prop('disabled',false).val();      
+      $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
+    });
   });
  
 }
