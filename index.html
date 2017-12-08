@@ -211,10 +211,8 @@ var LPUtils = function () {
           jsonp: "callback",
           dataType: "jsonp",
           contentType: 'application/json',
-          data: '{"authCode" : "'+ jwt +'"}',
+          data: '{"authCode" : "'jwt'"}',
           success: function success(idpResp) {
-              alert(idpResp.jwt);
-              alert(jwt);
             return res(idpResp.jwt);
           }
         });
