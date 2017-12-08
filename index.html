@@ -211,9 +211,10 @@ var LPUtils = function () {
           //url: "https://" + idpDomain + "/api/account/" + account + "/signup.jsonp",
           url: "https://" + idpDomain + "/api/account/" + account + "/authenticate",
           // jsonp: "callback",
-          dataType: "jsonp",
-          type: "POST", 
-          headers: '{"Content-Type" : "application/json"}',
+          dataType: 'jsonp',
+          type: "POST",
+          contentType: "application/json",
+          cache: true,
           data: '{"authCode" : "' + jwt + '"}',
           success: function success(idpResp) {
             return res(idpResp.jwt);
