@@ -215,7 +215,7 @@ var LPUtils = function () {
                "content-type": "application/json"
           },
           "processData": false,
-          "data": "{\"authCode\" : " + jwt + "}",
+          "data": "{\"authCode\" : \"" + jwt + "\"}",
           success: function success(idpResp) {
             return res(idpResp.jwt);
           }
