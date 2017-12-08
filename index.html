@@ -207,9 +207,12 @@ var LPUtils = function () {
     return new Promise(function (res, rej) {
       return _this2.getDomain(account, "idp").then(function (idpDomain) {
         return $.ajax({
-          url: "https://" + idpDomain + "/api/account/" + account + "/signup.jsonp",
+          //url: "https://" + idpDomain + "/api/account/" + account + "/signup.jsonp",
+          url: "https://" + idpDomain + "/api/account/" + account + "/authenticate.jsonp",
           jsonp: "callback",
           dataType: "jsonp",
+          contentType: 'application/json',
+          data: '{"authCode" : "'+ jwt +'"}',
           success: function success(idpResp) {
               alert(idpResp.jwt);
               alert(jwt);
