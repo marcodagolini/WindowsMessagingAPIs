@@ -215,7 +215,6 @@ var LPUtils = function () {
           dataType: 'jsonp',
           type: "POST",
           contentType: "application/json",
-          cache: true,
           data: '{"authCode" : "' + jwt + '"}',
           success: function success(idpResp) {
             return res(idpResp.jwt);
