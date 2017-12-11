@@ -644,9 +644,9 @@ function handleOpenedSocket(socket,jwt) {
     }));
   // subscribe to open conversations metadata
   socket.subscribeExConversations({
-      console.log(body);
     'convState': ['OPEN']
   }).then(resp => {
+            console.log(resp);
     var openConvs = {};
     socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
