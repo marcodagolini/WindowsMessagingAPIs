@@ -449,8 +449,8 @@ function handleOpenedSocket(socket,jwt) {
                 if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
                     function appendHorizontalLayout(jsonElements, macroGroup) {
                         var panelchoice = document.createElement("div");
-                        panelchoice.classList.add("lp-panel");
-                        panelchoice.classList.add("lp-panel-default");
+                        // panelchoice.classList.add("lp-panel");
+                        // panelchoice.classList.add("lp-panel-default");
                         macroGroup.appendChild(panelchoice);
                         panelchoice.style.border = "1px solid #cacaca";
                         panelchoice.style.backgroundColor = "#FAFAFA";
