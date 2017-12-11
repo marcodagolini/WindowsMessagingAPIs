@@ -321,6 +321,7 @@ var LPWs = function () {
       delete this.reqs[id];
     } else if (obj.kind == "notification") {
       this.subs.forEach(function (sub) {
+          console.log(sub);
         if (sub.filter.call(this, obj)) {
           sub.cb.call(this, obj.body);
         };
