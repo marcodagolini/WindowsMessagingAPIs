@@ -454,7 +454,7 @@ function handleOpenedSocket(socket,jwt) {
                         panelchoice.style.border = "1px solid #cacaca";
                         panelchoice.style.backgroundColor = "#FAFAFA";
                         panelchoice.style.clear = "both";
-                        panelchoice.style.width = "220px";
+                        panelchoice.style.width = "180px";
                         panelchoice.style.textAlign = "center";
                         panelchoice.style.whiteSpace = "nowrap";
                         var k = -1;
@@ -497,6 +497,7 @@ function handleOpenedSocket(socket,jwt) {
                                         el_panelelement = el_panelelement.firstChild;
                                         el_panelelement.classList.add("lp-panel-heading");
                                         el_panelelement.style.textAlign = "center";
+                                        el_panelelement.style.width = "160px";
                                         //panelchoice.innerHTML = panelchoice.innerHTML + '<div class="lp-panel-body" title="' + item.data.text + '" '+
                                         //' onclick="console.log(this.title);  (document.getElementsByClassName(\'lp-message-input\')[0]).value = this.title; return false;">'+itemDataTruncated+'</div>';
                                         break;
@@ -527,6 +528,7 @@ function handleOpenedSocket(socket,jwt) {
                                         el_panelelement = el_panelelement.firstChild;
                                         el_panelelement.classList.add("lp-panel-heading");
                                         el_panelelement.style.textAlign = "center";
+                                        el_panelelement.style.width = "160px";
                                         break;
                                  }
                             }
