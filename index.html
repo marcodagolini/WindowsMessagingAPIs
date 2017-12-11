@@ -12,7 +12,6 @@
     overflow: auto;
     max-height: 420px;
 }
-
    
     
     
@@ -24,11 +23,9 @@
     border-radius: 4px;
 }
     
-
 .form-control { 
     background-color: #bccad6 !important;
 }
-
    
     
 .customer {
@@ -44,8 +41,6 @@
     word-wrap: break-word;
     display: inline-block;
 }
-
-
 .agent {
     margin-right: auto;
     margin-left: 0px;
@@ -58,7 +53,6 @@
     font-size: 16px;
     word-wrap: break-word;
     display: inline-block;
-
 }
    
     
@@ -115,7 +109,6 @@
     width: 256px;
 }
     
-
     
 .hostagent {
     background-color: #ffffff;
@@ -318,8 +311,7 @@ var LPWs = function () {
       delete this.reqs[id];
     } else if (obj.kind == "notification") {
       this.subs.forEach(function (sub) {
-          console.log(obj);
-        if (sub.filter.call(this, obj) === !undefined) {
+        if (sub.filter.call(this, obj)) {
           sub.cb.call(this, obj.body);
         };
       });
@@ -351,7 +343,6 @@ var publishTextData = function publishTextData(message){
   var message2 = message.replace(/'/ig, "\\'");
   return '<div onclick="console.log(\''+ message2 +'\'); (document.getElementsByClassName(\'form-control\')[0]).value = \''+ message2 +'\'; return false;" ></div>';
 }
-
 var linkOut = function linkOut(url) {
   return '<a href="' + url + '" target="_blank"></a>';
 }
@@ -360,9 +351,6 @@ var navigate = function navigate(la, lo) {
   return "<a target='_blank' href=" + mapsDomain + "></a>"
 }
 //**** *******
-
-
-
 $(document).ready(() => { 
   prepareToConnect();
   $('#connect').click();  
@@ -390,9 +378,7 @@ function prepareToConnect() {
  
 }
 function handleOpenedSocket(socket,jwt) {
-
     
-
     
   $('.intro').remove();
   $('.agent').remove();
@@ -402,7 +388,6 @@ function handleOpenedSocket(socket,jwt) {
   $('.spacecustomer').remove();
   $('.lp-panel').remove();
     
-
     
   var space = document.createElement('div');
   space.setAttribute("class","space");        
@@ -427,14 +412,11 @@ function handleOpenedSocket(socket,jwt) {
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
-  
-  // socket.ExConversationChangeNotification(), body => console.log(body);
-  // socket.SubscribeExConversations(), body => console.log(body);
-  socket.onNotification(), body => console.log(body);
+  // socket.ExConversationChangeNotification(), body => alert(JSON.stringify(body));
     
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
-      
+    
       switch (change.event.type) {
               
          case 'RichContentEvent':
@@ -463,7 +445,6 @@ function handleOpenedSocket(socket,jwt) {
                 var typelist = "verticalhorizontal";
                 if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
                     function appendHorizontalLayout(jsonElements, macroGroup) {
-
                         var panelchoice = document.createElement("div");
                         panelchoice.classList.add("lp-panel");
                         panelchoice.classList.add("lp-panel-default");
@@ -487,12 +468,9 @@ function handleOpenedSocket(socket,jwt) {
                                 panelchoice.style.borderBottomRightRadius = "4px";
                                 //panelchoice.style.borderRadius = "0px 4px 4px 0px";
                             }
-
                             var el_macropanelel_wrapper = document.createElement('div');
                             var el_panelelement = document.createElement("div");
-
                             var element = jsonElements[k];
-
                             //**** types
                             if (element.hasOwnProperty("type")) {
                                 
@@ -506,7 +484,6 @@ function handleOpenedSocket(socket,jwt) {
                                         break;
                                     case "linkPreview":
                                         //TODO - add in link preview
-
                                         el_panelelement.innerHTML = "<div><a href='" + element.url + "'>" + element.title + "</a></div>";
                                         el_panelelement = el_panelelement.firstChild;
                                         el_panelelement.style.textAlign = "center";
@@ -552,8 +529,6 @@ function handleOpenedSocket(socket,jwt) {
                                  }
                             }
                             //**** types
-
-
                             //**** Set Action
                             if (element.hasOwnProperty("click") && element.click.hasOwnProperty("actions")) {
                                 switch (element.click.actions[0].type) {
@@ -585,11 +560,9 @@ function handleOpenedSocket(socket,jwt) {
                     appendHorizontalLayout(json.elements, panelgroup);
                 }
             }
-
          } catch (e) {
             console.log(e);
          }
-
         break;
               
         
@@ -645,7 +618,6 @@ function handleOpenedSocket(socket,jwt) {
   socket.subscribeExConversations({
     'convState': ['OPEN']
   }).then(resp => {
-            // console.log(resp);
     var openConvs = {};
     socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
@@ -680,9 +652,7 @@ function handleOpenedSocket(socket,jwt) {
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
-
     
-
     
     
 function handleConversationNotification(socket,notificationBody,openConvs) {
