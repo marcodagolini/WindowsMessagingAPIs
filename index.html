@@ -418,10 +418,10 @@ function handleOpenedSocket(socket,jwt) {
     
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
-    
+      
+      console.log(change);     
       switch (change.event.type) {
               
-         console.log(change);     
          case 'RichContentEvent':
               
               
