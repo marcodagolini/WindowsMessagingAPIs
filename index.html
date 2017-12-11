@@ -659,6 +659,7 @@ function handleOpenedSocket(socket,jwt) {
     
 function handleConversationNotification(socket,notificationBody,openConvs) {
   notificationBody.changes.forEach(change => {
+    console.log(change);
     if (change.type === 'UPSERT') {
       if (!openConvs[change.result.convId]) {
         openConvs[change.result.convId] = change.result;
