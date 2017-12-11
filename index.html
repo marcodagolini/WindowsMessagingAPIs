@@ -495,7 +495,7 @@ function handleOpenedSocket(socket,jwt) {
                                         //var itemDataTruncated = item.data.text.length > 20 ? (item.data.text.substring(0, 20) + "...") : item.data.text;
                                         el_panelelement.innerHTML = "<div><img src='https://maps.googleapis.com/maps/api/staticmap?center=" + element.la + "," + element.lo + "&markers=color:blue%7Clabel:A%7C" + element.la + "," + element.lo + "&zoom=14&size=167x111&key=AIzaSyD0FAiv_la9dq8c70_ETYu1i-eoaJktNEo' style='width:auto;height:90%;max-height:111px;'></div>";
                                         el_panelelement = el_panelelement.firstChild;
-                                        el_panelelement.classList.add("lp-panel-heading");
+                                        // el_panelelement.classList.add("lp-panel-heading");
                                         el_panelelement.style.textAlign = "center";
                                         el_panelelement.style.width = "160px";
                                         //panelchoice.innerHTML = panelchoice.innerHTML + '<div class="lp-panel-body" title="' + item.data.text + '" '+
@@ -526,7 +526,7 @@ function handleOpenedSocket(socket,jwt) {
                                     case "image":
                                         el_panelelement.innerHTML = element.url ? "<div><img src='" + element.url + "'></div>" : "<img />";
                                         el_panelelement = el_panelelement.firstChild;
-                                        el_panelelement.classList.add("lp-panel-heading");
+                                        // el_panelelement.classList.add("lp-panel-heading");
                                         el_panelelement.style.textAlign = "center";
                                         el_panelelement.style.width = "160px";
                                         break;
