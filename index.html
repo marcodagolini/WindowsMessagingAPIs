@@ -413,18 +413,16 @@ function handleOpenedSocket(socket,jwt) {
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
-  // socket.ExConversationChangeNotification(), body => alert(JSON.stringify(body));
+  socket.onNotification(), body => console.log(body);
     
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
     
       switch (change.event.type) {
               
-         console.log(change);
               
          case 'RichContentEvent':
               
-
               
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
