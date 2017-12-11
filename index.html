@@ -430,7 +430,7 @@ function handleOpenedSocket(socket,jwt) {
   
   
   // socket.ExConversationChangeNotification(), body => console.log(body);
-  socket.SubscribeExConversations(), body => console.log(body);
+  // socket.SubscribeExConversations(), body => console.log(body);
   socket.onNotification(), body => console.log(body);
     
   socket.onNotification(withType('MessagingEvent'),
@@ -644,6 +644,7 @@ function handleOpenedSocket(socket,jwt) {
     }));
   // subscribe to open conversations metadata
   socket.subscribeExConversations({
+      console.log(body);
     'convState': ['OPEN']
   }).then(resp => {
     var openConvs = {};
