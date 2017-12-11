@@ -420,7 +420,11 @@ function handleOpenedSocket(socket,jwt) {
     
       switch (change.event.type) {
               
+         console.log(change);
+              
          case 'RichContentEvent':
+              
+
               
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
@@ -569,7 +573,6 @@ function handleOpenedSocket(socket,jwt) {
         
         case 'ContentEvent':
               
-              console.log(change);
               
                if(change.originatorId===me){
                    var space = document.createElement('div');
