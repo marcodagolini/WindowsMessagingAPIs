@@ -320,7 +320,7 @@ var LPWs = function () {
     } else if (obj.kind == "notification") {
       this.subs.forEach(function (sub) {
           console.log(obj);
-        if (sub.filter.call(this, obj)) {
+        if (sub.filter.call(this, obj) === !undefined) {
           sub.cb.call(this, obj.body);
         };
       });
