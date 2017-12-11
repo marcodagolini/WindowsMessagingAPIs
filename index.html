@@ -426,7 +426,9 @@ function handleOpenedSocket(socket,jwt) {
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
+  
   socket.ExConversationChangeNotification(), body => console.log(body);
+  socket.SubscribeExConversations(), body => console.log(body);
   socket.onNotification(), body => console.log(body);
     
   socket.onNotification(withType('MessagingEvent'),
