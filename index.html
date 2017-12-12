@@ -688,8 +688,10 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           newdiv.setAttribute("class","cobrowse");
           newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode + "<br />";                
           var newAccept = document.createElement('button');
+          newAccept.setAttribute("id","accept");
           newAccept.innerHTML = "Accetta";
           var newDecline = document.createElement('button');
+          newDecline.setAttribute("id","decline");
           newDecline.innerHTML = "Declina";
           var maindiv = document.getElementById('log');
           maindiv.appendChild(hostdiv);
