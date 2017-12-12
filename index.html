@@ -681,7 +681,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       }
       if(change.result.conversationDetails.dialogs["1"].dialogId==="COAPP"){
         
-        if(change.result.conversationDetails.dialogs["1"].metaData==="CLOSED"){
+        if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="CLOSED"){
             $(".cobrowse").hide();
         }
         
