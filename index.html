@@ -705,10 +705,10 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           
           
           $(document).on('click', function(evt) {
-              if(!$(evt.target).is('#accept')) {
+              if($(evt.target).is('#accept')) {
                   alert("accept");
               }
-              else if(!$(evt.target).is('#decline')) {
+              else if($(evt.target).is('#decline')) {
                   alert("decline");
               }
               else {
