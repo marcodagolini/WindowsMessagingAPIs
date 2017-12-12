@@ -1,17 +1,7 @@
-
-<!--
 <style>
-.LEE_BOARD_ITEM,.lp-panel-body,.lp-panel-heading{cursor:pointer!important;text-align:center!important}.LEE_BOARD_ITEM,.lp-panel-body,.lp-panel-group,.lp-panel-heading{text-align:center!important}.LEE_BOARD_ITEM{border-top:2px #ebf3fb solid!important;padding:4px!important;margin-top:2px!important;vertical-align:middle!important}hr.le-divider{background-color:#bababa!important;height:1px!important;border:1px!important;margin:2px!important}.lp-panel-group{font-family:Verdana,Geneva,sans-serif!important;font-size:13px!important;height:100%!important;white-space:nowrap!important;margin-left:6px!important;margin-right:6px!important;display:-webkit-box!important;width:auto !important;display:-moz-box!important;display:-webkit-flexbox!important;display:-ms-flexbox!important;display:-webkit-flex!important;display:flex!important}.lp-panel-default{border:1px solid #cacaca!important;background-color:#FAFAFA!important;display:inline-block!important}.lp-panel-heading{margin:3px!important;max-height:111px!important}.lp-panel-body{overflow:hidden!important;color:#1178D9!important;padding:.66rem!important;flex:1!important;border-top:1px solid #dadada!important;border-bottom:1px solid #dadada!important}.lp-panel a:hover{background-color:#c1c1c1!important;text-decoration:none!important}.lp-panel-text{text-align:left!important;padding:.25rem!important;word-wrap:break-word!important;white-space:normal!important}.lp-title-text{font-size:15px!important}.lp-type-text{font-size:13px!important;color:#999!important}.lp-bold-text{padding-top:.5rem!important;font-weight:700!important}.lp-panel-heading>img{width:auto!important;max-width:70%!important;height:100%!important;max-height:111px!important}hr{margin:0!important!important}
-</style>
- -->
-
-
-
-
-
-
-<style>
-    
+  
+ 
+ 
     
 #log {
     background-color: #ffffff;
@@ -417,9 +407,6 @@ function handleOpenedSocket(socket,jwt) {
  
   
     
-  // $('#log').append($("<div class='intro'></div>"));
-  // $('.intro').html("Benvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>");
-  // $('#log').html(`\nBenvenuti nel nuovo servizio di Messaging asincrono di Vodafone.<br><br>I nostri Agenti saranno presto disponibili.<br><br>`);
   socket.registerRequests(apiRequestTypes);
   const me = myId(jwt);
     
@@ -449,8 +436,7 @@ function handleOpenedSocket(socket,jwt) {
                   
               var json = change.event.content;
               try {
-                  
-                //console.log(json);
+                 
                 var panelgroup = document.createElement("div");
                 panelgroup.setAttribute("class","hostagent");
                 var maindiv = document.getElementById('log');
@@ -461,8 +447,6 @@ function handleOpenedSocket(socket,jwt) {
                 if ((json.hasOwnProperty("type")) && (json.hasOwnProperty("elements")) && (typelist.indexOf(json.type) > -1)) {
                     function appendHorizontalLayout(jsonElements, macroGroup) {
                         var panelchoice = document.createElement("div");
-                        // panelchoice.classList.add("lp-panel");
-                        // panelchoice.classList.add("lp-panel-default");
                         macroGroup.appendChild(panelchoice);
                         panelchoice.style.border = "1px solid #cacaca";
                         panelchoice.style.backgroundColor = "#FAFAFA";
@@ -478,12 +462,12 @@ function handleOpenedSocket(socket,jwt) {
                             if (k == 0) {
                                 panelchoice.style.borderTopLeftRadius = "4px";
                                 panelchoice.style.borderBottomLeftRadius = "4px";
-                                //panelchoice.style.borderRadius = "4px 0px 0px 4px";
+                               
                             }
                             if (k == jsonElements.length - 1) {
                                 panelchoice.style.borderTopRightRadius = "4px";
                                 panelchoice.style.borderBottomRightRadius = "4px";
-                                //panelchoice.style.borderRadius = "0px 4px 4px 0px";
+                                
                             }
                             var el_macropanelel_wrapper = document.createElement('div');
                             var el_panelelement = document.createElement("div");
@@ -510,11 +494,7 @@ function handleOpenedSocket(socket,jwt) {
                                         //var itemDataTruncated = item.data.text.length > 20 ? (item.data.text.substring(0, 20) + "...") : item.data.text;
                                         el_panelelement.innerHTML = "<div><img width=\"160px\" src='https://maps.googleapis.com/maps/api/staticmap?center=" + element.la + "," + element.lo + "&markers=color:blue%7Clabel:A%7C" + element.la + "," + element.lo + "&zoom=14&size=167x111&key=AIzaSyD0FAiv_la9dq8c70_ETYu1i-eoaJktNEo' style='width:auto;height:90%;max-height:111px;'></div>";
                                         el_panelelement = el_panelelement.firstChild;
-                                        // el_panelelement.classList.add("lp-panel-heading");
                                         el_panelelement.style.textAlign = "center";
-                                        // el_panelelement.style.width = "160px";
-                                        //panelchoice.innerHTML = panelchoice.innerHTML + '<div class="lp-panel-body" title="' + item.data.text + '" '+
-                                        //' onclick="console.log(this.title);  (document.getElementsByClassName(\'lp-message-input\')[0]).value = this.title; return false;">'+itemDataTruncated+'</div>';
                                         break;
                                         
                                     case "button":
@@ -522,12 +502,9 @@ function handleOpenedSocket(socket,jwt) {
                                         el_panelelement.innerHTML = '<div style="text-align:center;" title="' + element.title + '"  ' +
                                         ' ">' + itemDataTruncated + '</div>';
                                         el_panelelement = el_panelelement.firstChild;
-                                        // el_panelelement.style.width = "160px";
-                                        // el_macropanelel_wrapper.classList.add("lp-panel-body");
                                         break;
                                         
                                     case "text":
-                                        //var itemDataTruncated = element.text ? (element.text.length > 20 ? (element.text.substring(0, 20) + "...") : element.text) : "";
                                         var styleString = 'style =\"';
                                         Object.keys(element.style).forEach(function(prop) {
                                             if (element.style.hasOwnProperty(prop)) {
@@ -542,9 +519,7 @@ function handleOpenedSocket(socket,jwt) {
                                     case "image":
                                         el_panelelement.innerHTML = element.url ? "<div><img width=\"160px\" src='" + element.url + "'></div>" : "<img />";
                                         el_panelelement = el_panelelement.firstChild;
-                                        // el_panelelement.classList.add("lp-panel-heading");
                                         el_panelelement.style.textAlign = "center";
-                                        // el_panelelement.style.width = "160px";
                                         break;
                                  }
                             }
@@ -684,15 +659,6 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           fromSeq: 0,
           dialogId: change.result.convId
         });
-          /*
-          socket.publishEvent({
-            dialogId: change.result.convId,
-            event: {
-                type: 'GetClock',
-                id: Math.floor(Math.random() * 1e9)
-            }
-          }).then(resp => alert(JSON.stringify(resp)));
-          */
       }
     } else if (change.type === 'DELETE') {
       delete openConvs[change.result.convId];
