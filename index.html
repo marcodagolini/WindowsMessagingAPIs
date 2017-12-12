@@ -665,6 +665,22 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           dialogId: change.result.convId
         });
       }
+      if(change.result.conversationDetails.dialogs[1].dialogId==="COAPP"){
+         lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
+ 	          serviceId: "<ServiceId from the dialog>",
+ 	          agentId: "<Agent ID>",
+ 	          visitorName: "<Name of the Visitor>",
+ 	          //optional parameters:
+ 	          ssid: "<Monitoring Session ID>",
+ 	          svid: "<Monitoring Visitor ID>",
+ 	          scid: "<Monitoring Context ID>",
+ 	          cid: "<Context ID>",
+ 	          eid: "<Engagement ID>"
+          });
+
+
+         
+      }
     } else if (change.type === 'DELETE') {
       delete openConvs[change.result.convId];
       // $('#log').append(`La conversazione e' stata chiusa.\n`);
