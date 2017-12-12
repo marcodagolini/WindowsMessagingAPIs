@@ -667,9 +667,9 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       }
       if(change.result.conversationDetails.dialogs[1].dialogId==="COAPP"){
          lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
- 	          serviceId: "<ServiceId from the dialog>",
- 	          agentId: "<Agent ID>",
- 	          visitorName: "<Name of the Visitor>",
+ 	          serviceId: change.result.conversationDetails.dialogs[1].metaData.serviceId,
+ 	          agentId: change.result.conversationDetails.partecipants[1].id,
+ 	          visitorName: change.result.conversationDetails.partecipants[0].id,
  	          //optional parameters:
  	          ssid: "<Monitoring Session ID>",
  	          svid: "<Monitoring Visitor ID>",
