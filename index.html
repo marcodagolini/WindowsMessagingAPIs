@@ -673,7 +673,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           hostdiv.setAttribute("class","hostagent");
           var newdiv = document.createElement('div');
           newdiv.setAttribute("class","agent");
-          newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode + "\n\n";                
+          newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode + "<br />";                
           var newAccept = document.createElement('button');
           newAccept.innerHTML = "Accetta";
           var newDecline = document.createElement('button');
