@@ -668,20 +668,30 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       if(change.result.conversationDetails.dialogs["1"].dialogId==="COAPP"){
         
         if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
-        console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
-        console.log(change.result.conversationDetails.participants["1"].id);
-        console.log(change.result.conversationDetails.participants["0"].id);
+          
+          var hostdiv = document.createElement('div');
+          hostdiv.setAttribute("class","hostagent");
+          var newdiv = document.createElement('div');
+          newdiv.setAttribute("class","agent");
+          newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode;                
+          var maindiv = document.getElementById('log');
+          maindiv.appendChild(hostdiv);
+          hostdiv.appendChild(newdiv);
+          
+          console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
+          console.log(change.result.conversationDetails.participants["1"].id);
+          console.log(change.result.conversationDetails.participants["0"].id);
         
-         lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
- 	          serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
- 	          agentId: change.result.conversationDetails.participants["1"].id,
- 	          visitorName: change.result.conversationDetails.participants["0"].id,
- 	          //optional parameters:
- 	          ssid: "<Monitoring Session ID>",
- 	          svid: "<Monitoring Visitor ID>",
- 	          scid: "<Monitoring Context ID>",
- 	          cid: "<Context ID>",
- 	          eid: "<Engagement ID>"
+          lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
+ 	            serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
+ 	            agentId: change.result.conversationDetails.participants["1"].id,
+ 	            visitorName: change.result.conversationDetails.participants["0"].id,
+ 	            //optional parameters:
+ 	            ssid: "<Monitoring Session ID>",
+ 	            svid: "<Monitoring Visitor ID>",
+ 	            scid: "<Monitoring Context ID>",
+ 	            cid: "<Context ID>",
+ 	            eid: "<Engagement ID>"
           });
         }
 
