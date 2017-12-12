@@ -707,10 +707,37 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           
           $(document).on('click', function(evt) {
               if($(evt.target).is('#accept')) {
-                  alert("accept");
+                
+                  lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
+ 	                    serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
+ 	                    agentId: change.result.conversationDetails.participants["1"].id,
+ 	                    visitorName: change.result.conversationDetails.participants["0"].id,
+ 	                    //optional parameters:
+ 	                    ssid: "<Monitoring Session ID>",
+ 	                    svid: "<Monitoring Visitor ID>",
+ 	                    scid: "<Monitoring Context ID>",
+ 	                    cid: "<Context ID>",
+ 	                    eid: "<Engagement ID>"
+                  });
+                  $(".cobrowse").hide();
+                
               }
+            
               else if($(evt.target).is('#decline')) {
-                  alert("decline");
+                  
+                  lpTag.events.publish("lpCoBrowse", "cobrowseDeclined", {
+ 	                    serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
+ 	                    agentId: change.result.conversationDetails.participants["1"].id,
+ 	                    visitorName: change.result.conversationDetails.participants["0"].id,
+ 	                    //optional parameters:
+ 	                    ssid: "<Monitoring Session ID>",
+ 	                    svid: "<Monitoring Visitor ID>",
+ 	                    scid: "<Monitoring Context ID>",
+ 	                    cid: "<Context ID>",
+ 	                    eid: "<Engagement ID>"
+                  });
+                  $(".cobrowse").hide();
+                
               }
               else {
                   
@@ -718,17 +745,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           });
           
         
-          lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
- 	            serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
- 	            agentId: change.result.conversationDetails.participants["1"].id,
- 	            visitorName: change.result.conversationDetails.participants["0"].id,
- 	            //optional parameters:
- 	            ssid: "<Monitoring Session ID>",
- 	            svid: "<Monitoring Visitor ID>",
- 	            scid: "<Monitoring Context ID>",
- 	            cid: "<Context ID>",
- 	            eid: "<Engagement ID>"
-          });
+          
         }
 
 
