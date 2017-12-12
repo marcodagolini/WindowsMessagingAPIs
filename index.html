@@ -674,9 +674,11 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           var newdiv = document.createElement('div');
           newdiv.setAttribute("class","agent");
           newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode;                
+          var newAccept = document.createElement('button');
           var maindiv = document.getElementById('log');
           maindiv.appendChild(hostdiv);
           hostdiv.appendChild(newdiv);
+          hostdiv.appendChild(newAccept);
           
           console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
           console.log(change.result.conversationDetails.participants["1"].id);
