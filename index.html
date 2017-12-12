@@ -665,7 +665,9 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           dialogId: change.result.convId
         });
       }
-      if(change.result.conversationDetails.dialogs[1].dialogId==="COAPP"){
+      if(change.result.conversationDetails.dialogs["1"].dialogId==="COAPP"){
+        
+        if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
         console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
         console.log(change.result.conversationDetails.participants["1"].id);
         console.log(change.result.conversationDetails.participants["0"].id);
@@ -681,6 +683,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
  	          cid: "<Context ID>",
  	          eid: "<Engagement ID>"
           });
+        }
 
 
          
