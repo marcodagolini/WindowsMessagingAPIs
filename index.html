@@ -681,6 +681,10 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       }
       if(change.result.conversationDetails.dialogs["1"].dialogId==="COAPP"){
         
+        if(change.result.conversationDetails.dialogs["1"].metaData==="CLOSED"){
+            $(".cobrowse").hide();
+        }
+        
         if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
           
           var hostdiv = document.createElement('div');
