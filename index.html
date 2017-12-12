@@ -703,6 +703,20 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
           console.log(change.result.conversationDetails.participants["1"].id);
           console.log(change.result.conversationDetails.participants["0"].id);
+          
+          
+          $(document).on('click', function(evt) {
+              if(!$(evt.target).is('#accept')) {
+                  alert("accept");
+              }
+              else if(!$(evt.target).is('#decline')) {
+                  alert("decline");
+              }
+              else {
+                  
+              }
+          });
+          
         
           lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
  	            serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
