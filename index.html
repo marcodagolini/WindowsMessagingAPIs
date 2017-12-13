@@ -1158,10 +1158,40 @@ function csat(){
   
   
       $(document).on('click', function(evt) {
-              if($(evt.target).is('#a')||$(evt.target).is('.fullCSAT1')) {
-                
-                  
-                
+              if($(evt.target).is('#a')||$(evt.target).is('.fullCSAT1')||$(evt.target).is('.invisibleCSAT1')) {
+                  $(".invisibleCSAT1").setAttribute("class","fullCSAT1");
+                  $(".invisibleCSAT2").setAttribute("class","invisibleCSAT2");
+                  $(".invisibleCSAT3").setAttribute("class","invisibleCSAT3");
+                  $(".invisibleCSAT4").setAttribute("class","invisibleCSAT4");
+                  $(".invisibleCSAT4").setAttribute("class","invisibleCSAT5"); 
+              }
+              if($(evt.target).is('#b')||$(evt.target).is('.fullCSAT2')||$(evt.target).is('.invisibleCSAT2')) {
+                  $(".invisibleCSAT1").setAttribute("class","fullCSAT1");
+                  $(".invisibleCSAT2").setAttribute("class","fullCSAT2");
+                  $(".invisibleCSAT3").setAttribute("class","invisibleCSAT3");
+                  $(".invisibleCSAT4").setAttribute("class","invisibleCSAT4");
+                  $(".invisibleCSAT4").setAttribute("class","invisibleCSAT5"); 
+              }
+              if($(evt.target).is('#c')||$(evt.target).is('.fullCSAT3')||$(evt.target).is('.invisibleCSAT3')) {
+                  $(".invisibleCSAT1").setAttribute("class","fullCSAT1");
+                  $(".invisibleCSAT2").setAttribute("class","fullCSAT2");
+                  $(".invisibleCSAT3").setAttribute("class","fullCSAT3");
+                  $(".invisibleCSAT4").setAttribute("class","invisibleCSAT4");
+                  $(".invisibleCSAT4").setAttribute("class","invisibleCSAT5"); 
+              }
+              if($(evt.target).is('#d')||$(evt.target).is('.fullCSAT4')||$(evt.target).is('.invisibleCSAT4')) {
+                  $(".invisibleCSAT1").setAttribute("class","fullCSAT1");
+                  $(".invisibleCSAT2").setAttribute("class","fullCSAT2");
+                  $(".invisibleCSAT3").setAttribute("class","fullCSAT3");
+                  $(".invisibleCSAT4").setAttribute("class","fullCSAT4");
+                  $(".invisibleCSAT4").setAttribute("class","invisibleCSAT5"); 
+              }
+              if($(evt.target).is('#e')||$(evt.target).is('.fullCSAT5')||$(evt.target).is('.invisibleCSAT5')) {
+                  $(".invisibleCSAT1").setAttribute("class","fullCSAT1");
+                  $(".invisibleCSAT2").setAttribute("class","fullCSAT2");
+                  $(".invisibleCSAT3").setAttribute("class","fullCSAT3");
+                  $(".invisibleCSAT4").setAttribute("class","fullCSAT4");
+                  $(".invisibleCSAT4").setAttribute("class","fullCSAT5"); 
               }
       }
   
