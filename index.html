@@ -90,78 +90,146 @@
 }
   
   
-.visibleCSAT1 {
+.fullCSAT1 {
     position:absolute;
     visibility:visible;
     left: 20px; 
     top: 100px;
-    width: 35px;
-    height: 35px;
-    background-image: url('https://i.imgur.com/Wrza5xE.png');
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
   
-.visibleCSAT2 {
+.fullCSAT2 {
     position:absolute;
     visibility:visible;
-    left: 60px; 
+    left: 70px; 
     top: 100px;
-    width: 35px;
-    height: 35px;
-    background-image: url('https://i.imgur.com/Mg7FEP7.png');
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
   
-.visibleCSAT3 {
+.fullCSAT3 {
     position:absolute;
     visibility:visible;
-    left: 100px; 
+    left: 120px; 
     top: 100px;
-    width: 35px;
-    height: 35px;
-    background-image: url('https://i.imgur.com/7k5XJIz.png');
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
   
-.visibleCSAT4 {
+.fullCSAT4 {
     position:absolute;
     visibility:visible;
-    left: 140px; 
+    left: 170px; 
     top: 100px;
-    width: 35px;
-    height: 35px;
-    background-image: url('https://i.imgur.com/izS3gRj.png');
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
   
-.visibleCSAT5 {
+.fullCSAT5 {
     position:absolute;
     visibility:visible;
-    left: 180px; 
+    left: 220px; 
     top: 100px;
-    width: 35px;
-    height: 35px;
-    background-image: url('https://i.imgur.com/Vy3kiCd.png');
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/181H3rn.png');
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
     -webkit-animation: fadein 2s; /* Safari and Chrome */
     -o-animation: fadein 2s; /* Opera */
 }
   
-.invisibleCSAT {
+  
+.invisibleCSAT1 {
     visibility:hidden;
+}
+  
+.invisibleCSAT2 {
+    visibility:hidden;
+}
+  
+.invisibleCSAT3 {
+    visibility:hidden;
+}
+  
+.invisibleCSAT4 {
+    visibility:hidden;
+}
+  
+.invisibleCSAT5 {
+    visibility:hidden;
+}
+  
+
+.emptyCSAT1 {
+    position:absolute;
+    visibility:visible;
+    left: 20px; 
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT2 {
+    position:absolute;
+    visibility:visible;
+    left: 70px; 
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT3 {
+    position:absolute;
+    visibility:visible;
+    left: 120px; 
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT4 {
+    position:absolute;
+    visibility:visible;
+    left: 170px; 
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
+}
+  
+.emptyCSAT5 {
+    position:absolute;
+    visibility:visible;
+    left: 220px; 
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://i.imgur.com/kXKlCNo.png');
 }
     
     
@@ -1039,29 +1107,56 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 function csat(){
   
       var csat1 = document.createElement('csat1');
-      csat1.setAttribute("class","visibleCSAT1");
+      csat1.setAttribute("class","invisibleCSAT1");
       var mydiv = document.getElementById('log');
       mydiv.appendChild(csat1);
   
       var csat2 = document.createElement('csat2');
-      csat2.setAttribute("class","visibleCSAT2");
+      csat1.setAttribute("class","invisibleCSAT2");
       var mydiv = document.getElementById('log');
       mydiv.appendChild(csat2);
   
       var csat3 = document.createElement('csat3');
-      csat3.setAttribute("class","visibleCSAT3");
+      csat1.setAttribute("class","invisibleCSAT3");
       var mydiv = document.getElementById('log');
       mydiv.appendChild(csat3);
   
       var csat4 = document.createElement('csat4');
-      csat4.setAttribute("class","visibleCSAT4");
+      csat1.setAttribute("class","invisibleCSAT4");
       var mydiv = document.getElementById('log');
       mydiv.appendChild(csat4);
   
       var csat5 = document.createElement('csat5');
-      csat5.setAttribute("class","visibleCSAT5");
+      csat1.setAttribute("class","invisibleCSAT5");
       var mydiv = document.getElementById('log');
       mydiv.appendChild(csat5);
+  
+      var a = document.createElement('a');
+      a.setAttribute("class","emptyCSAT1");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(a);
+  
+      var b = document.createElement('b');
+      b.setAttribute("class","emptyCSAT2");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(b);
+  
+      var c = document.createElement('c');
+      c.setAttribute("class","emptyCSAT3");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(c);
+  
+      var d = document.createElement('d');
+      d.setAttribute("class","emptyCSAT4");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(d);
+  
+      var e = document.createElement('e');
+      e.setAttribute("class","emptyCSAT5");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(e);
+  
+      
   
 }
   
