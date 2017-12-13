@@ -358,7 +358,8 @@ var LPWs = function () {
 
 <script>
     
-    
+var manualETTR = 0;
+  
 //**** actions
 var publishText = '<div onclick="console.log(this.firstChild.title); (document.getElementsByClassName(\'form-control\')[0]).value = this.firstChild.title; return false;" ></div>';
 var publishTextData = function publishTextData(message){
@@ -670,6 +671,12 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
   notificationBody.changes.forEach(change => {
     console.log(change);
     if (change.type === 'UPSERT') {
+      
+      if(change.result.conversationDetails.manualETTR != manualETTR){
+         alert(manualETTR);
+         manualETTR = change.result.conversationDetails.manualETTR;
+      }
+      
       if (!openConvs[change.result.convId]) {
         openConvs[change.result.convId] = change.result;
         socket.subscribeMessagingEvents({
@@ -677,6 +684,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           dialogId: change.result.convId
         });
       }
+      
       if(change.result.conversationDetails.dialogs["1"].dialogId==="COAPP"){
         
         if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="CLOSED"){
