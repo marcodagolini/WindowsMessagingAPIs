@@ -766,9 +766,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
          $("#ttr").addClass("visibleTTR");
          $("#TTRmsg").removeClass("invisibleTTRmsg");
          $("#TTRmsg").addClass("visibleTTRmsg");
-         $("#TTRmsg").fadeTo("slow", 1);
         
-         // alert(manualETTR);
          manualETTR = change.result.conversationDetails.manualETTR;
          setTimeout(function(){ 
             document.getElementById("TTRmsg").innerHTML = "";
