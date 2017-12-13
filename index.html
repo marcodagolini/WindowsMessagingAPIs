@@ -549,6 +549,11 @@ function handleOpenedSocket(socket,jwt) {
          case 'RichContentEvent':
               
               var notification = new Notification("Nuovo contenuto strutturato");
+              var notification = webkitNotifications.createNotification(
+                  'https://i.imgur.com/kYxNSHj.png',  // icon url - can be relative
+                  'Hello!',  // notification title
+                  'Lorem ipsum...'  // notification body text
+              );
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
               var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
