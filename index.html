@@ -793,28 +793,32 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
          var giorni, ore, minuti;
          var messaggio = "";
          manualETTR = change.result.conversationDetails.manualETTR;
-         var currentDate = new Date().getTime();
-         var diff = (manualETTR - currentDate)/1000;
-         if (Math.floor(diff/(60*60*24)) > 0){
-              giorni = Math.floor(diff/(60*60*24));
-              diff = diff - giorni*60*60*24;
-              ore = Math.floor(diff/(60*60));
-              diff = diff - ore*60*60;
-              minuti = Math.floor(diff/60);
-              messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore, " + minuti + " minuti.";
-         }
-         else if (Math.floor(diff/(60*60)) > 0){
-              ore = Math.floor(diff/(60*60));
-              diff = diff - ore*60*60;
-              minuti = Math.floor(diff/60);
-              messaggio = "Un Agente rispondera' entro:</br>" +  ore + " ore, " + minuti + " minuti.";
-         }
-         else if (Math.floor(diff/(60)) > 0){
-              minuti = Math.floor(diff/60);
-              messaggio = "Un Agente rispondera' entro:</br>" + minuti + " minuti.";
-         }
-         else {
-              messaggio = "Ci scusiamo per il ritardo.</br>Risponderemo appena possibile!";
+         if (manualETTR){
+              var currentDate = new Date().getTime();
+              var diff = (manualETTR - currentDate)/1000;
+              if (Math.floor(diff/(60*60*24)) > 0){
+                    giorni = Math.floor(diff/(60*60*24));
+                    diff = diff - giorni*60*60*24;
+                    ore = Math.floor(diff/(60*60));
+                    diff = diff - ore*60*60;
+                    minuti = Math.floor(diff/60);
+                    messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore, " + minuti + " minuti.";
+              }
+              else if (Math.floor(diff/(60*60)) > 0){
+                    ore = Math.floor(diff/(60*60));
+                    diff = diff - ore*60*60;
+                    minuti = Math.floor(diff/60);
+                    messaggio = "Un Agente rispondera' entro:</br>" +  ore + " ore, " + minuti + " minuti.";
+              }
+              else if (Math.floor(diff/(60)) > 0){
+                    minuti = Math.floor(diff/60);
+                    messaggio = "Un Agente rispondera' entro:</br>" + minuti + " minuti.";
+              }
+              else {
+                    messaggio = "Ci scusiamo per il ritardo.</br>Risponderemo appena possibile!";
+              }
+         else{
+                messaggio = "Un Agente rispondera' appena possibile";
          }
          document.getElementById("TTRmsg").innerHTML = messaggio;
          $("#ttr").removeClass("invisibleTTR");
