@@ -251,6 +251,14 @@
     
 .form-control { 
     background-color: #bccad6 !important;
+    position:absolute;
+    visibility:visible;
+    left: -1px; 
+    top: 410px;
+    border: none;
+    width: 205px;
+    height: 25px;
+    font-size: 1em;
 }
    
     
@@ -386,11 +394,9 @@
  <div id="ttr" class="invisibleTTR">
    <div id="TTRmsg" class="invisibleTTRmsg">Some text</div>
  </div>
-<form class="form-inline" onsubmit="return false" style="position:relative; left: 0px; top: 430px;">
+<form class="form-inline" onsubmit="return false">
     <div class="form-group" style="display:inline;">
-         <label for="textline"></label>
-         <input id="textline" type="text" class="form-control" style="border: none; width: 205px;
- height: 25px; font-size: 1em;">
+         <input id="textline" type="text" class="form-control">
     </div>
     <button id="send" class="btn" disabled>invia</button>
 
