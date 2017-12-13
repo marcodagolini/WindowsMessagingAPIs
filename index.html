@@ -736,6 +736,12 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
  	                    eid: "<Engagement ID>"
                   });
                   $(".cobrowse").hide();
+                  var space = document.createElement('div');
+                  space.setAttribute("class","spaceagent");
+                  var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                  space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse accepted";
+                  var maindiv = document.getElementById('log');
+                  maindiv.appendChild(space);
                 
               }
             
@@ -753,6 +759,12 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
  	                    eid: "<Engagement ID>"
                   });
                   $(".cobrowse").hide();
+                  var space = document.createElement('div');
+                  space.setAttribute("class","spaceagent");
+                  var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                  space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse declined";
+                  var maindiv = document.getElementById('log');
+                  maindiv.appendChild(space);
                 
               }
               else {
