@@ -94,8 +94,8 @@
     visibility:visible;
     left: 20px; 
     top: 100px;
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     background-image: url('https://i.imgur.com/Fe6J8m2.png');
     animation: fadein 2s;
     -moz-animation: fadein 2s; /* Firefox */
@@ -103,7 +103,63 @@
     -o-animation: fadein 2s; /* Opera */
 }
   
-.invisibleCSAT1 {
+.visibleCSAT2 {
+    position:absolute;
+    visibility:visible;
+    left: 60px; 
+    top: 100px;
+    width: 40px;
+    height: 40px;
+    background-image: url('https://i.imgur.com/mkcLhjc.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.visibleCSAT3 {
+    position:absolute;
+    visibility:visible;
+    left: 100px; 
+    top: 100px;
+    width: 40px;
+    height: 40px;
+    background-image: url('https://i.imgur.com/dyKvQxC.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.visibleCSAT4 {
+    position:absolute;
+    visibility:visible;
+    left: 140px; 
+    top: 100px;
+    width: 40px;
+    height: 40px;
+    background-image: url('https://i.imgur.com/JgQqmyB.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.visibleCSAT5 {
+    position:absolute;
+    visibility:visible;
+    left: 180px; 
+    top: 100px;
+    width: 40px;
+    height: 40px;
+    background-image: url('https://i.imgur.com/lRHk9b7.png');
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+  
+.invisibleCSAT {
     visibility:hidden;
 }
     
@@ -985,6 +1041,26 @@ function csat(){
       csat1.setAttribute("class","visibleCSAT1");
       var mydiv = document.getElementById('log');
       mydiv.appendChild(csat1);
+  
+      var csat2 = document.createElement('csat2');
+      csat2.setAttribute("class","visibleCSAT2");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(csat2);
+  
+      var csat3 = document.createElement('csat3');
+      csat3.setAttribute("class","visibleCSAT3");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(csat3);
+  
+      var csat4 = document.createElement('csat4');
+      csat4.setAttribute("class","visibleCSAT4");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(csat4);
+  
+      var csat5 = document.createElement('csat5');
+      csat5.setAttribute("class","visibleCSAT5");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(csat5);
   
 }
   
