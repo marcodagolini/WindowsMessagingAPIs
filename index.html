@@ -1106,6 +1106,32 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
   
 function csat(){
   
+      var a = document.createElement('a');
+      a.setAttribute("class","emptyCSAT1");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(a);
+  
+      var b = document.createElement('b');
+      b.setAttribute("class","emptyCSAT2");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(b);
+  
+      var c = document.createElement('c');
+      c.setAttribute("class","emptyCSAT3");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(c);
+  
+      var d = document.createElement('d');
+      d.setAttribute("class","emptyCSAT4");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(d);
+  
+      var e = document.createElement('e');
+      e.setAttribute("class","emptyCSAT5");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(e);
+  
+  
       var csat1 = document.createElement('div');
       csat1.setAttribute("class","invisibleCSAT1");
       csat1.setAttribute("id","csat1");
@@ -1136,31 +1162,7 @@ function csat(){
       var mydiv = document.getElementById('log');
       mydiv.appendChild(csat5);
   
-      var a = document.createElement('a');
-      a.setAttribute("class","emptyCSAT1");
-      var mydiv = document.getElementById('log');
-      mydiv.appendChild(a);
-  
-      var b = document.createElement('b');
-      b.setAttribute("class","emptyCSAT2");
-      var mydiv = document.getElementById('log');
-      mydiv.appendChild(b);
-  
-      var c = document.createElement('c');
-      c.setAttribute("class","emptyCSAT3");
-      var mydiv = document.getElementById('log');
-      mydiv.appendChild(c);
-  
-      var d = document.createElement('d');
-      d.setAttribute("class","emptyCSAT4");
-      var mydiv = document.getElementById('log');
-      mydiv.appendChild(d);
-  
-      var e = document.createElement('e');
-      e.setAttribute("class","emptyCSAT5");
-      var mydiv = document.getElementById('log');
-      mydiv.appendChild(e);
-  
+      
   
       $(document).on('click', function(evt) {
               if($(evt.target).is('.emptyCSAT1')||$(evt.target).is('.fullCSAT1')||$(evt.target).is('.invisibleCSAT1')) {
