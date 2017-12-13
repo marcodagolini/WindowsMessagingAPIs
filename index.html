@@ -8,7 +8,20 @@
     overflow: auto;
     max-height: 420px;
 }
+
   
+.invisibleTTRmsg{
+    visibility:hidden;
+}
+  
+.visibleTTRmsg{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:middle;
+    visibility:visible;
+    font-size: 10pt;
+    color: white;
+}
   
 .visibleTTR {
     position:absolute;
@@ -180,6 +193,7 @@
  <div id="log" style="position:absolute; left: -1px; top: 0px; resize: none; width: 256px; font-size: 1em;">
  </div>
  <div id="ttr" class="invisibleTTR">
+   <span id="TTRmsg" class="invisibleTTRmsg">Some text</span>
  </div>
 <form class="form-inline" onsubmit="return false" style="position:relative; left: 0px; top: 430px;">
     <div class="form-group" style="display:inline;">
@@ -701,14 +715,20 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
     if (change.type === 'UPSERT') {
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
-         // document.getElementById("ttr").innerHTML = "Ready to oAuthenticate";
+         document.getElementById("TTRmsg").innerHTML = "Ready to oAuthenticate";
          $("#ttr").removeClass("invisibleTTR");
          $("#ttr").addClass("visibleTTR");
+         $("#TTRmsg").removeClass("invisibleTTRmsg");
+         $("#TTRmsg").addClass("visibleTTRmsg");
+        
          // alert(manualETTR);
          manualETTR = change.result.conversationDetails.manualETTR;
          setTimeout(function(){ 
+            document.getElementById("TTRmsg").innerHTML = "";
             $("#ttr").removeClass("visibleTTR");
-            $("#ttr").addClass("invisibleTTR"); 
+            $("#ttr").addClass("invisibleTTR");
+            $("#TTRmsg").removeClass("visibleTTRmsg");
+            $("#TTRmsg").addClass("invisibleTTRmsg");
          }, 5000);
       }
       
