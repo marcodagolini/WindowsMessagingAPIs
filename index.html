@@ -754,13 +754,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
     if (change.type === 'UPSERT') {
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
-         document.getElementById("TTRmsg").innerHTML = "Ready to oAuthenticate";
+         manualETTR = change.result.conversationDetails.manualETTR;
+         document.getElementById("TTRmsg").innerHTML = "Un Agente rispondera' entro:</br>" + manualETTR;
          $("#ttr").removeClass("invisibleTTR");
          $("#ttr").addClass("visibleTTR");
          $("#TTRmsg").removeClass("invisibleTTRmsg");
          $("#TTRmsg").addClass("visibleTTRmsg");
         
-         manualETTR = change.result.conversationDetails.manualETTR;
          setTimeout(function(){ 
             document.getElementById("TTRmsg").innerHTML = "";
             $("#ttr").removeClass("visibleTTR");
