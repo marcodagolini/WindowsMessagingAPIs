@@ -8,7 +8,27 @@
 }
   
   
-#ttr {
+.visibleTTR {
+    position:absolute;
+    visibility:visible;
+    left: -1px; 
+    top: 0px; 
+    resize: none; 
+    width: 256px; 
+    font-size: 1em;
+    background-color: #000000;
+    height: 50px;
+}
+  
+  
+.invisibleTTR {
+    position:absolute;
+    visibility:hidden;
+    left: -1px; 
+    top: 0px; 
+    resize: none; 
+    width: 256px; 
+    font-size: 1em;
     background-color: #000000;
     height: 50px;
 }
@@ -157,7 +177,7 @@
 <div style="position:relative; left: 30px; top: 75px;">
  <div id="log" style="position:absolute; left: -1px; top: 0px; resize: none; width: 256px; font-size: 1em;">
  </div>
- <div id="ttr" style="position:absolute; visibility:hidden; left: -1px; top: 0px; resize: none; width: 256px; font-size: 1em;">
+ <div id="ttr" class="invisibleTTR">
  </div>
 <form class="form-inline" onsubmit="return false" style="position:relative; left: 0px; top: 430px;">
     <div class="form-group" style="display:inline;">
@@ -680,11 +700,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
          // document.getElementById("ttr").innerHTML = "Ready to oAuthenticate";
-         document.getElementById("ttr").style = "visibility : visible";
+         document.getElementById("ttr").removeClass("invisibleTTR");
+         document.getElementById("ttr").addClass("visibleTTR");
          // alert(manualETTR);
          manualETTR = change.result.conversationDetails.manualETTR;
          setTimeout(function(){ 
-           document.getElementById("ttr").style = "visibility : hidden"; 
+            document.getElementById("ttr").removeClass("visibleTTR");
+            document.getElementById("ttr").addClass("invisibleTTR"); 
          }, 5000);
       }
       
