@@ -760,12 +760,15 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
          var diff = (manualETTR - currentDate)/1000;
          if ((diff/(60*60*24)) > 0){
               giorni = (diff/(60*60*24)).toFixed(0);
+              diff = diff - giorni*60*60*24;
               ore = (diff/(60*60)).toFixed(0);
+              diff = diff - ore*60*60;
               minuti = (diff/60).toFixed(0);
               messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore, " + minuti + " minuti.";
          }
          else if ((diff/(60*60)) > 0){
               ore = (diff/(60*60)).toFixed(0);
+              diff = diff - ore*60*60;
               minuti = (diff/60).toFixed(0);
               messaggio = "Un Agente rispondera' entro:</br>" +  ore + " ore, " + minuti + " minuti.";
          }
