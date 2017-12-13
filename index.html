@@ -701,13 +701,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
          // document.getElementById("ttr").innerHTML = "Ready to oAuthenticate";
-         document.getElementById("ttr").removeClass("invisibleTTR");
-         document.getElementById("ttr").addClass("visibleTTR");
+         $("#ttr").removeClass("invisibleTTR");
+         $("#ttr").addClass("visibleTTR");
          // alert(manualETTR);
          manualETTR = change.result.conversationDetails.manualETTR;
          setTimeout(function(){ 
-            document.getElementById("ttr").removeClass("visibleTTR");
-            document.getElementById("ttr").addClass("invisibleTTR"); 
+            $("#ttr").removeClass("visibleTTR");
+            $("#ttr").addClass("invisibleTTR"); 
          }, 5000);
       }
       
