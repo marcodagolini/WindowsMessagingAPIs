@@ -62,7 +62,7 @@
     text-align:center;
     visibility:visible;
     font-size: 10pt;
-    color: white;
+    color: black;
     width: 256px;
     height: 50px;
     animation: fadein 2s;
@@ -767,7 +767,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
             $("#ttr").addClass("invisibleTTR");
             $("#TTRmsg").removeClass("visibleTTRmsg");
             $("#TTRmsg").addClass("invisibleTTRmsg");
-         }, 5000);
+         }, 8000);
       }
       
       if (!openConvs[change.result.convId]) {
