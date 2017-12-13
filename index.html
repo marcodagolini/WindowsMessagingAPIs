@@ -755,7 +755,9 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
          manualETTR = change.result.conversationDetails.manualETTR;
-         document.getElementById("TTRmsg").innerHTML = "Un Agente rispondera' entro:</br>" + manualETTR;
+         var currentDate = new Date().getTime();
+         var diff = (manualETTR - currentDate)/1000;      
+         document.getElementById("TTRmsg").innerHTML = "Un Agente rispondera' entro:</br>" + diff;
          $("#ttr").removeClass("invisibleTTR");
          $("#ttr").addClass("visibleTTR");
          $("#TTRmsg").removeClass("invisibleTTRmsg");
