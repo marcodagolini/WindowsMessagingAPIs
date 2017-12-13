@@ -440,32 +440,6 @@ var LPWs = function () {
 <script>
   
   
-  function notifyMe() {
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    alert("This browser does not support system notifications");
-  }
-
-  // Let's check whether notification permissions have already been granted
-  else if (Notification.permission === "granted") {
-    // If it's okay let's create a notification
-    var notification = new Notification("Hi there!");
-  }
-
-  // Otherwise, we need to ask the user for permission
-  else if (Notification.permission !== 'denied') {
-    Notification.requestPermission(function (permission) {
-      // If the user accepts, let's create a notification
-      if (permission === "granted") {
-        var notification = new Notification("Hi there!");
-      }
-    });
-  }
-
-  // Finally, if the user has denied notifications and you 
-  // want to be respectful there is no need to bother them any more.
-}
-// notifyMe();  
 var manualETTR = 0;
   
 //**** actions
@@ -549,11 +523,12 @@ function handleOpenedSocket(socket,jwt) {
          case 'RichContentEvent':
               
               var notification = new Notification("Nuovo contenuto strutturato");
-              var notification = webkitNotifications.createNotification(
+              notification = webkitNotifications.createNotification(
                   'https://i.imgur.com/kYxNSHj.png',  // icon url - can be relative
                   'Hello!',  // notification title
                   'Lorem ipsum...'  // notification body text
               );
+              notification.show();
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
               var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
