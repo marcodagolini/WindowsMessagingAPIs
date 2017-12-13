@@ -794,7 +794,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
          manualETTR = change.result.conversationDetails.manualETTR;
          if (manualETTR){
               var currentDate = new Date().getTime();
-              var diff = (manualETTR - currentDate)/1000;
+              var diff = (manualETTR - currentDate)/1000 + 10;
               if (Math.floor(diff/(60*60*24)) > 0){
                     giorni = Math.floor(diff/(60*60*24));
                     diff = diff - giorni*60*60*24;
