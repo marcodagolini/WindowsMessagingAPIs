@@ -683,9 +683,22 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
         
         if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="CLOSED"){
             $(".cobrowse").hide();
+            var space = document.createElement('div');
+            space.setAttribute("class","spaceagent");
+            var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+            space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options) + " *** Cobrowse ended";
+            var maindiv = document.getElementById('log');
+            maindiv.appendChild(space);
         }
         
         if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
+          
+          var space = document.createElement('div');
+          space.setAttribute("class","spaceagent");
+          var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+          space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options) + " *** Cobrowse invitation";
+          var maindiv = document.getElementById('log');
+          maindiv.appendChild(space);
           
           var hostdiv = document.createElement('div');
           hostdiv.setAttribute("class","hostagent");
