@@ -723,6 +723,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
          $("#ttr").removeClass("invisibleTTR");
          $("#ttr").addClass("visibleTTR");
          $("#TTRmsg").removeClass("invisibleTTRmsg");
+         $("#TTRmsg").fadeTo("slow", 1);
          $("#TTRmsg").addClass("visibleTTRmsg");
         
          // alert(manualETTR);
