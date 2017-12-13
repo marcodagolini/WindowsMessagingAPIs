@@ -231,7 +231,12 @@
     height: 50px;
     background-image: url('https://i.imgur.com/kXKlCNo.png');
 }
-    
+  
+.csatBG {
+    background-color: #ffffff;
+    width: 256px;
+    height: 600px;
+}
     
 .btn {
     display: inline-block;
@@ -1105,6 +1110,12 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 }
   
 function csat(){
+  
+  
+      var bg = document.createElement('div');
+      bg.setAttribute("class","csatBG");
+      var mydiv = document.getElementById('log');
+      mydiv.appendChild(bg);
   
       var a = document.createElement('a');
       a.setAttribute("class","emptyCSAT1");
