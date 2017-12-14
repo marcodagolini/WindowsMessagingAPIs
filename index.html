@@ -400,23 +400,26 @@
 
 <div style="position:absolute; background-image: url(https://i.imgur.com/b54DM6d.png); height: 607px; width: 312px;">
  <div id="log">
+
+    <form class="form-inline" onsubmit="return false">
+        <div class="form-group" style="display:inline;">
+            <input id="textline" type="text" class="form-control">
+        </div>
+        <button id="send" class="btn" disabled>invia</button>
+
+        <div class="form-group" style="display:none;">
+            <label for="account">Account:</label>
+            <input id="account" type="text" class="form-control" value="68283988">
+        </div>
+   
+        <button id="connect" class="btn btn-default" style="display:none;">connect</button>
+    </form>
  </div>
+  
  <div id="ttr" class="invisibleTTR">
    <div id="TTRmsg" class="invisibleTTRmsg">Some text</div>
  </div>
-<form class="form-inline" onsubmit="return false">
-    <div class="form-group" style="display:inline;">
-         <input id="textline" type="text" class="form-control">
-    </div>
-    <button id="send" class="btn" disabled>invia</button>
-
-    <div class="form-group" style="display:none;">
-        <label for="account">Account:</label>
-        <input id="account" type="text" class="form-control" value="68283988">
-    </div>
-   
-    <button id="connect" class="btn btn-default" style="display:none;">connect</button>
- </form>
+  
 </div>
 
 
