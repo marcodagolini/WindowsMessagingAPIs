@@ -1264,6 +1264,9 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
   
 function csat(){
   
+      var CSATresult = 0;
+      var NPSresult = null;
+  
   
       var bg = document.createElement('div');
       bg.setAttribute("class","csatBG");
@@ -1379,45 +1382,57 @@ function csat(){
                   $("#csat2").attr("class","invisibleCSAT2");
                   $("#csat3").attr("class","invisibleCSAT3");
                   $("#csat4").attr("class","invisibleCSAT4");
-                  $("#csat5").attr("class","invisibleCSAT5"); 
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 1;
               }
               if($(evt.target).is('.emptyCSAT2')||$(evt.target).is('.fullCSAT2')||$(evt.target).is('.invisibleCSAT2')) {
                   $("#csat1").attr("class","fullCSAT1");
                   $("#csat2").attr("class","fullCSAT2");
                   $("#csat3").attr("class","invisibleCSAT3");
                   $("#csat4").attr("class","invisibleCSAT4");
-                  $("#csat5").attr("class","invisibleCSAT5"); 
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 2;
               }
               if($(evt.target).is('.emptyCSAT3')||$(evt.target).is('.fullCSAT3')||$(evt.target).is('.invisibleCSAT3')) {
                   $("#csat1").attr("class","fullCSAT1");
                   $("#csat2").attr("class","fullCSAT2");
                   $("#csat3").attr("class","fullCSAT3");
                   $("#csat4").attr("class","invisibleCSAT4");
-                  $("#csat5").attr("class","invisibleCSAT5"); 
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 3;
               }
               if($(evt.target).is('.emptyCSAT4')||$(evt.target).is('.fullCSAT4')||$(evt.target).is('.invisibleCSAT4')) {
                   $("#csat1").attr("class","fullCSAT1");
                   $("#csat2").attr("class","fullCSAT2");
                   $("#csat3").attr("class","fullCSAT3");
                   $("#csat4").attr("class","fullCSAT4");
-                  $("#csat5").attr("class","invisibleCSAT5"); 
+                  $("#csat5").attr("class","invisibleCSAT5");
+                  CSATresult = 4;
               }
               if($(evt.target).is('.emptyCSAT5')||$(evt.target).is('.fullCSAT5')||$(evt.target).is('.invisibleCSAT5')) {
                   $("#csat1").attr("class","fullCSAT1");
                   $("#csat2").attr("class","fullCSAT2");
                   $("#csat3").attr("class","fullCSAT3");
                   $("#csat4").attr("class","fullCSAT4");
-                  $("#csat5").attr("class","fullCSAT5"); 
+                  $("#csat5").attr("class","fullCSAT5");
+                  CSATresult = 5;
               }
         
               if($(evt.target).is('.NPSyes')||$(evt.target).is('.NPSyesOK')||$(evt.target).is('.NPSyesFade')) {
                   $("#NPSno").attr("class","NPSnoFade");
                   $("#NPSyes").attr("class","NPSyesOK");
+                  NPSresult = true;
               }
         
               if($(evt.target).is('.NPSno')||$(evt.target).is('.NPSnoOK')||$(evt.target).is('.NPSnoFade')) {
                   $("#NPSno").attr("class","NPSnoOK");
                   $("#NPSyes").attr("class","NPSyesFade");
+                  NPSresult = false;
+              }
+        
+        
+              if($(evt.target).is('.submitCSAT')) {
+                  alert("CSAT: " + CSATresult + " *** NPS: " + NPSresult);
               }
       });
   
