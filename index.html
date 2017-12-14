@@ -1246,12 +1246,19 @@ function csat(){
       mydiv.appendChild(NPSmsg);
       document.getElementById("NPSmsg").innerHTML = "Abbiamo risolto il tuo problema?";
   
-      var NPSyes = document.createElement('input');
-      // NPSmsg.setAttribute("class","NPSmsg");
+      var NPSyes = document.createElement('div');
+      NPSyes.setAttribute("class","NPSyes");
       NPSyes.setAttribute("id","NPSyes");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(NPSyes);
       document.getElementById("NPSyes").innerHTML = "Si";
+  
+      var NPSno = document.createElement('div');
+      NPSno.setAttribute("class","NPSno");
+      NPSno.setAttribute("id","NPSno");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(NPSno);
+      document.getElementById("NPSno").innerHTML = "No";
   
   
       
