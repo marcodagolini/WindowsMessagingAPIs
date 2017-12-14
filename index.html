@@ -692,6 +692,8 @@ var LPWs = function () {
       cb: _onNotification
     });
   };
+  
+  
   LPWs.prototype.toFuncName = function toFuncName(reqType) {
     var str = reqType.substr(1 + reqType.lastIndexOf('.'));
     return str.charAt(0).toLowerCase() + str.slice(1);
@@ -1483,8 +1485,12 @@ function publishTo(socket,convID) {
   
 // *****  
 function testtesttest(socket,convID) {
+  
+ 
+  
+  
+  
   socket.publishEvent({
-    
     dialogId:convID,
     event:{
       contentType: "hosted/file",
