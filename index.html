@@ -378,6 +378,19 @@
     cursor: pointer;
     border-radius: 4px;
 }
+  
+.submitCSAT {
+    position:absolute;
+    visibility:visible;
+    left: 95px; 
+    top: 350px;
+    padding: 4px 8px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+  
+  
     
 .form-control { 
     background-color: #bccad6 !important;
@@ -1349,7 +1362,7 @@ function csat(){
   
   
       var submitCSAT = document.createElement('button');
-      submitCSAT.setAttribute("class","btn");
+      submitCSAT.setAttribute("class","submitCSAT");
       submitCSAT.setAttribute("id","submitCSAT");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(submitCSAT);
