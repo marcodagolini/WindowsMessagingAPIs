@@ -1254,13 +1254,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       mydiv.appendChild(newdiv);
       
       
-      csat();
+      csat(socket);
       
     }
   });
 }
   
-function csat(){
+function csat(socket){
   
       var CSATresult = null;
       var NPSresult = null;
