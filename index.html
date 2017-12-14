@@ -253,6 +253,19 @@
     height: 100px;
 }
   
+.NPSmsg{
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+    visibility:visible;
+    font-size: 16pt;
+    color: black;
+    width: 254px;
+    height: 100px;
+    left: -1px; 
+    top: 250px; 
+}
+  
 .csatBG {
     position:absolute;
     visibility:visible;
@@ -1162,6 +1175,15 @@ function csat(){
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(CSATmsg);
       document.getElementById("CSATmsg").innerHTML = "Dacci un tuo giudizio!";
+  
+      var NPSmsg = document.createElement('div');
+      NPSmsg.setAttribute("class","NPSmsg");
+      CSATmsg.setAttribute("id","NPSmsg");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(NPSmsg);
+      document.getElementById("NPSmsg").innerHTML = "Abbiamo risolto il tuo problema?";
+  
+  
   
       var a = document.createElement('div');
       a.setAttribute("class","emptyCSAT1");
