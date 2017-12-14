@@ -1055,10 +1055,10 @@ function handleOpenedSocket(socket,jwt) {
        if($('#textline').val()) {
          if (Object.keys(openConvs)[0]) {
            publishTo(socket,Object.keys(openConvs)[0]);
-           testphotosharing(socket,convID)
+           testphotosharing(socket,Object.keys(openConvs)[0]);
          } else  {
            socket.consumerRequestConversation()
-             .then(resp => publishTo(socket,resp.body.conversationId));
+             .then(resp => {publishTo(socket,resp.body.conversationId); testphotosharing(socket,resp.body.conversationId);});
          }
        }
         
