@@ -1145,102 +1145,101 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           dialogId: change.result.convId
         });
       }
-      
-      if(change.result.conversationDetails.dialogs["1"].dialogId==="COAPP"){
+        if((change.result.conversationDetails.dialogs.lenght) > 1){ //*
+          
+          if(change.result.conversationDetails.dialogs["1"].dialogId==="COAPP"){
         
-        if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="CLOSED"){
-            $(".cobrowse").hide();
-        }
+            if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="CLOSED"){
+                $(".cobrowse").hide();
+            }
         
-        if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
+            if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
           
-          var space = document.createElement('div');
-          space.setAttribute("class","spaceagent");
-          var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-          space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse invitation";
-          var maindiv = document.getElementById('log');
-          maindiv.appendChild(space);
+              var space = document.createElement('div');
+              space.setAttribute("class","spaceagent");
+              var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+              space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse invitation";
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(space);
           
-          var hostdiv = document.createElement('div');
-          hostdiv.setAttribute("class","hostagent");
-          var newdiv = document.createElement('div');
-          newdiv.setAttribute("class","cobrowse");
-          newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode + "<br />";                
-          var newAccept = document.createElement('button');
-          newAccept.setAttribute("id","accept");
-          newAccept.innerHTML = "Accetta";
-          var newDecline = document.createElement('button');
-          newDecline.setAttribute("id","decline");
-          newDecline.innerHTML = "Declina";
-          var maindiv = document.getElementById('log');
-          maindiv.appendChild(hostdiv);
-          hostdiv.appendChild(newdiv);
-          newdiv.appendChild(newAccept);
-          newdiv.appendChild(newDecline);
+              var hostdiv = document.createElement('div');
+              hostdiv.setAttribute("class","hostagent");
+              var newdiv = document.createElement('div');
+              newdiv.setAttribute("class","cobrowse");
+              newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode + "<br />";                
+              var newAccept = document.createElement('button');
+              newAccept.setAttribute("id","accept");
+              newAccept.innerHTML = "Accetta";
+              var newDecline = document.createElement('button');
+              newDecline.setAttribute("id","decline");
+              newDecline.innerHTML = "Declina";
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(hostdiv);
+              hostdiv.appendChild(newdiv);
+              newdiv.appendChild(newAccept);
+              newdiv.appendChild(newDecline);
           
-          console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
-          console.log(change.result.conversationDetails.participants["1"].id);
-          console.log(change.result.conversationDetails.participants["0"].id);
+              console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
+              console.log(change.result.conversationDetails.participants["1"].id);
+              console.log(change.result.conversationDetails.participants["0"].id);
           
           
-          $(document).on('click', function(evt) {
-              if($(evt.target).is('#accept')) {
+              $(document).on('click', function(evt) {
+                  if($(evt.target).is('#accept')) {
                 
-                  lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
- 	                    serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
- 	                    agentId: change.result.conversationDetails.participants["1"].id,
- 	                    visitorName: change.result.conversationDetails.participants["0"].id,
- 	                    //optional parameters:
- 	                    ssid: "<Monitoring Session ID>",
- 	                    svid: "<Monitoring Visitor ID>",
- 	                    scid: "<Monitoring Context ID>",
- 	                    cid: "<Context ID>",
- 	                    eid: "<Engagement ID>"
-                  });
-                  $(".cobrowse").hide();
-                  var space = document.createElement('div');
-                  space.setAttribute("class","spaceagent");
-                  var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-                  space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse accepted";
-                  var maindiv = document.getElementById('log');
-                  maindiv.appendChild(space);
+                      lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
+ 	                        serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
+ 	                        agentId: change.result.conversationDetails.participants["1"].id,
+ 	                        visitorName: change.result.conversationDetails.participants["0"].id,
+ 	                        //optional parameters:
+ 	                        ssid: "<Monitoring Session ID>",
+ 	                        svid: "<Monitoring Visitor ID>",
+ 	                        scid: "<Monitoring Context ID>",
+ 	                        cid: "<Context ID>",
+ 	                        eid: "<Engagement ID>"
+                      });
+                      $(".cobrowse").hide();
+                      var space = document.createElement('div');
+                      space.setAttribute("class","spaceagent");
+                      var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse accepted";
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(space);
                 
-              }
+                  }
             
-              else if($(evt.target).is('#decline')) {
+                  else if($(evt.target).is('#decline')) {
                   
-                  lpTag.events.publish("lpCoBrowse", "cobrowseDeclined", {
- 	                    serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
- 	                    agentId: change.result.conversationDetails.participants["1"].id,
- 	                    visitorName: change.result.conversationDetails.participants["0"].id,
- 	                    //optional parameters:
- 	                    ssid: "<Monitoring Session ID>",
- 	                    svid: "<Monitoring Visitor ID>",
- 	                    scid: "<Monitoring Context ID>",
- 	                    cid: "<Context ID>",
- 	                    eid: "<Engagement ID>"
-                  });
-                  $(".cobrowse").hide();
-                  var space = document.createElement('div');
-                  space.setAttribute("class","spaceagent");
-                  var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-                  space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse declined";
-                  var maindiv = document.getElementById('log');
-                  maindiv.appendChild(space);
+                      lpTag.events.publish("lpCoBrowse", "cobrowseDeclined", {
+ 	                        serviceId: change.result.conversationDetails.dialogs["1"].metaData.serviceId,
+ 	                        agentId: change.result.conversationDetails.participants["1"].id,
+ 	                        visitorName: change.result.conversationDetails.participants["0"].id,
+ 	                        //optional parameters:
+ 	                        ssid: "<Monitoring Session ID>",
+ 	                        svid: "<Monitoring Visitor ID>",
+ 	                        scid: "<Monitoring Context ID>",
+ 	                        cid: "<Context ID>",
+ 	                        eid: "<Engagement ID>"
+                      });
+                      $(".cobrowse").hide();
+                      var space = document.createElement('div');
+                      space.setAttribute("class","spaceagent");
+                      var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
+                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse declined";
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(space);
                 
-              }
-              else {
+                  }
+                  else {
                   
-              }
-          });
-          
-        
-          
+                  }
+              });
+
+            }
+
         }
-
-
-         
-      }
+      
+      } //**
     } else if (change.type === 'DELETE') {
       delete openConvs[change.result.convId];
       // $('#log').append(`La conversazione e' stata chiusa.\n`);
