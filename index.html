@@ -1490,7 +1490,7 @@ function testtesttest(socket,convID) {
     fileType : 'JPG'
   }).then(body => 
   
-  var url = "https://z1.objectstorage.liveperson.net" + body.relativePath + "?temp_url_sig=" + body.queryParams.temp_url_sig + "&temp_url_expires=" + body.queryParams.temp_url_expires + ", filePath: file:///Users/mdagolini/Desktop/test.jpg, httpMethod:PUT";
+  console.log("https://z1.objectstorage.liveperson.net" + body.relativePath + "?temp_url_sig=" + body.queryParams.temp_url_sig + "&temp_url_expires=" + body.queryParams.temp_url_expires + ", filePath: file:///Users/mdagolini/Desktop/test.jpg, httpMethod:PUT")
   // console.log(url);
   
   // socket.publishEvent({
