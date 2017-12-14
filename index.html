@@ -1267,7 +1267,7 @@ function csat(socket, convId){
       var completion;
   
       var bg = document.createElement('div');
-      bg.setAttribute("class","csatBG csat");
+      bg.setAttribute("class","csatBG");
       bg.setAttribute("id","csatBG");
       var mydiv = document.getElementById('ttr');
       mydiv.appendChild(bg);
@@ -1275,7 +1275,7 @@ function csat(socket, convId){
   
   
       var CSATmsg = document.createElement('div');
-      CSATmsg.setAttribute("class","CSATmsg csat");
+      CSATmsg.setAttribute("class","CSATmsg");
       CSATmsg.setAttribute("id","CSATmsg");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(CSATmsg);
@@ -1348,14 +1348,14 @@ function csat(socket, convId){
       document.getElementById("NPSmsg").innerHTML = "Abbiamo risolto il tuo problema?";
   
       var NPSyes = document.createElement('div');
-      NPSyes.setAttribute("class","NPSyes csat");
+      NPSyes.setAttribute("class","NPSyes");
       NPSyes.setAttribute("id","NPSyes");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(NPSyes);
       document.getElementById("NPSyes").innerHTML = "Si";
   
       var NPSno = document.createElement('div');
-      NPSno.setAttribute("class","NPSno csat");
+      NPSno.setAttribute("class","NPSno");
       NPSno.setAttribute("id","NPSno");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(NPSno);
@@ -1363,7 +1363,7 @@ function csat(socket, convId){
   
   
       var submitCSAT = document.createElement('button');
-      submitCSAT.setAttribute("class","submitCSAT csat");
+      submitCSAT.setAttribute("class","submitCSAT");
       submitCSAT.setAttribute("id","submitCSAT");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(submitCSAT);
@@ -1445,13 +1445,7 @@ function csat(socket, convId){
                           conversationId: convId,
                           conversationField: [{"field":"CSATRate","csatRate":CSATresult,"csatResolutionConfirmation":NPSresult,"status":completion}]
                       });
-                  // $(".csatBG").hide();
-                  // $(".CSATmsg").hide();
-                  // $(".emptyCSAT1").hide();
-                  // $(".emptyCSAT2").hide();
-                  // $(".emptyCSAT3").hide();
-                  // $(".emptyCSAT4").hide();
-                  // $(".emptyCSAT5").hide();
+            
                   $("#csatBG").remove();
                 
                 
