@@ -1264,7 +1264,7 @@ function csat(){
   
       var CSATresult = 0;
       var NPSresult = null;
-  
+      var completion;
   
       var bg = document.createElement('div');
       bg.setAttribute("class","csatBG");
@@ -1430,7 +1430,16 @@ function csat(){
         
         
               if($(evt.target).is('.submitCSAT')) {
-                  alert("CSAT: " + CSATresult + " *** NPS: " + NPSresult);
+                  if (CSATresult && NPSresult){
+                      completion = "FILLED";
+                  }
+                  else if (!CSATresult && !NPSresult){
+                      completion = "SKIPPED";
+                  }
+                  else {
+                      completion = "PARTIALLY_FILLED";
+                  }
+                  alert("CSAT: " + CSATresult + " *** NPS: " + NPSresult + " *** Completion: " + completion);
               }
       });
   
