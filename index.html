@@ -1262,8 +1262,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
   
 function csat(){
   
-      var CSATresult;
-      var NPSresult;
+      var CSATresult = 0;
+      var NPSresult = null;
       var completion;
   
       var bg = document.createElement('div');
@@ -1430,10 +1430,10 @@ function csat(){
         
         
               if($(evt.target).is('.submitCSAT')) {
-                  if (CSATresult && NPSresult){
+                  if (CSATresult && !(NPSresult == null)){
                       completion = "FILLED";
                   }
-                  else if (!CSATresult && !NPSresult){
+                  else if (!CSATresult && (NPSresult == null)){
                       completion = "SKIPPED";
                   }
                   else {
