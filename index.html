@@ -1347,6 +1347,16 @@ function csat(){
       document.getElementById("NPSno").innerHTML = "No";
   
   
+      var submitCSAT = document.createElement('button');
+      submitCSAT.setAttribute("class","btn");
+      submitCSAT.setAttribute("id","submitCSAT");
+      var mydiv = document.getElementById('csatBG');
+      mydiv.appendChild(submitCSAT);
+      document.getElementById("submitCSAT").innerHTML = "Invia";
+  
+  
+  
+  
       
   
       $(document).on('click', function(evt) {
