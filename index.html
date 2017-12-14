@@ -1431,7 +1431,7 @@ function csat(socket, convId){
         
         
               if($(evt.target).is('.submitCSAT')) {
-                  if ((!CSATresult == null) && !(NPSresult == null)){
+                  if (!(CSATresult == null) && !(NPSresult == null)){
                       completion = "FILLED";  
                   }
                   else if ((CSATresult  == null) && (NPSresult == null)){
