@@ -1261,7 +1261,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
   
 function csat(){
   
-      var CSATresult = 0;
+      var CSATresult = null;
       var NPSresult = null;
       var completion;
   
@@ -1429,15 +1429,22 @@ function csat(){
         
         
               if($(evt.target).is('.submitCSAT')) {
-                  if (CSATresult && !(NPSresult == null)){
-                      completion = "FILLED";
+                  if ((!CSATresult == null) && !(NPSresult == null)){
+                      completion = "FILLED";  
                   }
-                  else if (!CSATresult && (NPSresult == null)){
+                  else if ((CSATresult  == null) && (NPSresult == null)){
                       completion = "SKIPPED";
                   }
                   else {
                       completion = "PARTIALLY_FILLED";
                   }
+                
+                  
+                  socket.updateConversationField({
+                          conversationId: Object.keys(openConvs)[0],
+                          conversationField: [{"field":"CSATRate","csatRate":CSATresult,"csatResolutionConfirmation":NPSresult,"status":completion}]
+                      });
+                
                   alert("CSAT: " + CSATresult + " *** NPS: " + NPSresult + " *** Completion: " + completion);
               }
       });
