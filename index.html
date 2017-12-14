@@ -1254,13 +1254,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       mydiv.appendChild(newdiv);
       
       
-      csat(socket);
+      csat(socket, change.result.convId);
       
     }
   });
 }
   
-function csat(socket){
+function csat(socket, convId){
   
       var CSATresult = null;
       var NPSresult = null;
@@ -1442,7 +1442,7 @@ function csat(socket){
                 
                   
                   socket.updateConversationField({
-                          conversationId: Object.keys(openConvs)[0],
+                          conversationId: convId,
                           conversationField: [{"field":"CSATRate","csatRate":CSATresult,"csatResolutionConfirmation":NPSresult,"status":completion}]
                       });
                 
