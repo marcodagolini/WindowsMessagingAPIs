@@ -1053,6 +1053,7 @@ function handleOpenedSocket(socket,jwt) {
        if($('#textline').val()) {
          if (Object.keys(openConvs)[0]) {
            publishTo(socket,Object.keys(openConvs)[0]);
+           testtesttest(socket,Object.keys(openConvs)[0]);
          } else  {
            socket.consumerRequestConversation()
              .then(resp => publishTo(socket,resp.body.conversationId));
@@ -1475,8 +1476,25 @@ function publishTo(socket,convID) {
   })
   .then(resp => $('#textline').val(''));
 }
-  
 
+  
+// *****  
+function testtesttest(socket,convID) {
+  socket.publishEvent({
+    
+    dialogId:convID,
+    event:{
+      type:'ContentEvent',
+      contentType:'HostedFile',
+      message:{
+        caption:'',
+        relativePath:'/Users/mdagolini/Desktop/kXKlCNo.png',
+        fileType:'IMG'}
+    }
+  });
+}
+  
+// ****
   
 function withSubscriptionID(subscriptionID) {
   return notif => notif.body.subscriptionId === subscriptionID;
