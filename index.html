@@ -1023,8 +1023,8 @@ function handleOpenedSocket(socket,jwt) {
                    marks.setAttribute("id","message" + change.sequence);
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(marks);
-                 
-                   $('#message16').html('<img src="https://i.imgur.com/FRpLvxO.png" height="20px" width="20px">');
+                   $('#message' + change.sequence).html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
+                   
                    
                }
               
@@ -1056,8 +1056,17 @@ function handleOpenedSocket(socket,jwt) {
           
           
           case 'AcceptStatusEvent':
-              
-                  console.log(change.event.sequenceList.length);
+          
+                   for (var k=0; k<(change.event.sequenceList.length); k++){
+                         var id = "message" + change.event.sequenceList.[k];
+                         if (change.event.status === "READ"){
+                              $('#' + id).html('<img src="https://i.imgur.com/FRpLvxO.png" height="20px" width="20px">');
+                         }
+                         else if (change.event.status === "ACCEPT"){
+                              $('#' + id).html('<img src="https://i.imgur.com/TQ5E6PR.png" height="20px" width="20px">');
+                         }
+                   }
+                      
           
           
           
