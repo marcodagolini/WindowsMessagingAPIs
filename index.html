@@ -1118,8 +1118,9 @@ function handleOpenedSocket(socket,jwt) {
           
           break;
               
-              var textarea = document.getElementById('log');
-              textarea.scrollTop = textarea.scrollHeight;
+              // var textarea = document.getElementById('log');
+              // textarea.scrollTop = textarea.scrollHeight;
+            $("log").animate({ scrollTop: $("log").height() }, "slow");
       }
     
     }));
