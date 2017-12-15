@@ -1014,13 +1014,13 @@ function handleOpenedSocket(socket,jwt) {
                    hostdiv.appendChild(newdiv);
                  
                    var marks = document.createElement('div');
-                   marks.setAttribute("class","spacecustomer");
+                   marks.setAttribute("class","hostcustomer");
                    marks.setAttribute("id","message" + change.sequence);
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(marks);
                    marks.appendChild(newdiv);
                  
-                   $('#message16').prepend('<img id="theImg" src="https://i.imgur.com/181H3rn.png" />');
+                   $('#message16').prepend('<img id="theImg" class="hostcustomer" src="https://i.imgur.com/181H3rn.png" />');
                    
                }
               
