@@ -1092,13 +1092,20 @@ function handleOpenedSocket(socket,jwt) {
                               $('#message' + change.event.sequenceList[k]).html('<img src="https://i.imgur.com/TQ5E6PR.png" height="20px" width="20px">');
                          }
                    }
-                      
-          
-          
-          
+
           
           break;
-              
+          
+          case 'ChatStateEvent':
+           
+                   var typing = document.createElement('div');
+                   typing.setAttribute("class","typing");
+                   typing.setAttribute("id","typing");
+                   var maindiv = document.getElementById('agenttyping');
+                   maindiv.appendChild(typing);
+                   $('#typing').html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
+          
+          break;
               
               var textarea = document.getElementById('log');
               textarea.scrollTop = textarea.scrollHeight;
