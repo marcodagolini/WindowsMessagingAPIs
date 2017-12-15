@@ -1013,6 +1013,14 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(hostdiv);
                    hostdiv.appendChild(newdiv);
+                 
+                   var marks = document.createElement('div');
+                   marks.setAttribute("class","hostcustomer");
+                   marks.setAttribute("id","message" + change.sequence);
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(marks);
+                   marks.appendChild(newdiv);
+                   
                }
               
                else{
