@@ -1008,7 +1008,16 @@ function handleOpenedSocket(socket,jwt) {
             console.log(e);
          }
           
-          $("log").animate({ scrollTop: $("log").height() }, "slow");
+                   $('#agenttyping').remove();
+                   var agenttyping = document.createElement('div');
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
+          
+                   $('html, body').animate({
+                        scrollTop: $("#agenttyping").offset().top
+                   }, 200);
           
         break;
               
@@ -1041,13 +1050,6 @@ function handleOpenedSocket(socket,jwt) {
                    $('#message' + change.sequence).html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
                  
                  
-                   $('#agenttyping').remove();
-                   var agenttyping = document.createElement('div');
-                   agenttyping.setAttribute("class","agenttyping");
-                   agenttyping.setAttribute("id","agenttyping");
-                   var maindiv = document.getElementById('log');
-                   maindiv.appendChild(agenttyping);
-                   
                    
                }
               
@@ -1073,18 +1075,21 @@ function handleOpenedSocket(socket,jwt) {
                    hostdiv.appendChild(newdiv);
                  
                  
-                   $('#agenttyping').remove();
-                   var agenttyping = document.createElement('div');
-                   agenttyping.setAttribute("class","agenttyping");
-                   agenttyping.setAttribute("id","agenttyping");
-                   var maindiv = document.getElementById('log');
-                   maindiv.appendChild(agenttyping);
+                   
                    
                   
                }
           
-          var height = $('#log').outerHeight();
-               $('#log').animate({ scrollTop: $('#log').outerHeight() }, "slow");
+          $('#agenttyping').remove();
+          var agenttyping = document.createElement('div');
+          agenttyping.setAttribute("class","agenttyping");
+          agenttyping.setAttribute("id","agenttyping");
+          var maindiv = document.getElementById('log');
+          maindiv.appendChild(agenttyping);
+          
+          $('html, body').animate({
+              scrollTop: $("#agenttyping").offset().top
+          }, 200);
               
           break;
           
