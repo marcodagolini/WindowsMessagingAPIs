@@ -1058,11 +1058,7 @@ function handleOpenedSocket(socket,jwt) {
        if($('#textline').val()) {
          if (Object.keys(openConvs)[0]) {
            publishTo(socket,Object.keys(openConvs)[0]);
-           var body = testtesttest(socket,Object.keys(openConvs)[0]);
-           var token = body.queryParams['temp_url_sig'];
-           var timestamp = body.queryParams['temp_url_expires'];
-           var url = "https://z1.objectstorage.liveperson.net" + body.relativePath + "?temp_url_sig=" + token + "&temp_url_expires=" + timestamp + ", filePath: file:///Users/mdagolini/Desktop/test.jpg, httpMethod:PUT";
-           console.log(url);
+           // testtesttest(socket,Object.keys(openConvs)[0]);
          } else  {
            socket.consumerRequestConversation()
              .then(resp => publishTo(socket,resp.body.conversationId));
