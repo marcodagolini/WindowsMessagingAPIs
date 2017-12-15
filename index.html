@@ -491,9 +491,14 @@
     text-align: center;
     width: 244px;
 }
+       
     
-    
-    
+.hostmarks {
+    background-color: #ffffff;
+    text-align: right;
+    width: 256px;
+}
+  
 .hostcustomer {
     background-color: #ffffff;
     text-align: right;
@@ -1015,13 +1020,13 @@ function handleOpenedSocket(socket,jwt) {
                    hostdiv.appendChild(newdiv);
                  
                    var marks = document.createElement('div');
-                   marks.setAttribute("class","hostcustomer");
+                   marks.setAttribute("class","hostmarks");
                    marks.setAttribute("id","message" + change.sequence);
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(marks);
                    marks.appendChild(newdiv);
                  
-                   $('#message16').prepend('<img id="theImg" class="hostcustomer" src="https://i.imgur.com/181H3rn.png" />');
+                   $('#message16').prepend('<img id="theImg" class="hostmarks" src="https://i.imgur.com/181H3rn.png" />');
                    
                }
               
