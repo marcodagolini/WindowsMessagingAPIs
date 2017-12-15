@@ -1059,9 +1059,16 @@ function handleOpenedSocket(socket,jwt) {
                          if (change.event.status === "READ"){
                               for (var i=0; i<((change.event.sequenceList[k])+1); i++){
                                   $('#message' + i).html('<img src="https://i.imgur.com/FRpLvxO.png" height="20px" width="20px">');
+                                  $('#message' + i).addClass("read");
                               }
                          }
                          else if (change.event.status === "ACCEPT"){
+                              for (var i=0; i<((change.event.sequenceList[k])+1); i++){
+                                  if (!$('#message' + i).hasClass("read")){
+                                        $('#message' + i).html('<img src="https://i.imgur.com/TQ5E6PR.png" height="20px" width="20px">');
+                                        $('#message' + i).addClass("accept");
+                                  }
+                              }
                               $('#message' + change.event.sequenceList[k]).html('<img src="https://i.imgur.com/TQ5E6PR.png" height="20px" width="20px">');
                          }
                    }
