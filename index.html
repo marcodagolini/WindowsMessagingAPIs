@@ -1015,7 +1015,7 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(agenttyping);
           
-                   $('html, body').animate({
+                   $("#log").animate({
                         scrollTop: $("#agenttyping").offset().top
                    }, 200);
           
@@ -1087,7 +1087,7 @@ function handleOpenedSocket(socket,jwt) {
           var maindiv = document.getElementById('log');
           maindiv.appendChild(agenttyping);
           
-          $('html, body').animate({
+          $("#log").animate({
               scrollTop: $("#agenttyping").offset().top
           }, 200);
               
