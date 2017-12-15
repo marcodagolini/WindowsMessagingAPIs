@@ -1214,8 +1214,11 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                     else if (ore == 0 && minuti !== 0){
                          messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + minuti + " minuti.";
                     }
-                    else{
+                    else if (ore !== 0 && minuti == 0){
                          messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore.";
+                    }
+                    else {
+                         messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni.";
                     }
               }
               else if (Math.floor(diff/(60*60)) > 0){
