@@ -1083,8 +1083,8 @@ function handleOpenedSocket(socket,jwt) {
                   
                }
           
-          var height = $('log').height();
-               $('log').animate({ scrollTop: $('log').height() }, "slow");
+          var height = $('log').outerHeight();
+               $('log').animate({ scrollTop: $('log').outerHeight() }, "slow");
               
           break;
           
