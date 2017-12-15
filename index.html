@@ -1059,7 +1059,11 @@ function handleOpenedSocket(socket,jwt) {
        if($('#textline').val()) {
          if (Object.keys(openConvs)[0]) {
            publishTo(socket,Object.keys(openConvs)[0]);
-           testtesttest(socket,Object.keys(openConvs)[0]);
+           var body = testtesttest(socket,Object.keys(openConvs)[0]);
+           var token = body.queryParams.['temp_url_sig'];
+           var timestamp = body.queryParams.['temp_url_expires'];
+           var url = "https://z1.objectstorage.liveperson.net" + body.relativePath + "?temp_url_sig=" + token + "&temp_url_expires=" + timestamp + ", filePath: file:///Users/mdagolini/Desktop/test.jpg, httpMethod:PUT";
+           console.log(url);
          } else  {
            socket.consumerRequestConversation()
              .then(resp => publishTo(socket,resp.body.conversationId));
@@ -1490,11 +1494,8 @@ function testtesttest(socket,convID) {
   socket.generateURLForUploadFile({
     fileSize : '3615',
     fileType : 'JPG'
-  }).then(body => {
-  var token = body.queryParams.temp_url_sig;
-  var timestamp = body.queryParams.temp_url_expires;
-  console.log("https://z1.objectstorage.liveperson.net" + body.relativePath + "?temp_url_sig=" + token + "&temp_url_expires=" + timestamp + ", filePath: file:///Users/mdagolini/Desktop/test.jpg, httpMethod:PUT");
-  // console.log(url);
+  }).then(body => {return (body);
+  
   }
   // socket.publishEvent({
     // dialogId:convID,
