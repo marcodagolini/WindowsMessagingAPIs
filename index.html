@@ -43,6 +43,12 @@ html, body{
     overflow:hidden;
 }
   
+#container1{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+  
     
 #log {
     position:absolute;
@@ -550,8 +556,9 @@ html, body{
 
 
 <div style="position:absolute; background-image: url(https://i.imgur.com/b54DM6d.png); height: 607px; width: 312px;">
- 
+    <div id="container1">
     <div id="log"></div>
+    </div>
     <form class="form-inline" onsubmit="return false">
         <div class="form-group" style="display:inline;">
             <input id="textline" type="text" class="form-control">
