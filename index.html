@@ -1193,10 +1193,10 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                     ore = Math.floor(diff/(60*60));
                     diff = diff - ore*60*60;
                     minuti = Math.floor(diff/60);
-                    if (ore && minuti){
+                    if (ore !== 0 && minuti !== 0){
                         messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore, " + minuti + " minuti.";
                     }
-                    else if (!ore && minuti){
+                    else if (ore == 0 && minuti !== 0){
                          messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + minuti + " minuti.";
                     }
                     else{
@@ -1207,7 +1207,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                     ore = Math.floor(diff/(60*60));
                     diff = diff - ore*60*60;
                     minuti = Math.floor(diff/60);
-                    if(minuti){
+                    if(minuti !== 0){
                         messaggio = "Un Agente rispondera' entro:</br>" +  ore + " ore, " + minuti + " minuti.";
                     }
                     else{
