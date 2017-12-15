@@ -1052,12 +1052,23 @@ function handleOpenedSocket(socket,jwt) {
                   
                }
               
-              break;
+          break;
+          
+          
+          case 'AcceptStatusEvent':
+              
+                  console.log(change.event.sequenceList.length);
+          
+          
+          
+          
+          break;
               
               
               var textarea = document.getElementById('log');
               textarea.scrollTop = textarea.scrollHeight;
       }
+    
     }));
   // subscribe to open conversations metadata
   socket.subscribeExConversations({
