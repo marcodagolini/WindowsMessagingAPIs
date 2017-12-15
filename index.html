@@ -1039,8 +1039,8 @@ function handleOpenedSocket(socket,jwt) {
                  
                    $('#agenttyping').remove();
                    var agenttyping = document.createElement('div');
-                   marks.setAttribute("class","agenttyping");
-                   marks.setAttribute("id","agenttyping");
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(agenttyping);
                    
