@@ -1007,6 +1007,9 @@ function handleOpenedSocket(socket,jwt) {
          } catch (e) {
             console.log(e);
          }
+          
+          $("log").animate({ scrollTop: $("log").height() }, "slow");
+          
         break;
               
         
@@ -1079,6 +1082,9 @@ function handleOpenedSocket(socket,jwt) {
                    
                   
                }
+          
+          
+               $("log").animate({ scrollTop: $("log").height() }, "slow");
               
           break;
           
@@ -1120,7 +1126,7 @@ function handleOpenedSocket(socket,jwt) {
               
               // var textarea = document.getElementById('log');
               // textarea.scrollTop = textarea.scrollHeight;
-            $("log").animate({ scrollTop: $("log").height() }, "slow");
+            
       }
     
     }));
