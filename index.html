@@ -1058,7 +1058,7 @@ function handleOpenedSocket(socket,jwt) {
           case 'AcceptStatusEvent':
           
                    for (var k=0; k<(change.event.sequenceList.length); k++){
-                         var id = "message" + change.event.sequenceList.[k];
+                         var id = "message" + change.event.sequenceList[k];
                          if (change.event.status === "READ"){
                               $('#' + id).html('<img src="https://i.imgur.com/FRpLvxO.png" height="20px" width="20px">');
                          }
