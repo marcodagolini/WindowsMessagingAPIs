@@ -845,9 +845,6 @@ function handleOpenedSocket(socket,jwt) {
   //console.log(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
-  socket.onlineEventDistribution({
-    'convState': ['OPEN']
-  }).then(body => handleOnlineEventDistribution(body));
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
@@ -1088,12 +1085,7 @@ function handleOpenedSocket(socket,jwt) {
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
-    
-function handleOnlineEventDistribution(socket,body,openConvs){
-  
-  console.log("*********" + body);
-  
-}
+
     
 function handleConversationNotification(socket,notificationBody,openConvs) {
   notificationBody.changes.forEach(change => {
@@ -1528,5 +1520,5 @@ function withType(type) {
 function myId(jwt) {
   return JSON.parse(atob(jwt.split('.')[1])).sub;
 }
-const apiRequestTypes = ['cqm.ExConversationChangeNotification','GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField','ms.GenerateURLForUploadFile','ms.OnlineEventDistribution'];
+const apiRequestTypes = ['cqm.ExConversationChangeNotification','GetClock','cqm.SubscribeExConversations','ms.PublishEvent','cm.ConsumerRequestConversation','ms.SubscribeMessagingEvents','InitConnection','cm.UpdateConversationField','ms.GenerateURLForUploadFile'];
 </script>
