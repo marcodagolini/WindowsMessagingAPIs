@@ -1109,16 +1109,11 @@ function handleOpenedSocket(socket,jwt) {
           case 'ChatStateEvent':
           
                  if(change.event.chatState === "COMPOSING"){
-                      var typing = document.createElement('div');
-                      typing.setAttribute("class","typing");
-                      typing.setAttribute("id","typing");
-                      var maindiv = document.getElementById('agenttyping');
-                      maindiv.appendChild(typing);
-                      $('#typing').html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
+                      $('#agenttyping').html("L'Agente sta scrivendo...");
                  }
           
                  if(change.event.chatState === "ACTIVE"){
-                      $('#typing').remove();
+                      $('#agenttyping').html("");
                  }
           
           break;
