@@ -1491,11 +1491,12 @@ function publishTo(socket,convID) {
 // *****  
 function testtesttest(socket,convID) {
 
-  socket.generateURLForUploadFile({
+  var body = socket.generateURLForUploadFile({
     fileSize : '3615',
     fileType : 'JPG'
-  }).then(body => return body;
+  });
   
+  return body;
   
   // socket.publishEvent({
     // dialogId:convID,
@@ -1511,7 +1512,7 @@ function testtesttest(socket,convID) {
     // }
   // });
    
-  );
+
 }
   
 // ****
