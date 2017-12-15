@@ -844,7 +844,7 @@ function handleOpenedSocket(socket,jwt) {
   //console.log(jwt);
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
-  socket.onlineEventDistribution = (body) => handleOnlineEventDistribution(body);
+  socket.onlineEventDistribution(), body => handleOnlineEventDistribution(body);
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
