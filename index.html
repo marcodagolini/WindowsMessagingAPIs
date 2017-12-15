@@ -462,8 +462,19 @@
     margin-left: 10px;
     
 }
+  
+.agenttyping {
+    background-color: #000000;  
+    text-align: left;
+    width: 246px;
+    font-size: 8px;
+    height: 10px;
+    margin-left: 10px;
     
+}
     
+   
+  
 .spacecustomer {
     background-color: #ffffff;  
     text-align: right;
@@ -1023,6 +1034,14 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(marks);
                    $('#message' + change.sequence).html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
+                 
+                 
+                   $('#agenttyping').remove;
+                   var agenttyping = document.createElement('div');
+                   marks.setAttribute("class","agenttyping");
+                   marks.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
                    
                    
                }
