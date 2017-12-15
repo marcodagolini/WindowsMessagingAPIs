@@ -1053,6 +1053,8 @@ function handleOpenedSocket(socket,jwt) {
     var openConvs = {};
     socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
+    socket.onlineEventDistribution(withSubscriptionID(resp.body.subscriptionId),
+      (notificationBody) => handleOnlineEventDistribution(socket,notificationBody,openConvs));
     $('#send').prop('disabled', false).click(() => {
         
        if($('#textline').val()) {
@@ -1086,7 +1088,11 @@ function handleOpenedSocket(socket,jwt) {
 }
     
     
-    
+function handleOnlineEventDistribution(socket,notificationBody,openConvs){
+  
+  console.log("*********" + notificationBody);
+  
+}
     
 function handleConversationNotification(socket,notificationBody,openConvs) {
   notificationBody.changes.forEach(change => {
