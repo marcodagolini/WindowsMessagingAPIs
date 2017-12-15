@@ -1051,8 +1051,6 @@ function handleOpenedSocket(socket,jwt) {
     var openConvs = {};
     socket.onNotification(withSubscriptionID(resp.body.subscriptionId),
       (notificationBody) => handleConversationNotification(socket,notificationBody,openConvs));
-    socket.onlineEventDistribution(withSubscriptionID(resp.body.subscriptionId),
-      (body) => handleOnlineEventDistribution(socket,body,openConvs));
     $('#send').prop('disabled', false).click(() => {
         
        if($('#textline').val()) {
