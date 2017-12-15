@@ -1067,6 +1067,14 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(hostdiv);
                    hostdiv.appendChild(newdiv);
+                 
+                 
+                   $('#agenttyping').remove();
+                   var agenttyping = document.createElement('div');
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
                    
                   
                }
@@ -1098,13 +1106,19 @@ function handleOpenedSocket(socket,jwt) {
           break;
           
           case 'ChatStateEvent':
-           
-                   var typing = document.createElement('div');
-                   typing.setAttribute("class","typing");
-                   typing.setAttribute("id","typing");
-                   var maindiv = document.getElementById('agenttyping');
-                   maindiv.appendChild(typing);
-                   $('#typing').html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
+          
+                 if(change.event.chatState === "COMPOSING"){
+                      var typing = document.createElement('div');
+                      typing.setAttribute("class","typing");
+                      typing.setAttribute("id","typing");
+                      var maindiv = document.getElementById('agenttyping');
+                      maindiv.appendChild(typing);
+                      $('#typing').html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
+                 }
+          
+                 if(change.event.chatState === "ACTIVE"){
+                      $('#typing').remove();
+                 }
           
           break;
               
