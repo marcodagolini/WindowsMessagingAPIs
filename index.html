@@ -1063,6 +1063,17 @@ function handleOpenedSocket(socket,jwt) {
                    maindiv.appendChild(marks);
                    $('#message' + change.sequence).html('<img src="https://i.imgur.com/XAP9KOi.png" height="20px" width="20px">');
                  
+                   $('#agenttyping').remove();
+                   var agenttyping = document.createElement('div');
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
+                 
+                   $("#log").animate({
+                        scrollTop: 1000000
+                   }, 1);
+                 
                  
                    
                }
@@ -1088,22 +1099,20 @@ function handleOpenedSocket(socket,jwt) {
                    maindiv.appendChild(hostdiv);
                    hostdiv.appendChild(newdiv);
                  
-                 
+                   $('#agenttyping').remove();
+                   var agenttyping = document.createElement('div');
+                   agenttyping.setAttribute("class","agenttyping");
+                   agenttyping.setAttribute("id","agenttyping");
+                   var maindiv = document.getElementById('log');
+                   maindiv.appendChild(agenttyping);
                    
                    
                   
                }
           
-          $('#agenttyping').remove();
-          var agenttyping = document.createElement('div');
-          agenttyping.setAttribute("class","agenttyping");
-          agenttyping.setAttribute("id","agenttyping");
-          var maindiv = document.getElementById('log');
-          maindiv.appendChild(agenttyping);
           
-          $("#log").animate({
-              scrollTop: 1000000
-          }, 1);
+          
+          
               
           break;
           
