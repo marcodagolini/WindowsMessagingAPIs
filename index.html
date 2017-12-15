@@ -1199,7 +1199,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                          messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + minuti + " minuti.";
                     }
                     else{
-                         messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni.";
+                         messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore.";
                     }
               }
               else if (Math.floor(diff/(60*60)) > 0){
