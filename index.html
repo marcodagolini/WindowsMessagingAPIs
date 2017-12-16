@@ -1213,7 +1213,6 @@ function handleOpenedSocket(socket,jwt) {
   
   
 function MakeReadUntilSuccess(socket, change, counter, callback){
-
   if (counter < (lastsent +1)) {  
 	    setTimeout(function(){ 
           socket.publishEvent({
@@ -1258,7 +1257,7 @@ function newBadge(socket, change){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
                     $('.badge').hide();
-                    MakeReadUntilSuccess(socket, change, 0, callback);
+                    MakeReadUntilSuccess(socket, change, 0);
                     badge = 0;
                 }
             }, 500);
