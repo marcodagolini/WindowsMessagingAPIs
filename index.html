@@ -1078,7 +1078,7 @@ function handleOpenedSocket(socket,jwt) {
                  
                    $("#log").animate({
                         scrollTop: 1000000
-                   }, 1);
+                   }, 1000);
                  
                  
                    
@@ -1211,6 +1211,15 @@ function newBadge(){
 
   if($("#agenttyping").position().top > 405){
          badge ++;
+         if(badge == 1){
+            setInterval(function(){ 
+                if($("#agenttyping").position().top < 410){
+                    $('.alertbadge').hide();
+                    $('.badge').hide();
+                    badge = 0;
+                }
+            }, 500);
+         }
          $('.badge').html(badge);
          $('.alertbadge').show();
          $('.badge').show();
@@ -1223,7 +1232,7 @@ function newBadge(){
              $('.badge').hide();
              $("#log").animate({
                    scrollTop: 1000000
-             }, 600);
+             }, 1000);
          }
          if($(evt.target).is('.badge')) {
              badge = 0;
@@ -1231,7 +1240,7 @@ function newBadge(){
              $('.badge').hide();
              $("#log").animate({
                     scrollTop: 1000000
-             }, 600);
+             }, 1000);
          }
   });
   
