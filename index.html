@@ -1502,6 +1502,11 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       var mydiv = document.getElementById('log');
       mydiv.appendChild(newdiv);
       
+        
+      $('.alertbadge').hide();
+      $('.badge').hide();
+      badge = 0;
+      
       
       csat(socket, change.result.convId);
       
@@ -1514,6 +1519,8 @@ function csat(socket, convId){
       var CSATresult = null;
       var NPSresult = null;
       var completion;
+  
+
   
       var bg = document.createElement('div');
       bg.setAttribute("class","csatBG");
