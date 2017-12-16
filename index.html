@@ -1295,6 +1295,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
         
             if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="CLOSED"){
                 $(".cobrowse").hide();
+              
+                $('#agenttyping').remove();
+                var agenttyping = document.createElement('div');
+                agenttyping.setAttribute("class","agenttyping");
+                agenttyping.setAttribute("id","agenttyping");
+                var maindiv = document.getElementById('log');
+                maindiv.appendChild(agenttyping);
             }
         
             if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
@@ -1322,6 +1329,16 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               hostdiv.appendChild(newdiv);
               newdiv.appendChild(newAccept);
               newdiv.appendChild(newDecline);
+              
+              $('#agenttyping').remove();
+              var agenttyping = document.createElement('div');
+              agenttyping.setAttribute("class","agenttyping");
+              agenttyping.setAttribute("id","agenttyping");
+              var maindiv = document.getElementById('log');
+              maindiv.appendChild(agenttyping);
+                    
+              newBadge();
+              
           
               console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
               console.log(change.result.conversationDetails.participants["1"].id);
@@ -1357,7 +1374,6 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                       var maindiv = document.getElementById('log');
                       maindiv.appendChild(agenttyping);
                     
-                      newBadge();
                 
                   }
             
@@ -1381,6 +1397,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                       space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse declined";
                       var maindiv = document.getElementById('log');
                       maindiv.appendChild(space);
+                    
+                      $('#agenttyping').remove();
+                      var agenttyping = document.createElement('div');
+                      agenttyping.setAttribute("class","agenttyping");
+                      agenttyping.setAttribute("id","agenttyping");
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(agenttyping);
                 
                   }
                   else {
