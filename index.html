@@ -1216,6 +1216,25 @@ function newBadge(){
          $('.badge').show();
   }
   
+  $(document).on('click', function(evt) {
+         if($(evt.target).is('.alertbadge')) {
+             badge = 0;
+             $('.alertbadge').hide();
+             $('.badge').hide();
+             $("#log").animate({
+                   scrollTop: 1000000
+             }, 600);
+         }
+         if($(evt.target).is('.badge')) {
+             badge = 0;
+             $('.alertbadge').hide();
+             $('.badge').hide();
+             $("#log").animate({
+                    scrollTop: 1000000
+             }, 600);
+         }
+  });
+  
 }
     
 function handleConversationNotification(socket,notificationBody,openConvs) {
