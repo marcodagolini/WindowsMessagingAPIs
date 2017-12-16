@@ -1230,7 +1230,7 @@ function newBadge(socket, change){
                 if($("#agenttyping").position().top < 410){
                     $('.alertbadge').hide();
                     $('.badge').hide();
-                    for(var i = 0; i < (lastsent + 1); i++){
+                    for(var i = 0; (i < (lastsent + 1)); i++){
                       
                       socket.publishEvent({
                           dialogId: change.dialogId,
@@ -1252,15 +1252,8 @@ function newBadge(socket, change){
          $('.badge').show();
   }
   else{
-    console.log("****");
-    socket.publishEvent({
-        dialogId: change.dialogId,
-        event: {
-            type: 'AcceptStatusEvent',
-            status: 'ACCEPT',
-            sequenceList: [change.sequence]
-        }
-    }, body => console.log(body));
+
+
     
     socket.publishEvent({
         dialogId: change.dialogId,
@@ -1269,8 +1262,8 @@ function newBadge(socket, change){
             status: 'READ',
             sequenceList: [change.sequence]
         }
-    }, body => console.log(body));
-    console.log("****");
+    });
+
     
   }
   
@@ -1496,7 +1489,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 
         }
       
-      } //**
+      } 
     } else if (change.type === 'DELETE') {
       delete openConvs[change.result.convId];
       // $('#log').append(`La conversazione e' stata chiusa.\n`);
