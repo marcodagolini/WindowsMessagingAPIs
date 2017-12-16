@@ -1228,6 +1228,7 @@ function newBadge(socket, change){
          if(badge == 1){
             var oneTimeLoop = setInterval(function(){ 
                 if($("#agenttyping").position().top < 410){
+                    clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
                     $('.badge').hide();
                     for(var i = 0; (i < (lastsent + 1)); i++){
@@ -1240,10 +1241,8 @@ function newBadge(socket, change){
                               sequenceList: lastsent
                           }
                       });
-                      
                     }
                     badge = 0;
-                    clearInterval(oneTimeLoop);
                 }
             }, 500);
          }
