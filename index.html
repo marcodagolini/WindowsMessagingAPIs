@@ -1209,11 +1209,12 @@ function handleOpenedSocket(socket,jwt) {
     
 function newBadge(socket, change){
   
-  
+  var lastsent;
   
 
   if($("#agenttyping").position().top > 405){
          badge ++;
+         lastsent = change.sequence;
     
           socket.publishEvent({
               dialogId: change.dialogId,
@@ -1229,6 +1230,18 @@ function newBadge(socket, change){
                 if($("#agenttyping").position().top < 410){
                     $('.alertbadge').hide();
                     $('.badge').hide();
+                    for(var i = 0; i < (lastsent + 1); i++){
+                      
+                      socket.publishEvent({
+                          dialogId: change.dialogId,
+                          event: {
+                              type: 'AcceptStatusEvent',
+                              cstatus: 'READ',
+                              sequenceList: lastsent
+                          }
+                      });
+                      
+                    }
                     badge = 0;
                 }
             }, 500);
@@ -1236,6 +1249,18 @@ function newBadge(socket, change){
          $('.badge').html(badge);
          $('.alertbadge').show();
          $('.badge').show();
+  }
+  else{
+    
+    socket.publishEvent({
+        dialogId: change.dialogId,
+        event: {
+            type: 'AcceptStatusEvent',
+            cstatus: 'READ',
+            sequenceList: [change.sequence]
+        }
+    });
+    
   }
   
   $(document).on('click', function(evt) {
