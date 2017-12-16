@@ -1219,11 +1219,11 @@ function newBadge(){
                 }
             }, 500);
          }
-         setTimeout(function(){
+         setInterval(function(){
               $('.badge').html(badge);
               $('.alertbadge').show();
               $('.badge').show();
-         }, 500);
+         }, 1500);
   }
   
   $(document).on('click', function(evt) {
