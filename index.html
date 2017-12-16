@@ -1225,7 +1225,7 @@ function MakeReadUntilSuccess(socket, change, counter, callback){
            });
           counter++;
 		      MakeReadUntilSuccess(socket, change, counter, callback);
-	    }, 100);
+	    }, 5);
   }
   else{
       return; 
