@@ -1036,9 +1036,7 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(agenttyping);
           
-                   $("#log").animate({
-                        scrollTop: 1000000
-                   }, 1);
+                   
           
         break;
               
@@ -1113,12 +1111,7 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(agenttyping);
                  
-                   if($("#agenttyping").position().top > 405){
-                      
-                      $('.alertbadge').show();
-                      $('.badge').show();
-                      
-                   }
+                   newBadge();
 
                    
                    
@@ -1212,7 +1205,14 @@ function handleOpenedSocket(socket,jwt) {
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
-
+function newBadge(){
+  
+  if($("#agenttyping").position().top > 405){
+         $('.alertbadge').show();
+         $('.badge').show();
+  }
+  
+}
     
 function handleConversationNotification(socket,notificationBody,openConvs) {
   notificationBody.changes.forEach(change => {
