@@ -1036,7 +1036,7 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(agenttyping);
           
-                   newBadge();
+                   newBadge(socket, change);
           
                    
           
@@ -1113,7 +1113,7 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(agenttyping);
                  
-                   newBadge();
+                   newBadge(socket, change);
 
                    
                    
@@ -1207,11 +1207,23 @@ function handleOpenedSocket(socket,jwt) {
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
     
-function newBadge(){
+function newBadge(socket, change){
+  
+  
   
 
   if($("#agenttyping").position().top > 405){
          badge ++;
+    
+          socket.publishEvent({
+              dialogId: change.dialogId,
+              event: {
+                type: 'AcceptStatusEvent',
+                cstatus: 'ACCEPT',
+                sequenceList: [change.sequence]
+              }
+          });
+    
          if(badge == 1){
             setInterval(function(){ 
                 if($("#agenttyping").position().top < 410){
@@ -1370,7 +1382,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               var maindiv = document.getElementById('log');
               maindiv.appendChild(agenttyping);
                     
-              newBadge();
+              newBadge(socket, change);
               
           
               console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
