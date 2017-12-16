@@ -1223,7 +1223,7 @@ function newBadge(socket, change){
                 status: 'ACCEPT',
                 sequenceList: [change.sequence]
               }
-          }, (body) => console.log(body));
+          });
     
          if(badge == 1){
             var oneTimeLoop = setInterval(function(){ 
@@ -1238,7 +1238,7 @@ function newBadge(socket, change){
                           event: {
                               type: 'AcceptStatusEvent',
                               status: 'READ',
-                              sequenceList: lastsent
+                              sequenceList: i
                           }
                       });
                     }
