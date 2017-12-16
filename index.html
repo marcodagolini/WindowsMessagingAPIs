@@ -1035,6 +1035,8 @@ function handleOpenedSocket(socket,jwt) {
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(agenttyping);
           
+                   newBadge();
+          
                    
           
         break;
@@ -1348,6 +1350,15 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                       space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse accepted";
                       var maindiv = document.getElementById('log');
                       maindiv.appendChild(space);
+                    
+                      $('#agenttyping').remove();
+                      var agenttyping = document.createElement('div');
+                      agenttyping.setAttribute("class","agenttyping");
+                      agenttyping.setAttribute("id","agenttyping");
+                      var maindiv = document.getElementById('log');
+                      maindiv.appendChild(agenttyping);
+                    
+                      newBadge();
                 
                   }
             
