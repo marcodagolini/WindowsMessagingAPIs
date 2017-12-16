@@ -1232,7 +1232,7 @@ function newBadge(socket, change){
                     $('.alertbadge').hide();
                     $('.badge').hide();
                     for(var i = 0; (i < (lastsent + 1)); i++){
-                      
+                      console.log(i);
                       socket.publishEvent({
                           dialogId: change.dialogId,
                           event: {
