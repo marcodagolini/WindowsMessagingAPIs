@@ -1258,7 +1258,7 @@ function newBadge(socket, change){
             cstatus: 'ACCEPT',
             sequenceList: [change.sequence]
         }
-    }, (body) => console.log(body));
+    }, body => console.log(body));
     
     socket.publishEvent({
         dialogId: change.dialogId,
@@ -1267,7 +1267,7 @@ function newBadge(socket, change){
             cstatus: 'READ',
             sequenceList: [change.sequence]
         }
-    }, (body) => console.log(body));
+    }, body => console.log(body));
     console.log("****");
     
   }
