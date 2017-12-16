@@ -1078,7 +1078,7 @@ function handleOpenedSocket(socket,jwt) {
                  
                    $("#log").animate({
                         scrollTop: 1000000
-                   }, 1000);
+                   }, 1);
                  
                  
                    
@@ -1220,9 +1220,11 @@ function newBadge(){
                 }
             }, 500);
          }
-         $('.badge').html(badge);
-         $('.alertbadge').show();
-         $('.badge').show();
+         setTimeout(function(){
+              $('.badge').html(badge);
+              $('.alertbadge').show();
+              $('.badge').show();
+         }, 500);
   }
   
   $(document).on('click', function(evt) {
@@ -1232,7 +1234,7 @@ function newBadge(){
              $('.badge').hide();
              $("#log").animate({
                    scrollTop: 1000000
-             }, 1000);
+             }, 1);
          }
          if($(evt.target).is('.badge')) {
              badge = 0;
@@ -1240,7 +1242,7 @@ function newBadge(){
              $('.badge').hide();
              $("#log").animate({
                     scrollTop: 1000000
-             }, 1000);
+             }, 1);
          }
   });
   
