@@ -1208,8 +1208,9 @@ function handleOpenedSocket(socket,jwt) {
     
 function newBadge(){
   
-  badge ++;
+
   if($("#agenttyping").position().top > 405){
+         badge ++;
          $('.badge').html(badge);
          $('.alertbadge').show();
          $('.badge').show();
