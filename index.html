@@ -1209,6 +1209,30 @@ function handleOpenedSocket(socket,jwt) {
   //socket.getClock();
   socket.ws.onclose = (evt) => onCloseSocket(socket,evt);
 }
+  
+  
+  
+function MakeReadUntilSuccess(socket, change, counter, callback){
+
+  if (counter < (lastsent +1)) {  
+	    setTimeout(function(){ 
+          socket.publishEvent({
+                 dialogId: change.dialogId,
+                 event: {
+                     type: 'AcceptStatusEvent',
+                     status: 'READ',
+                     sequenceList: counter
+                 }
+           });
+          counter++;
+		      MakeReadUntilSuccess(socket, change, counter, callback);
+	    }, 100);
+  }
+  else{
+      return; 
+  }
+
+}
     
 function newBadge(socket, change){
   
@@ -1234,17 +1258,7 @@ function newBadge(socket, change){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
                     $('.badge').hide();
-                    for(var i = 0; (i < (lastsent + 1)); i++){
-                      console.log(i);
-                      socket.publishEvent({
-                          dialogId: change.dialogId,
-                          event: {
-                              type: 'AcceptStatusEvent',
-                              status: 'READ',
-                              sequenceList: i
-                          }
-                      });
-                    }
+                    MakeReadUntilSuccess(socket, change, 0, callback);
                     badge = 0;
                 }
             }, 500);
