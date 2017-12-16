@@ -1257,6 +1257,15 @@ function newBadge(socket, change){
         dialogId: change.dialogId,
         event: {
             type: 'AcceptStatusEvent',
+            cstatus: 'ACCEPT',
+            sequenceList: [change.sequence]
+        }
+    }, (body) => console.log(body));
+    
+    socket.publishEvent({
+        dialogId: change.dialogId,
+        event: {
+            type: 'AcceptStatusEvent',
             cstatus: 'READ',
             sequenceList: [change.sequence]
         }
