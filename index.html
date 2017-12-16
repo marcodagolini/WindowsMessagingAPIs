@@ -1227,7 +1227,7 @@ function newBadge(socket, change){
           });
     
          if(badge == 1){
-            var oneTimeLoop = setInterval(function(){ 
+            var oneTimeLoop = setInterval(function(lastsent){ 
                 if($("#agenttyping").position().top < 410){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
