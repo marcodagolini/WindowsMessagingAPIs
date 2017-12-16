@@ -809,7 +809,8 @@ function AllowNotifications() {
 }
   
 AllowNotifications();
-  
+
+var lastsent;
 var badge = 0;  
 var manualETTR = 0;
   
@@ -1211,7 +1212,7 @@ function handleOpenedSocket(socket,jwt) {
     
 function newBadge(socket, change){
   
-  var lastsent;
+  
   
 
   if($("#agenttyping").position().top > 405){
@@ -1228,7 +1229,7 @@ function newBadge(socket, change){
           });
     
          if(badge == 1){
-            var oneTimeLoop = setInterval(function(lastsent){ 
+            var oneTimeLoop = setInterval(function(){ 
                 if($("#agenttyping").position().top < 410){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
