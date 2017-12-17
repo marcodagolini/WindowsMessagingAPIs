@@ -1395,7 +1395,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                     diff = diff - ore*60*60;
                     minuti = Math.floor(diff/60);
                     if(minuti !== 0){
-                        messaggio = "We will answer before:</br>" +  ore + " ore, " + minuti + " minutes.";
+                        messaggio = "We will answer before:</br>" +  ore + " hours, " + minuti + " minutes.";
                     }
                     else{
                         messaggio = "We will answer before:</br>" +  ore + " hours.";
