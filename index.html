@@ -1254,7 +1254,7 @@ function newBadge(socket, change){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
                     $('.badge').hide();
-                    MakeReadUntilSuccess(socket, change.dialogId, arrayBadge, 0, callback);
+                    MakeReadUntilSuccess(socket, change.dialogId, arrayBadge, 0);
 		    arrayBadge = [];
                     badge = 0;
                 }
