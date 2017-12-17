@@ -1326,7 +1326,6 @@ function newBadge(socket, change){
   $(document).on('click', function(evt) {
 	 var scrollToTop = $("#agenttyping").position().top - $(".intro").position().top;
          if($(evt.target).is('.alertbadge') && $('.alertbadge').is(":visible")) {
-		 alert(scrollToTop);
              badge = 0;
              $('.alertbadge').hide();
              $('.badge').hide();
@@ -1335,7 +1334,6 @@ function newBadge(socket, change){
              }, 1000);
          }
          if($(evt.target).is('.badge') && $('.badge').is(":visible")) {
-		 alert(scrollToTop);
              badge = 0;
              $('.alertbadge').hide();
              $('.badge').hide();
