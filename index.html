@@ -1212,8 +1212,8 @@ function handleOpenedSocket(socket,jwt) {
   
   
   
-function MakeReadUntilSuccess(socket, dialogId, arrayBadge){
-  	for (var counter = 0; counter < (arrayBadge.length +1); counter++) {   
+function MakeReadUntilSuccess(socket, dialogId, arrayBadge, counter, callback){
+  	if (counter < (arrayBadge.length + 1)) {   
           	socket.publishEvent({
                  	dialogId: dialogId,
                  	event: {
@@ -1223,6 +1223,7 @@ function MakeReadUntilSuccess(socket, dialogId, arrayBadge){
                  	}
            	});
           	counter++;
+		MakeReadUntilSuccess(socket, dialogId, arrayBadge, counter, callback);
 	}
   	
 
@@ -1252,7 +1253,7 @@ function newBadge(socket, change){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
                     $('.badge').hide();
-                    MakeReadUntilSuccess(socket, change.dialogId, arrayBadge);
+                    MakeReadUntilSuccess(socket, change.dialogId, arrayBadge, 0, callback);
 		    arrayBadge = [];
                     badge = 0;
                 }
