@@ -1290,7 +1290,7 @@ function newBadge(socket, change){
  
   
 
-  if($("#agenttyping").position().top > 405){
+  // if($("#agenttyping").position().top > 405){
          badge ++;
 	 arrayBadge.push(change.sequence); 
     
@@ -1305,7 +1305,7 @@ function newBadge(socket, change){
     
          if(badge == 1){
             var oneTimeLoop = setInterval(function(){ 
-                if($("#agenttyping").position().top < 410){
+                if(($("#agenttyping").position().top < 405) && ($("#agenttyping").position().top > 404)){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
                     $('.badge').hide();
@@ -1318,8 +1318,8 @@ function newBadge(socket, change){
          $('.badge').html(badge);
          $('.alertbadge').show();
          $('.badge').show();
-  }
-  else{
+  // }
+ /* else{
 
 
     
@@ -1334,6 +1334,8 @@ function newBadge(socket, change){
 
     
   }
+  
+  */
   
   $(document).on('click', function(evt) {
 	 var scrollToTop = $("#agenttyping").position().top - $(".intro").position().top;
