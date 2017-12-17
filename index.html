@@ -1473,7 +1473,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               var maindiv = document.getElementById('log');
               maindiv.appendChild(agenttyping);
                     
-              newBadge(socket, change);
+              notifyMe("CoBrowse invitation");
+	      newBadge(socket, change);
               
           
               console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
