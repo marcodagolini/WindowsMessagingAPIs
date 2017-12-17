@@ -808,15 +808,19 @@ function notifyMe(text) {
   
   
 function AllowNotifications() {
-  if (!Notification) {
-	  window.name = "WindowMessagingAPIs";
+  if (!Notification) { //*** notifications not supported
     	  return;
   }
 
-  if (Notification.permission !== "granted")
+  if (Notification.permission !== "granted"){
     	  Notification.requestPermission();
+  }
+  else{	
+	window.name = "WindowMessagingAPIs";	
+  }
 
 }
+	
   
 AllowNotifications();
 
