@@ -798,7 +798,12 @@ function notifyMe(text) {
 
     notification.onclick = function () {
       var wnd = $("#window").data("LPMessagingAPIs");
-      alert(wnd.element.is(":hidden"));
+	    if (wnd.element.is(":hidden")){
+		    
+		    window.open("https://marcodagolini.github.io/WindowsMessagingAPIs/");
+		    
+	    }
+      // alert(wnd.element.is(":hidden"));
       // window.open("https://marcodagolini.github.io/WindowsMessagingAPIs/");      
     };
 
