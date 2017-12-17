@@ -796,7 +796,9 @@ function notifyMe(text) {
     });
 
     notification.onclick = function () {
-      window.open("https://marcodagolini.github.io/WindowsMessagingAPIs/");      
+      var wnd = $("#window").data("LPMessagingAPIs");
+      alert(wnd.element.is(":hidden"));
+      // window.open("https://marcodagolini.github.io/WindowsMessagingAPIs/");      
     };
 
 }
