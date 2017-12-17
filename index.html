@@ -1328,7 +1328,7 @@ function newBadge(socket, change){
   
   $(document).on('click', function(evt) {
 	 var scrollToTop = $("#agenttyping").position().top - 404;
-         if($(evt.target).is('.alertbadge')) {
+         if($(evt.target).is('.alertbadge') && $('.alertbadge').is(":visible")) {
              badge = 0;
              $('.alertbadge').hide();
              $('.badge').hide();
@@ -1336,7 +1336,7 @@ function newBadge(socket, change){
                    scrollTop: scrollToTop
              }, 2000);
          }
-         if($(evt.target).is('.badge')) {
+         if($(evt.target).is('.badge') && $('.badge').is(":visible")) {
              badge = 0;
              $('.alertbadge').hide();
              $('.badge').hide();
@@ -1344,7 +1344,6 @@ function newBadge(socket, change){
                     scrollTop: scrollToTop
              }, 2000);
          }
-	 return;
   });
   
 }
