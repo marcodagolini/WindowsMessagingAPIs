@@ -895,7 +895,8 @@ function handleOpenedSocket(socket,jwt) {
 	  console.log(url);
 	  console.log("***pre-done***");
 	  
-	  setTimeout(function(){ 
+	  setTimeout(function(){
+		console.log("...starting");
                 socket.onNotification(withType('MessagingEvent'),
     			body => {
 			        console.log("inside");
