@@ -888,7 +888,7 @@ function handleOpenedSocket(socket,jwt) {
     "fileSize" : "53334",
     "fileType" : "JPG"
   }
-).then(resp => {console.log(resp); alert(resp);});
+).then(resp => {console.log(resp); alert(resp.body.queryParams["temp_url_expires"]);});
 	
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
