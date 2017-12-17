@@ -951,7 +951,7 @@ function handleOpenedSocket(socket,jwt) {
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
               var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-              space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
+              space.innerHTML = new Date(change.serverTimestamp).toLocaleString('en-US', options);
               var maindiv = document.getElementById('log');
               maindiv.appendChild(space);
                   
@@ -1105,7 +1105,7 @@ function handleOpenedSocket(socket,jwt) {
                    var space = document.createElement('div');
                    space.setAttribute("class","spacecustomer");
                    var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
+                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('en-US', options);
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(space);
                    
@@ -1148,7 +1148,7 @@ function handleOpenedSocket(socket,jwt) {
                    var space = document.createElement('div');
                    space.setAttribute("class","spaceagent");
                    var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('it-IT', options);
+                   space.innerHTML = new Date(change.serverTimestamp).toLocaleString('en-US', options);
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(space);
                    
@@ -1461,7 +1461,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
               var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-              space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse invitation";
+              space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('en-US', options) + " *** Cobrowse invitation";
               var maindiv = document.getElementById('log');
               maindiv.appendChild(space);
           
@@ -1516,7 +1516,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                       var space = document.createElement('div');
                       space.setAttribute("class","spaceagent");
                       var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse accepted";
+                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('en-US', options) + " *** Cobrowse accepted";
                       var maindiv = document.getElementById('log');
                       maindiv.appendChild(space);
                     
@@ -1547,7 +1547,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                       var space = document.createElement('div');
                       space.setAttribute("class","spaceagent");
                       var options = {'weekday': 'long', 'month': '2-digit', 'day': '2-digit', 'hour': '2-digit', 'minute': '2-digit', 'second': '2-digit'};
-                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('it-IT', options) + " *** Cobrowse declined";
+                      space.innerHTML = new Date(change.result.conversationDetails.metaDataLastUpdateTs).toLocaleString('en-US', options) + " *** Cobrowse declined";
                       var maindiv = document.getElementById('log');
                       maindiv.appendChild(space);
                     
