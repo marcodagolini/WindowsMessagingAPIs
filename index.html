@@ -808,10 +808,9 @@ function AllowNotifications() {
 AllowNotifications();
 
 	
-var arrayBadge = []; 
-var lastsent;
-var badge = 0;  
-var manualETTR = 0;
+var arrayBadge = []; // *** unread events
+var badge = 0;  // *** number of unread events
+var manualETTR = 0; // *** Actual Expected Time To Respond
   
 //**** actions
 var publishText = '<div onclick="console.log(this.firstChild.title); (document.getElementsByClassName(\'form-control\')[0]).value = this.firstChild.title; return false;" ></div>';
