@@ -1338,6 +1338,9 @@ function newBadge(socket, change){
   
   $(document).on('click', function(evt) {
 	 var scrollToTop = $("#agenttyping").position().top - $(".intro").position().top;
+	 if($("#agenttyping").position().top < 404){
+		 MakeReadUntilSuccess(socket, change.dialogId, arrayBadge, 0);
+	 }
          if($(evt.target).is('.alertbadge') && $('.alertbadge').is(":visible")) {
              badge = 0;
              $('.alertbadge').hide();
