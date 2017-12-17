@@ -1324,12 +1324,13 @@ function newBadge(socket, change){
   }
   
   $(document).on('click', function(evt) {
+	 var scrollToTop = $("#agenttyping").position().top - 404;
          if($(evt.target).is('.alertbadge')) {
              badge = 0;
              $('.alertbadge').hide();
              $('.badge').hide();
              $("#log").animate({
-                   scrollTop: ($("#agenttyping").position().top - 404)
+                   scrollTop: scrollToTop
              }, 2000);
          }
          if($(evt.target).is('.badge')) {
@@ -1337,7 +1338,7 @@ function newBadge(socket, change){
              $('.alertbadge').hide();
              $('.badge').hide();
              $("#log").animate({
-                    scrollTop: ($("#agenttyping").position().top - 404)
+                    scrollTop: scrollToTop
              }, 2000);
          }
   });
