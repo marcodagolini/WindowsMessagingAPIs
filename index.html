@@ -1325,14 +1325,14 @@ function newBadge(socket, change){
   }
   
   $(document).on('click', function(evt) {
-	 var scrollToTop = $("#agenttyping").position().top - 404;
+	 var scrollToTop = $("#agenttyping").position().top - $(".intro").position().top;
          if($(evt.target).is('.alertbadge') && $('.alertbadge').is(":visible")) {
 		 alert(scrollToTop);
              badge = 0;
              $('.alertbadge').hide();
              $('.badge').hide();
              $("#log").animate({
-                   scrollTop: $("#agenttyping").position().top
+                   scrollTop: scrollToTop
              }, 1000);
          }
          if($(evt.target).is('.badge') && $('.badge').is(":visible")) {
@@ -1341,7 +1341,7 @@ function newBadge(socket, change){
              $('.alertbadge').hide();
              $('.badge').hide();
              $("#log").animate({
-                    scrollTop: $("#agenttyping").position().top
+                    scrollTop: scrollToTop
              }, 1000);
          }
   });
