@@ -901,7 +901,7 @@ function handleOpenedSocket(socket,jwt) {
     			body => {
 			        console.log("inside");
 				socket.publishEvent({
-                 			dialogId: body.changes.dialogId,
+                 			dialogId: body.changes["0"].dialogId,
                  			event: {
                      				type: 'ContentEvent',
                      				contentType: 'hosted/file',
