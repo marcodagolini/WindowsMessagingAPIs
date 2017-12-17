@@ -801,7 +801,7 @@ function notifyMe(text) {
     });
 
     notification.onclick = function () {
-	    window.open("", "LPMessagingAPIs").focus();
+	    window.open("", "WindowMessagingAPIs").focus();
     };
 
 }
@@ -809,11 +809,12 @@ function notifyMe(text) {
   
 function AllowNotifications() {
   if (!Notification) {
-    return;
+	  window.name = "WindowMessagingAPIs";
+    	  return;
   }
 
   if (Notification.permission !== "granted")
-    Notification.requestPermission();
+    	  Notification.requestPermission();
 
 }
   
