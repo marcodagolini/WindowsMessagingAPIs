@@ -889,7 +889,7 @@ function handleOpenedSocket(socket,jwt) {
     "fileSize" : "53334",
     "fileType" : "JPG"
   }
-).then(resp => {console.log(resp);});
+).then(resp => {console.log(resp); alert(resp);});
 	
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
