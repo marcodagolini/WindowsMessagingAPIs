@@ -569,7 +569,7 @@ html, body{
         <div class="form-group" style="display:inline;">
             <input id="textline" type="text" class="form-control">
         </div>
-        <button id="send" class="btn" disabled>invia</button>
+        <button id="send" class="btn" disabled>send</button>
 
         <div class="form-group" style="display:none;">
             <label for="account">Account:</label>
@@ -907,7 +907,7 @@ function handleOpenedSocket(socket,jwt) {
     
   var newdiv = document.createElement('div');
   newdiv.setAttribute("class","intro");
-  newdiv.innerHTML = "Benvenuti nel nuovo servizio di Messaging asincrono!<br><br>I nostri Agenti saranno presto disponibili.<br><br>";
+  newdiv.innerHTML = "Welcome in our asynchronous Messaging service!<br><br>Our Agents will be soon available<br><br>";
   var mydiv = document.getElementById('log');
   mydiv.appendChild(newdiv);
  
@@ -947,7 +947,7 @@ function handleOpenedSocket(socket,jwt) {
          case 'RichContentEvent':
               
               if (((new Date().getTime()) - change.serverTimestamp)/1000 < 10)
-                  notifyMe("Nuovo contenuto strutturato");
+                  notifyMe("New structured content");
           
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
@@ -1210,7 +1210,7 @@ function handleOpenedSocket(socket,jwt) {
           case 'ChatStateEvent':
           
                  if(change.event.chatState === "COMPOSING"){
-                      $('#agenttyping').html("L'Agente sta scrivendo...");
+                      $('#agenttyping').html("Agent is typing...");
                  }
           
                  if(change.event.chatState === "ACTIVE"){
@@ -1379,16 +1379,16 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                     diff = diff - ore*60*60;
                     minuti = Math.floor(diff/60);
                     if (ore !== 0 && minuti !== 0){
-                        messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore, " + minuti + " minuti.";
+                        messaggio = "We will answer before:</br>" + giorni + " days, " + ore + " hours, " + minuti + " minutes.";
                     }
                     else if (ore == 0 && minuti !== 0){
-                         messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + minuti + " minuti.";
+                         messaggio = "We will answer before:</br>" + giorni + " days, " + minuti + " minutes.";
                     }
                     else if (ore !== 0 && minuti == 0){
-                         messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni, " + ore + " ore.";
+                         messaggio = "We will answer before:</br>" + giorni + " days, " + ore + " hours.";
                     }
                     else {
-                         messaggio = "Un Agente rispondera' entro:</br>" + giorni + " giorni.";
+                         messaggio = "We will answer before:</br>" + giorni + " days.";
                     }
               }
               else if (Math.floor(diff/(60*60)) > 0){
@@ -1396,22 +1396,22 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                     diff = diff - ore*60*60;
                     minuti = Math.floor(diff/60);
                     if(minuti !== 0){
-                        messaggio = "Un Agente rispondera' entro:</br>" +  ore + " ore, " + minuti + " minuti.";
+                        messaggio = "We will answer before:</br>" +  ore + " ore, " + minuti + " minutes.";
                     }
                     else{
-                        messaggio = "Un Agente rispondera' entro:</br>" +  ore + " ore.";
+                        messaggio = "We will answer before:</br>" +  ore + " hours.";
                     }
               }
               else if (Math.floor(diff/(60)) > 0){
                     minuti = Math.floor(diff/60);
-                    messaggio = "Un Agente rispondera' entro:</br>" + minuti + " minuti.";
+                    messaggio = "We will answer before:</br>" + minuti + " minutes.";
               }
               else {
-                    messaggio = "Ci scusiamo per il ritardo.</br>Risponderemo appena possibile!";
+                    messaggio = "Sorry for the delay</br>We will answer as soon as possible!";
               }
          }
          else{
-                messaggio = "Un Agente rispondera' appena possibile";
+                messaggio = "We will answer as soon as possible!";
          }
          document.getElementById("TTRmsg").innerHTML = messaggio;
          $("#ttr").removeClass("invisibleTTR");
