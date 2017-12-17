@@ -1212,19 +1212,22 @@ function handleOpenedSocket(socket,jwt) {
   
   
 function MakeReadUntilSuccess(socket, change, counter, callback){
-  if (counter < (lastsent +1)) {  
-	    setTimeout(function(){ 
-          socket.publishEvent({
-                 dialogId: change.dialogId,
-                 event: {
-                     type: 'AcceptStatusEvent',
-                     status: 'READ',
-                     sequenceList: counter
-                 }
-           });
-          counter++;
-		      MakeReadUntilSuccess(socket, change, counter, callback);
-	    }, 5);
+  if (counter < (lastsent +1)) { 
+	  if((change.event.type === 'RichContentEvent') || (change.event.type === 'ContentEvent' && change.originatorMetadata.role ==='ASSIGNED_AGENT')){
+	  	console.log("****");
+	  }
+	  setTimeout(function(){ 
+          	socket.publishEvent({
+                 	dialogId: change.dialogId,
+                 	event: {
+                     		type: 'AcceptStatusEvent',
+                     		status: 'READ',
+                     		sequenceList: counter
+                 	}
+           	});
+          	counter++;
+		MakeReadUntilSuccess(socket, change, counter, callback);
+	  }, 5);
   }
   else{
       return; 
