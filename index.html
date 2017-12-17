@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>LPMessagingAPIs</title>
+  <title>WindowMessagingAPIs</title>
 
 
 <style>
@@ -808,6 +808,7 @@ function notifyMe(text) {
   
   
 function AllowNotifications() {
+  window.name = "WindowMessagingAPIs";
   if (!Notification) { //*** notifications not supported
     	  return;
   }
@@ -815,10 +816,6 @@ function AllowNotifications() {
   if (Notification.permission !== "granted"){
     	  Notification.requestPermission();
   }
-  else{	
-	window.name = "WindowMessagingAPIs";	
-  }
-
 }
 	
   
