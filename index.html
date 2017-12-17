@@ -809,6 +809,8 @@ function AllowNotifications() {
   
 AllowNotifications();
 
+	
+var arrayBadge = []; 
 var lastsent;
 var badge = 0;  
 var manualETTR = 0;
@@ -1211,38 +1213,30 @@ function handleOpenedSocket(socket,jwt) {
   
   
   
-function MakeReadUntilSuccess(socket, change, counter, callback){
-  if (counter < (lastsent +1)) { 
-	  if((change.event.type === 'RichContentEvent') || (change.event.type === 'ContentEvent' && change.originatorMetadata.role ==='ASSIGNED_AGENT')){
-	  	console.log("****");
-	  }
-	  setTimeout(function(){ 
+function MakeReadUntilSuccess(socket, dialogId, arrayBadge){
+  	for (var counter = 0; counter < (arrayBadge.length +1); counter++) {   
           	socket.publishEvent({
-                 	dialogId: change.dialogId,
+                 	dialogId: dialogId,
                  	event: {
                      		type: 'AcceptStatusEvent',
                      		status: 'READ',
-                     		sequenceList: counter
+                     		sequenceList: arrayBadge[counter]
                  	}
            	});
           	counter++;
-		MakeReadUntilSuccess(socket, change, counter, callback);
-	  }, 5);
-  }
-  else{
-      return; 
-  }
+	}
+  	
 
 }
     
-function newBadge(socket, change){
+function newBadge(socket, change, badgeId){
   
-  
+ 
   
 
   if($("#agenttyping").position().top > 405){
          badge ++;
-         lastsent = change.sequence;
+	 arrayBadge.push(badgeId); 
     
           socket.publishEvent({
               dialogId: change.dialogId,
@@ -1259,7 +1253,8 @@ function newBadge(socket, change){
                     clearInterval(oneTimeLoop);
                     $('.alertbadge').hide();
                     $('.badge').hide();
-                    MakeReadUntilSuccess(socket, change, 0);
+                    MakeReadUntilSuccess(socket, change.dialogId, arrayBadge);
+		    arrayBadge = [];
                     badge = 0;
                 }
             }, 500);
