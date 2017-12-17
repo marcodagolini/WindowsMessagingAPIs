@@ -1463,7 +1463,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               hostdiv.setAttribute("class","hostagent");
               var newdiv = document.createElement('div');
               newdiv.setAttribute("class","cobrowse");
-              newdiv.innerHTML = "You are invited in a " + change.result.conversationDetails.dialogs["1"].metaData.mode + " CoBrowse session<br />";                
+              newdiv.innerHTML = "You are invited in a " + '"' + change.result.conversationDetails.dialogs["1"].metaData.mode + '"' + " CoBrowse session<br />";                
               var newAccept = document.createElement('button');
               newAccept.setAttribute("id","accept");
               newAccept.innerHTML = "Accept";
