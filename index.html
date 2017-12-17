@@ -1333,7 +1333,7 @@ function newBadge(socket, change){
              $('.alertbadge').hide();
              $('.badge').hide();
              $("#log").animate({
-                   scrollTop: scrollToTop
+                   scrollTop: $("#agenttyping").position().top
              }, 1000);
          }
          if($(evt.target).is('.badge') && $('.badge').is(":visible")) {
@@ -1342,7 +1342,7 @@ function newBadge(socket, change){
              $('.alertbadge').hide();
              $('.badge').hide();
              $("#log").animate({
-                    scrollTop: scrollToTop
+                    scrollTop: $("#agenttyping").position().top
              }, 1000);
          }
   });
