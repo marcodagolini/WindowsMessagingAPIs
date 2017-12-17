@@ -1465,13 +1465,13 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               hostdiv.setAttribute("class","hostagent");
               var newdiv = document.createElement('div');
               newdiv.setAttribute("class","cobrowse");
-              newdiv.innerHTML = "Sei stato invitato ad una sessione di CoBrowse di tipo " + change.result.conversationDetails.dialogs["1"].metaData.mode + "<br />";                
+              newdiv.innerHTML = "You are invited in a " + change.result.conversationDetails.dialogs["1"].metaData.mode + " CoBrowse session<br />";                
               var newAccept = document.createElement('button');
               newAccept.setAttribute("id","accept");
-              newAccept.innerHTML = "Accetta";
+              newAccept.innerHTML = "Accept";
               var newDecline = document.createElement('button');
               newDecline.setAttribute("id","decline");
-              newDecline.innerHTML = "Declina";
+              newDecline.innerHTML = "Decline";
               var maindiv = document.getElementById('log');
               maindiv.appendChild(hostdiv);
               hostdiv.appendChild(newdiv);
@@ -1575,7 +1575,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
         
       var newdiv = document.createElement('div');
       newdiv.setAttribute("class","chiusura");
-      newdiv.innerHTML = "- La conversazione e' stata chiusa -";
+      newdiv.innerHTML = "- Conversation has been closed -";
       var mydiv = document.getElementById('log');
       mydiv.appendChild(newdiv);
       
@@ -1614,7 +1614,7 @@ function csat(socket, convId){
       CSATmsg.setAttribute("id","CSATmsg");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(CSATmsg);
-      document.getElementById("CSATmsg").innerHTML = "Dacci un tuo giudizio!";
+      document.getElementById("CSATmsg").innerHTML = "Give us a feedback!";
   
 
   
@@ -1680,14 +1680,14 @@ function csat(socket, convId){
       NPSmsg.setAttribute("id","NPSmsg");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(NPSmsg);
-      document.getElementById("NPSmsg").innerHTML = "Abbiamo risolto il tuo problema?";
+      document.getElementById("NPSmsg").innerHTML = "Did we solve your issue?";
   
       var NPSyes = document.createElement('div');
       NPSyes.setAttribute("class","NPSyes");
       NPSyes.setAttribute("id","NPSyes");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(NPSyes);
-      document.getElementById("NPSyes").innerHTML = "Si";
+      document.getElementById("NPSyes").innerHTML = "Yes";
   
       var NPSno = document.createElement('div');
       NPSno.setAttribute("class","NPSno");
@@ -1702,7 +1702,7 @@ function csat(socket, convId){
       submitCSAT.setAttribute("id","submitCSAT");
       var mydiv = document.getElementById('csatBG');
       mydiv.appendChild(submitCSAT);
-      document.getElementById("submitCSAT").innerHTML = "Invia";
+      document.getElementById("submitCSAT").innerHTML = "Send";
   
   
   
