@@ -865,40 +865,6 @@ function prepareToConnect() {
 }
 
 	
-/*********Photo-Sharing test (not called)**********/
-function sendPicture(socket, convId){
-	
-
-            
-           socket.publishEvent({
-    dialogId: convId,
-    event: {
-      type: 'ContentEvent',
-      contentType: 'text/plain',
-      message: 'testtestest'
-    }
-  }).then (resp => console.log(resp));
-	
-	// console.log("*******before*********");
-	
-	socket.publishEvent({
-               dialogId: convId,
-               event: {
-                    type: 'ContentEvent',
-                    contentType: 'HostedFile',
-                    message: {
-			    caption: '',
-			    relativePath: '/Users/mdagolini/Desktop/test.JPG',
-			    fileType: 'JPG'		
-		    }
-               }
-        }).then (resp => console.log(resp));
-        // console.log("*******after*********");
-		 
-
-	
-}
-	
 	
 function handleOpenedSocket(socket,jwt) {
     
@@ -932,16 +898,6 @@ function handleOpenedSocket(socket,jwt) {
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
-          	
- 
-	  socket.onNotification(withType('MessagingEvent'),
-    		body => sendPicture(socket, body.changes["0"].dialogId));
-  
-
-
-	
-	
-	
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
