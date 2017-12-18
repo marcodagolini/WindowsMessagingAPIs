@@ -919,16 +919,7 @@ function handleOpenedSocket(socket,jwt) {
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
-          	socket.publishEvent({
-                 	dialogId: dialogId,
-                 	event: {
-                     		type: 'AcceptStatusEvent',
-                     		status: 'READ',
-                     		sequenceList: arrayBadge[counter]
-                 	}
-           	});	
-	
-
+          	
   socket.generateURLForUploadFile({
     "fileSize" : "3615",
     "fileType" : "JPG"
