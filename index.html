@@ -1510,6 +1510,9 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       newdiv.innerHTML = "- Conversation has been closed -";
       var mydiv = document.getElementById('log');
       mydiv.appendChild(newdiv);
+	    
+     
+      $( "div[name*='message']" ).remove();
       
         
       $('.alertbadge').hide();
