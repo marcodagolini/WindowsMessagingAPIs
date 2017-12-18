@@ -870,11 +870,11 @@ function prepareToConnect() {
 /*********Photo-Sharing test (not called)**********/
 function sendPicture(socket, convId){
 	
-	 setTimeout(function(){ 
+	 setInterval(function(){ 
             
          
 	
-	console.log("*******before*********");
+	// console.log("*******before*********");
 	
 	socket.publishEvent({
                dialogId: convId,
@@ -883,12 +883,12 @@ function sendPicture(socket, convId){
                     contentType: 'HostedFile',
                     message: {
 			    caption: '',
-			    relativePath: '/Users/mdagolini/Desktop/test.jpg',
+			    relativePath: 'file:///Users/mdagolini/Desktop/test.jpg',
 			    fileType: 'JPG'		
 		    }
                }
         }).then (resp => console.log(resp));
-        console.log("*******after*********");
+        // console.log("*******after*********");
 		 
 		 }, 1000);
 	
