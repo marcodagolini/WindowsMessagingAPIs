@@ -8,11 +8,8 @@
 <style>
   
 	
-
 	
-	
-	
-	
+  
 @keyframes fadein {
     from {
         opacity:0;
@@ -46,8 +43,6 @@
     }
 }
   
-
-
 html, body{
     height: 99%;
     overflow:hidden;
@@ -66,7 +61,6 @@ html, body{
     max-height: 420px;
     padding-right: 2000px;
 }
-
   
 .invisibleTTRmsg{
     visibility:hidden;
@@ -208,7 +202,6 @@ html, body{
     visibility:hidden;
 }
   
-
 .emptyCSAT1 {
     position:absolute;
     visibility:visible;
@@ -793,16 +786,13 @@ var LPWs = function () {
   
   
 function notifyMe(text) {
-
     var notification = new Notification('Nuova notifica', {
       icon: 'https://i.imgur.com/Y5zmGTw.png',
       body: text,
     });
-
     notification.onclick = function () {
 	    window.open("", "WindowMessagingAPIs").focus();
     };
-
 }
   
   
@@ -811,7 +801,6 @@ function AllowNotifications() {
   if (!Notification) { //*** notifications not supported
     	  return;
   }
-
   if (Notification.permission !== "granted"){
     	  Notification.requestPermission();
   }
@@ -819,7 +808,6 @@ function AllowNotifications() {
 	
   
 AllowNotifications();
-
 	
 var arrayBadge = []; // *** unread events
 var badge = 0;  // *** number of unread events
@@ -866,41 +854,6 @@ function prepareToConnect() {
  
 }
 	
-/**** Photo-sharing test ****	
-	
-	function sendPicture(socket, convId){
-	
-            
-           socket.publishEvent({
-    dialogId: convId,
-    event: {
-      type: 'ContentEvent',
-      contentType: 'text/plain',
-      message: 'testtestest'
-    }
-  }).then (resp => console.log(resp));
-	
-	// console.log("*******before*********");
-	
-	socket.publishEvent({
-               dialogId: convId,
-               event: {
-                    type: 'ContentEvent',
-                    contentType: 'hosted/file',
-                    message: {
-			    caption: '',
-			    relativePath: 'https://i.imgur.com/vbwOhhG.png',
-			    fileType: 'JPG'		
-		    }
-               }
-        }).then (resp => console.log(resp));
-        // console.log("*******after*********");
-		 
-	
-}
-	
-
-**** Photo-sharing test	****/
 	
 function handleOpenedSocket(socket,jwt) {
     
@@ -934,11 +887,6 @@ function handleOpenedSocket(socket,jwt) {
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
-	
-	
-	
-	
-	
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
@@ -1171,7 +1119,6 @@ function handleOpenedSocket(socket,jwt) {
                    maindiv.appendChild(agenttyping);
                  
                    newBadge(socket, change);
-
                    
                    
                   
@@ -1204,7 +1151,6 @@ function handleOpenedSocket(socket,jwt) {
                               $('#message' + change.event.sequenceList[k]).html('<img src="https://i.imgur.com/TQ5E6PR.png" height="20px" width="20px">');
                          }
                    }
-
           
           break;
           
@@ -1282,7 +1228,6 @@ function MakeReadUntilSuccess(socket, dialogId, arrayBadge, counter, callback){
 		MakeReadUntilSuccess(socket, dialogId, arrayBadge, counter, callback);
 	}
   	
-
 }
     
  /********* It manages 'accept'-'read' agent tickers **********/
@@ -1291,7 +1236,6 @@ function newBadge(socket, change){
   
  
   
-
 
          badge ++;
 	 arrayBadge.push(change.sequence); 
@@ -1320,11 +1264,7 @@ function newBadge(socket, change){
          $('.badge').html(badge);
          $('.alertbadge').show();
          $('.badge').show();
- 
-    
-  
-  
-  
+
   
   $(document).on('click', function(evt) {
 	 var scrollToTop = $("#agenttyping").position().top - $(".intro").position().top;
@@ -1355,9 +1295,6 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
   notificationBody.changes.forEach(change => {
     console.log(change);
     if (change.type === 'UPSERT') {
-	    
-	    
-	    // sendPicture(socket, change.result.convId);
 	    
 	     /********* ManualETTR set-up **********/
       
@@ -1555,9 +1492,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                   
                   }
               });
-
             }
-
         }
       
       } 
@@ -1595,7 +1530,6 @@ function csat(socket, convId){
       var NPSresult = null;
       var completion;
   
-
   
       var bg = document.createElement('div');
       bg.setAttribute("class","csatBG");
@@ -1612,7 +1546,6 @@ function csat(socket, convId){
       mydiv.appendChild(CSATmsg);
       document.getElementById("CSATmsg").innerHTML = "Give us a feedback!";
   
-
   
       var a = document.createElement('div');
       a.setAttribute("class","emptyCSAT1");
@@ -1809,8 +1742,6 @@ function publishTo(socket,convID) {
   })
   .then(resp => $('#textline').val(''));
 }
-
-
   
 function withSubscriptionID(subscriptionID) {
   return notif => notif.body.subscriptionId === subscriptionID;
