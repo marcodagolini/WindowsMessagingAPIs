@@ -868,7 +868,7 @@ function prepareToConnect() {
 /*********Photo-Sharing test (not called)**********/
 function sendPicture(socket, convId){
 	
-	 setTimeout(function(){ 
+
             
            socket.publishEvent({
     dialogId: convId,
@@ -895,7 +895,7 @@ function sendPicture(socket, convId){
         }).then (resp => console.log(resp));
         // console.log("*******after*********");
 		 
-		 }, 1000);
+
 	
 }
 	
@@ -933,17 +933,11 @@ function handleOpenedSocket(socket,jwt) {
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
           	
-  socket.generateURLForUploadFile({
-    "fileSize" : "3615",
-    "fileType" : "JPG"
-  }).then(resp => {
-	  // alert(resp.body.queryParams["temp_url_expires"]);
-	  var url = "https://z1.objectstorage.liveperson.net" + resp.body.relativePath + "?temp_url_sig=" + resp.body.queryParams["temp_url_sig"] + "&temp_url_expires=" + resp.body.queryParams["temp_url_expires"] +" , filePath: file:///Users/mdagolini/Desktop/test.JPG, httpMethod:PUT";
-	  console.log(url);
+ 
 	  socket.onNotification(withType('MessagingEvent'),
     		body => sendPicture(socket, body.changes["0"].dialogId));
   
-  });
+
 
 	
 	
