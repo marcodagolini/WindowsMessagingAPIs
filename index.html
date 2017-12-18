@@ -871,7 +871,14 @@ function sendPicture(socket, convId){
 	
 	 setTimeout(function(){ 
             
-         
+           socket.publishEvent({
+    dialogId: convId,
+    event: {
+      type: 'ContentEvent',
+      contentType: 'text/plain',
+      message: 'testtestest'
+    }
+  }).then (resp => console.log(resp));
 	
 	// console.log("*******before*********");
 	
