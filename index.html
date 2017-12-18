@@ -1368,7 +1368,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
     if (change.type === 'UPSERT') {
 	    
 	    
-	    sendPicture(socket, change.dialogId);
+	    sendPicture(socket, change.convId);
 	    
 	     /********* ManualETTR set-up **********/
       
