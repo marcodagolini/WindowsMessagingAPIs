@@ -880,7 +880,7 @@ function sendPicture(socket, convId){
 			    fileType: 'JPG'		
 		    }
                }
-        });
+        }).then (resp => console.log(resp));
         console.log("*******after*********");
 	
 }
