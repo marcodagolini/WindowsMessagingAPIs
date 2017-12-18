@@ -866,7 +866,7 @@ function prepareToConnect() {
  
 }
 	
-	
+/**** Photo-sharing test ****	
 	
 	function sendPicture(socket, convId){
 	
@@ -900,7 +900,7 @@ function prepareToConnect() {
 }
 	
 
-	
+**** Photo-sharing test	****/
 	
 function handleOpenedSocket(socket,jwt) {
     
@@ -1292,7 +1292,7 @@ function newBadge(socket, change){
  
   
 
-  // if($("#agenttyping").position().top > 405){
+
          badge ++;
 	 arrayBadge.push(change.sequence); 
     
@@ -1320,24 +1320,11 @@ function newBadge(socket, change){
          $('.badge').html(badge);
          $('.alertbadge').show();
          $('.badge').show();
-  // }
- /* else{
-
-
-    
-    socket.publishEvent({
-        dialogId: change.dialogId,
-        event: {
-            type: 'AcceptStatusEvent',
-            status: 'READ',
-            sequenceList: [change.sequence]
-        }
-    });
-
+ 
     
   }
   
-  */
+  
   
   $(document).on('click', function(evt) {
 	 var scrollToTop = $("#agenttyping").position().top - $(".intro").position().top;
@@ -1370,7 +1357,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
     if (change.type === 'UPSERT') {
 	    
 	    
-	    sendPicture(socket, change.result.convId);
+	    // sendPicture(socket, change.result.convId);
 	    
 	     /********* ManualETTR set-up **********/
       
