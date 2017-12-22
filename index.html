@@ -891,6 +891,18 @@ function handleOpenedSocket(socket,jwt) {
   
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
   
+	
+setTimeout(function(){ 
+            
+	
+  socket.initConnection({},[{"type":".ams.headers.ClientProperties","deviceFamily":"DESKTOP","os":"WINDOWS","features":["CO_BROWSE","PHOTO_SHARING"]},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt2}]);
+  
+	console.log("jwt cambiato");
+	
+         }, 60000);	
+	
+	
+	
   socket.onNotification(withType('MessagingEvent'),
     body => body.changes.forEach(change => {
       
