@@ -1172,8 +1172,11 @@ setTimeout(function(){
                    $("#log").animate({
                         scrollTop: 1000000
                    }, 1);
-                 
-                 
+		   
+		   If(!manualETTR){
+			   displayToaster(change);
+		   }
+		   
                    
                }
               
