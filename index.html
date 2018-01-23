@@ -790,10 +790,9 @@ var LPWs = function () {
 <script>
   
   
-function displayToaster(change){
+function displayToaster(){
 	var giorni, ore, minuti;
          var messaggio = "";
-         manualETTR = change.result.conversationDetails.manualETTR;
          if (manualETTR){
               var currentDate = new Date().getTime();
               var diff = ((manualETTR - currentDate)/1000) + 30;
@@ -1391,7 +1390,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 	    
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
-	      displayToaster(change);
+	      manualETTR = change.result.conversationDetails.manualETTR;
+	      displayToaster();
 	      /*
          var giorni, ore, minuti;
          var messaggio = "";
