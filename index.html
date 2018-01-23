@@ -792,6 +792,68 @@ var LPWs = function () {
 <script>
   
   
+function displayToaster(){
+	var giorni, ore, minuti;
+         var messaggio = "";
+         manualETTR = change.result.conversationDetails.manualETTR;
+         if (manualETTR){
+              var currentDate = new Date().getTime();
+              var diff = ((manualETTR - currentDate)/1000) + 30;
+              if (Math.floor(diff/(60*60*24)) > 0){
+                    giorni = Math.floor(diff/(60*60*24));
+                    diff = diff - giorni*60*60*24;
+                    ore = Math.floor(diff/(60*60));
+                    diff = diff - ore*60*60;
+                    minuti = Math.floor(diff/60);
+                    if (ore !== 0 && minuti !== 0){
+                        messaggio = "We will answer before:</br>" + giorni + " days, " + ore + " hours, " + minuti + " minutes.";
+                    }
+                    else if (ore == 0 && minuti !== 0){
+                         messaggio = "We will answer before:</br>" + giorni + " days, " + minuti + " minutes.";
+                    }
+                    else if (ore !== 0 && minuti == 0){
+                         messaggio = "We will answer before:</br>" + giorni + " days, " + ore + " hours.";
+                    }
+                    else {
+                         messaggio = "We will answer before:</br>" + giorni + " days.";
+                    }
+              }
+              else if (Math.floor(diff/(60*60)) > 0){
+                    ore = Math.floor(diff/(60*60));
+                    diff = diff - ore*60*60;
+                    minuti = Math.floor(diff/60);
+                    if(minuti !== 0){
+                        messaggio = "We will answer before:</br>" +  ore + " hours, " + minuti + " minutes.";
+                    }
+                    else{
+                        messaggio = "We will answer before:</br>" +  ore + " hours.";
+                    }
+              }
+              else if (Math.floor(diff/(60)) > 0){
+                    minuti = Math.floor(diff/60);
+                    messaggio = "We will answer before:</br>" + minuti + " minutes.";
+              }
+              else {
+                    messaggio = "Sorry for the delay</br>We will answer as soon as possible!";
+              }
+         }
+         else{
+                messaggio = "We will answer as soon as possible!";
+         }
+         document.getElementById("TTRmsg").innerHTML = messaggio;
+         $("#ttr").removeClass("invisibleTTR");
+         $("#ttr").addClass("visibleTTR");
+         $("#TTRmsg").removeClass("invisibleTTRmsg");
+         $("#TTRmsg").addClass("visibleTTRmsg");
+        
+         setTimeout(function(){ 
+            document.getElementById("TTRmsg").innerHTML = "";
+            $("#ttr").removeClass("visibleTTR");
+            $("#ttr").addClass("invisibleTTR");
+            $("#TTRmsg").removeClass("visibleTTRmsg");
+            $("#TTRmsg").addClass("invisibleTTRmsg");
+         }, 8000);
+}
   
 function notifyMe(text) {
     var notification = new Notification('Nuova notifica', {
@@ -1324,6 +1386,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
     if (change.type === 'UPSERT') {
 	    
 	     /********* ManualETTR set-up **********/
+	    displayToaster();
+	    /*
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
          var giorni, ore, minuti;
@@ -1386,6 +1450,9 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
             $("#TTRmsg").removeClass("visibleTTRmsg");
             $("#TTRmsg").addClass("invisibleTTRmsg");
          }, 8000);
+	 
+	 */
+	 
       }
       
       if (!openConvs[change.result.convId]) {
