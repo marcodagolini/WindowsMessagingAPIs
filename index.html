@@ -1385,10 +1385,12 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
     if (change.type === 'UPSERT') {
 	    
 	     /********* ManualETTR set-up **********/
-	    displayToaster();
-	    /*
+	    
+	    
       
       if(change.result.conversationDetails.manualETTR != manualETTR){
+	      displayToaster();
+	      /*
          var giorni, ore, minuti;
          var messaggio = "";
          manualETTR = change.result.conversationDetails.manualETTR;
