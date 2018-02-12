@@ -957,7 +957,7 @@ function handleOpenedSocket(socket,jwt) {
   socket.initConnection({},[{"type":".ams.headers.ClientProperties","os":"WINDOWS","deviceFamily":"DESKTOP","features":["CO_BROWSE"],"appId":"MyApp","deviceManufacture":"totallyCustom"},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
 console.log("***************************");
 	console.log("***************************");
-	console.log(socket);
+	console.log(JSON.stringify(socket));
 	console.log("***************************");
 	console.log("***************************");
 	
