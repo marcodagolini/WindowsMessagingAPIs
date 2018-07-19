@@ -409,7 +409,7 @@ html, body{
     left: 31px; 
     top: 515px;
     border: none;
-    width: 214px;
+    width: 180px;
     height: 25px;
     font-size: 1em;
 }
@@ -462,6 +462,13 @@ html, body{
     text-align: center;
     width: 256px;
     
+}
+	
+#photo {
+    width: 25px;
+    height: 25px;
+    background-image: url(https://i.imgur.com/kvC9KqA.jpg);
+    background-repeat: no-repeat;
 }
     
     
@@ -564,6 +571,7 @@ html, body{
     <div id="log"></div>
 
     <form class="form-inline" onsubmit="return false">
+	<button id="photo" onClick="photoSharing"></button>
         <div class="form-group" style="display:inline;">
             <input id="textline" type="text" class="form-control">
         </div>
@@ -789,6 +797,10 @@ var LPWs = function () {
 
 
 <script>
+	
+function photoSharing(){
+	console.log("photo");
+}
   
   
 function displayToaster(){
