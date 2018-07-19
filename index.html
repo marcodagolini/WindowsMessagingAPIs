@@ -796,8 +796,14 @@ var LPWs = function () {
 <script>
 	
 function photoSharing(){
-	socket.GenerateURLForUploadFile()
-             .then(resp => console.log(JSON.stringify(resp)));
+	socket.GenerateURLForUploadFile({
+          	"kind": "req",
+		"id": 1,
+		"body": {
+		"fileSize": "1000",
+		"fileType": "JPG"
+		}
+        }).then(resp => console.log(JSON.stringify(resp)));
 }
   
   
