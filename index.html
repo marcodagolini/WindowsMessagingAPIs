@@ -907,6 +907,13 @@ $(document).ready(() => {
   prepareToConnect();
   $('#connect').click();  
 });
+
+$(document).on('click', function(evt) {
+	  if($(evt.target).is('#photo')) {
+             photoSharing();
+         }
+  });
+
 function prepareToConnect() {
   $('#connect').text('connect').unbind('click').click(() => {
     $('#connect').text('connecting...');
@@ -1388,9 +1395,6 @@ function newBadge(socket, change){
              $("#log").animate({
                     scrollTop: scrollToTop
              }, 1000);
-         }
-	  if($(evt.target).is('#photo')) {
-             photoSharing();
          }
   });
   
