@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 
+	
+
+
+	
+	
 <head>
   <title>WindowMessagingAPIs</title>
 
 
 <style>
   
-	
-	
-
 	
 	
 	
@@ -406,10 +408,10 @@ html, body{
     background-color: #bccad6 !important;
     position:absolute;
     visibility:visible;
-    left: 31px; 
+    left: 57px; 
     top: 515px;
     border: none;
-    width: 214px;
+    width: 180px;
     height: 25px;
     font-size: 1em;
 }
@@ -463,8 +465,7 @@ html, body{
     width: 256px;
     
 }
-    
-    
+	
 .spaceagent {
     background-color: #ffffff;  
     text-align: left;
@@ -542,6 +543,7 @@ html, body{
 .map {
     width: 160px;
 }
+	
     
     
     
@@ -563,7 +565,9 @@ html, body{
     <div id="log"></div>
 
     <form class="form-inline" onsubmit="return false">
+	
         <div class="form-group" style="display:inline;">
+	    <div id="photo" style="position:absolute; background-image: url(https://i.imgur.com/kvC9KqA.jpg); width:25px; height:25px; top:515px; left:31px;"></div>
             <input id="textline" type="text" class="form-control">
         </div>
         <button id="send" class="btn" disabled>send</button>
@@ -645,9 +649,8 @@ var LPUtils = function () {
     var _this2 = this;
     return new Promise(function (res, rej) {
       return _this2.getDomain(account, "idp").then(function (idpDomain) {
-          var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NvbWV0aGluZy5pdCIsInN1YiI6IjY1NzU2NzU5NTYiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJKb2huRG9lIiwicGhvbmVfbnVtYmVyIjoiKzEtMTAtMzQ0LTM3NjUzMzMiLCJnaXZlbl9uYW1lIjoiVGVzdCIsImZhbWlseV9uYW1lIjoiVGVzdDIiLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSIsImdlbmRlciI6Ik1hbGUiLCJscF9zZGVzIjpbeyJ0eXBlIjoiY3RtcmluZm8iLCJpbmZvIjp7ImNzdGF0dXMiOiJjYW5jZWxsZWQiLCJjdHlwZSI6InZpcCIsImN1c3RvbWVySWQiOiI2NTc1Njc1OTU2IiwiYmFsYW5jZSI6Ii00MDAuOTkiLCJzb2NpYWxJZCI6IjM0NTY3ODc2NTQiLCJpbWVpIjoiOTk5NjYzMjEiLCJ1c2VyTmFtZSI6InVzZXIwMDAiLCJjb21wYW55U2l6ZSI6IjUwMCIsImFjY291bnROYW1lIjoiYmFuayBjb3JwIiwicm9sZSI6ImJyb2tlciIsImxhc3RQYXltZW50RGF0ZSI6eyJkYXkiOiIxNSIsIm1vbnRoIjoiMTAiLCJ5ZWFyIjoiMjAxNCJ9LCJyZWdpc3RyYXRpb25EYXRlIjp7ImRheSI6IjIzIiwibW9udGgiOiI1IiwieWVhciI6IjIwMTMifX19LHsidHlwZSI6InBlcnNvbmFsIiwicGVyc29uYWwiOnsiZmlyc3RuYW1lIjoiSm9obiIsImxhc3RuYW1lIjoiRG9lIiwiYWdlIjp7ImFnZSI6IjM0IiwieWVhciI6IjE5ODAiLCJtb250aCI6IjQiLCJkYXkiOiIxNSJ9LCJjb250YWN0cyI6W3siZW1haWwiOiJteW5hbWVAZXhhbXBsZS5jb20iLCJwaG9uZSI6IjAwMzkgMzQ3IDc1NzY1NzcifV0sImdlbmRlciI6Ik1BTEUiLCJjb21wYW55IjoiTGl2ZVBlcnNvbiJ9fV0sImlhdCI6MTUxMjczNzAyOCwiZXhwIjoyMTEyNzM3MDI4fQ.MKseiL8ZdAslsj2plhRsYt-RgHgFDef2XyF9Rc4fjWIkocDRkURG4O9KRPm70ioQ2hohMKRcxcBLIo9jqUO5gTz1Fb5vEYkTtHIMfH2Hrfi9XjKSVeC2p6Xc7E9Xzqm3GQxBRROrGjCdW1lJqbINsJMmmwrDf8ABMMaXrJnhgPWHHcU-SYkcbGsFSBgLIOmqSdRFegJc2z9REm2_rHO8oE-fPZnckRRNV1hm6Yan8ZDjITNUw6ooucZk-aJyP6MPrbw0_-FL8TSmHmSGDiXFmp1Tde4vUTtRAK7Hkb8Mh6nI0A0CqjDdNtfc1yU0CSGgvJpEPKUQC5-o94YxK0Db2g";
-	      
-	  return $.ajax({
+          var jwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NvbWV0aGluZy5pdCIsInN1YiI6IjV0Z3l0Njd5IiwicHJlZmVycmVkX3VzZXJuYW1lIjoiSm9obkRvZSIsInBob25lX251bWJlciI6IisxLTEwLTM0NC0zNzY1MzMzIiwiZ2l2ZW5fbmFtZSI6IlRlc3QiLCJmYW1pbHlfbmFtZSI6IlRlc3QyIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20iLCJnZW5kZXIiOiJNYWxlIiwibHBfc2RlcyI6W3sidHlwZSI6ImN0bXJpbmZvIiwiaW5mbyI6eyJjc3RhdHVzIjoiY2FuY2VsbGVkIiwiY3R5cGUiOiJ2aXAiLCJjdXN0b21lcklkIjoiNXRneXQ2N3kiLCJiYWxhbmNlIjoiLTQwMC45OSIsInNvY2lhbElkIjoiMzQ1Njc4NzY1NCIsImltZWkiOiI5OTk2NjMyMSIsInVzZXJOYW1lIjoidXNlcjAwMCIsImNvbXBhbnlTaXplIjoiNTAwIiwiYWNjb3VudE5hbWUiOiJiYW5rIGNvcnAiLCJyb2xlIjoiYnJva2VyIiwibGFzdFBheW1lbnREYXRlIjp7ImRheSI6IjE1IiwibW9udGgiOiIxMCIsInllYXIiOiIyMDE0In0sInJlZ2lzdHJhdGlvbkRhdGUiOnsiZGF5IjoiMjMiLCJtb250aCI6IjUiLCJ5ZWFyIjoiMjAxMyJ9fX0seyJ0eXBlIjoicGVyc29uYWwiLCJwZXJzb25hbCI6eyJmaXJzdG5hbWUiOiJKb2huIiwibGFzdG5hbWUiOiJEb2UiLCJhZ2UiOnsiYWdlIjoiMzQiLCJ5ZWFyIjoiMTk4MCIsIm1vbnRoIjoiNCIsImRheSI6IjE1In0sImNvbnRhY3RzIjpbeyJlbWFpbCI6Im15bmFtZUBleGFtcGxlLmNvbSIsInBob25lIjoiMDAzOSAzNDcgNzU3NjU3NyJ9XSwiZ2VuZGVyIjoiTUFMRSIsImNvbXBhbnkiOiJMaXZlUGVyc29uIn19XSwiaWF0IjoxNTMyMTAxMzg2LCJleHAiOjc1MzIxMDEzODZ9.MFZV1I85Knv4IfUb8FJIknpj1E3Rb6I4EPicRtocUS70-iK6Cy0pV5spp2u36arw34S1V-uGjbU2c2DMUHwiK7gIBq1RoGFQlzzk54GsmdopvaZ715HR_hPMZ-hT_gzktRKz5v7Kh1KCgk7oktpPtJaIMHPqstDKj141ObeBMtzAjyr_uQJXrQiGdKpeM8iRhEbvYvJCAHbdqZ-a1V3dHDF4q1d7OuawyUjjWVOWM2GEm2JRarHC6WfpFmgvjm9vyw7hDNH6xV58uITZcL1I_2MYD_jcKtVeKv2bJBZDSjnysOZv4pq_Ht5ZVfExR-PUDXnysqpm8oZoFJNyZUy8Dg";
+	   return $.ajax({
           "url": "https://" + idpDomain + "/api/account/" + account + "/authenticate",
           "async": true,
           "crossDomain": true,
@@ -931,6 +934,7 @@ function handleOpenedSocket(socket,jwt) {
   $('.spaceagent').remove();
   $('.spacecustomer').remove();
   $('.lp-panel').remove();
+	
     
     
   var space = document.createElement('div');
@@ -953,7 +957,7 @@ function handleOpenedSocket(socket,jwt) {
 	
 	
   
-  socket.initConnection({},[{"type":".ams.headers.ClientProperties","os":"WINDOWS","deviceFamily":"DESKTOP","features":["CO_BROWSE"],"appId":"MyApp","deviceManufacture":"totallyCustom"},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
+  socket.initConnection({},[{"type":".ams.headers.ClientProperties","integration":"WEB_SDK","integrationVersion":"2.6.10","os":"WINDOWS","deviceFamily":"DESKTOP","features":["CO_BROWSE","PHOTO_SHARING","RICH_CONTENT","AUTO_MESSAGES","QUICK_REPLIES"],"appId":"webAsync","deviceManufacture":"totallyCustom"},{ "type": ".ams.headers.ConsumerAuthentication", "jwt": jwt}]);
 console.log("***************************");
 	console.log("***************************");
 	console.log(JSON.stringify(socket));
@@ -972,7 +976,75 @@ setTimeout(function(){
 	 
 	 
 ****************************/
+  function process_file(files, convID){
+	  return new Promise((resolve, reject) => {
+		  var size = files[0].size;
+		  var extension = "";
+		  var myPath;
+		  var base64;
+		  var fileName = files[0].name;
+		  var allowed_extensions = new Array("jpg","jpeg","png","gif");
+		  var file_extension = fileName.split('.').pop().toLowerCase();
+		  for(var i = 0; i <= allowed_extensions.length; i++) {
+			  if(allowed_extensions[i] == file_extension) {
+				  extension = file_extension.toUpperCase();
+				  var FR= new FileReader();
+				  FR.addEventListener("load", function(e) {
+					  // console.log(e.target.result);
+					  
+					  
+    
+					  
+					  function dataURItoBlob(dataURI) {
+						  var binary = atob(dataURI.split(',')[1]);
+						  // var binary = decodeURIComponent(window.atob(dataURI.split(',')[1]));
+						  return binary;
+						    
+					  }
+					  base64 = e.target.result;
+					  var base64ToBin = dataURItoBlob(base64);
+					  console.log(base64ToBin);
+					  // console.log(extension);
+					  // console.log(size);
+					  socket.generateURLForUploadFile({
+						  "fileSize": size,
+						  "fileType": extension
+					  }).then(resp => {
+						  // console.log(JSON.stringify(resp));
+						  var data = base64ToBin;
+						  console.log("ok");
+						  myPath = resp.body.relativePath;
+						  var xhr = new XMLHttpRequest();
+						  xhr.addEventListener("readystatechange", function () {
+							  if (this.readyState === 4) {
+								  resolve([myPath,extension,base64]);
+							  }
+						  });
+						  
+						  var URLforGET = "https://z1.objectstorage.liveperson.net" + myPath + "?temp_url_sig=" + resp.body.queryParams.temp_url_sig + "&temp_url_expires=" + resp.body.queryParams.temp_url_expires;
+						  console.log(URLforGET);
+						  xhr.open("PUT", URLforGET);
+						  // xhr.setRequestHeader("Content-Type", "text/html; charset=UTF-8");
+						  // xhr.setRequestHeader("Accept", "application/json");
+						  // xhr.setRequestHeader("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1");
+						  // xhr.sendAsBinary(data);
+						  
+						  var nBytes = data.length, ui8Data = new Uint8Array(nBytes);
+						  for (var nIdx = 0; nIdx < nBytes; nIdx++) {
+							  ui8Data[nIdx] = data.charCodeAt(nIdx) & 0xff;
+						  }
+						  xhr.send(ui8Data);
+					  });
+				  });
+				  FR.readAsDataURL(files[0]);
+			}
+		    }
+	  });
+	  
+  }
 	
+	
+  
 	
 	
   socket.onNotification(withType('MessagingEvent'),
@@ -1147,14 +1219,29 @@ setTimeout(function(){
                    var maindiv = document.getElementById('log');
                    maindiv.appendChild(space);
                    
-                   var hostdiv = document.createElement('div');
-                   hostdiv.setAttribute("class","hostcustomer");
-                   var newdiv = document.createElement('div');
-                   newdiv.setAttribute("class","customer");
-                   newdiv.innerHTML = change.event.message;                
-                   var maindiv = document.getElementById('log');
-                   maindiv.appendChild(hostdiv);
-                   hostdiv.appendChild(newdiv);
+		   if(change.event.contentType === "text/plain"){
+			   var hostdiv = document.createElement('div');
+			   hostdiv.setAttribute("class","hostcustomer");
+			   var newdiv = document.createElement('div');
+			   newdiv.setAttribute("class","customer");
+			   newdiv.innerHTML = change.event.message;                
+			   var maindiv = document.getElementById('log');
+			   maindiv.appendChild(hostdiv);
+			   hostdiv.appendChild(newdiv);
+		   }else if(change.event.contentType === "hosted/file"){
+			   var hostdiv = document.createElement('div');
+			   hostdiv.setAttribute("class","hostcustomer");
+			   var newdiv = document.createElement('div');
+			   newdiv.setAttribute("class","customer");
+			   var img = document.createElement("img");
+			   // img.width = "30px";
+			   // img.height = "30px";
+			   img.src = change.event.message.preview;               
+			   var maindiv = document.getElementById('log');
+			   maindiv.appendChild(hostdiv);
+			   hostdiv.appendChild(newdiv);
+			   newdiv.appendChild(img);
+		   }
                  
                    var marks = document.createElement('div');
                    marks.setAttribute("class","hostmarks");
@@ -1283,6 +1370,47 @@ setTimeout(function(){
        }
         
     });
+	  
+	  
+    $('#photo').prop('disabled', false).click(() => {
+		  var input = {};
+	    var convID;
+	    var myResponse = {};
+		  input = document.createElement('input');
+		  input.type = 'file';
+		  input.click();
+		  var base64 = "";
+		  var myPath = "";
+		  var extension = "";
+	    
+		  
+		  input.onchange = function(){
+			  process_file(input.files, convID)
+			  .then(function(res){
+				  console.log("second level");
+				  myPath = res[0];
+				  extension = res[1];
+				  base64 = res[2];
+				  if(myPath !== "" && extension !== "" && base64 !== ""){
+					  if (Object.keys(openConvs)[0]) {
+						    publishPhoto(socket,Object.keys(openConvs)[0],myPath,extension,base64);
+					    } else  {
+						    socket.consumerRequestConversation()
+							.then(resp => publishPhoto(socket,resp.body.conversationId,myPath,extension,base64));
+					    }
+				  }
+			  })
+			  
+		  };
+			
+			
+		  // socket.generateURLForUploadFile({
+			 // "fileSize": "1000",
+			  // "fileType": "JPG"
+		  // }).then(resp => console.log(JSON.stringify(resp)));
+         
+    });
+	  
     $('#close').prop('disabled', false).click(() => {
       if (Object.keys(openConvs)[0]) {
         socket.updateConversationField({
@@ -1777,6 +1905,51 @@ function publishTo(socket,convID) {
     }
   })
   .then(resp => $('#textline').val(''));
+}
+	
+function publishPhoto(socket,convID,myPath,extension,base64) {
+	console.log(myPath);
+	console.log(extension);
+	console.log(base64);
+	console.log("fine");
+	
+	var resizedBase64;
+	var canvas=document.createElement('canvas');
+	var ctx=canvas.getContext("2d");
+	var cw=canvas.width;
+	var ch=canvas.height;
+	// limit the image to 150x100 maximum size
+	var maxW=150;
+	var maxH=100;
+	  var img = new Image;
+	  img.onload = function() {
+	    var iw=img.width;
+	    var ih=img.height;
+	    var scale=Math.min((maxW/iw),(maxH/ih));
+	    var iwScaled=iw*scale;
+	    var ihScaled=ih*scale;
+	    canvas.width=iwScaled;
+	    canvas.height=ihScaled;
+	    ctx.drawImage(img,0,0,iwScaled,ihScaled);
+	    resizedBase64 = canvas.toDataURL();
+		  console.log(resizedBase64);
+	  }
+	  img.src = base64;
+	
+	socket.publishEvent({
+		dialogId: convID,
+		event: {
+			type: 'ContentEvent',
+			contentType: "hosted/file",
+			message: {
+				caption: "",
+				relativePath: myPath,
+				fileType: extension,
+				preview: base64
+			}
+		}
+	});
+  
 }
   
 function withSubscriptionID(subscriptionID) {
