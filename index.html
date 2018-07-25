@@ -1002,7 +1002,33 @@ setTimeout(function(){
 					  }
 					  base64 = e.target.result;
 					  var base64ToBin = dataURItoBlob(base64);
-					  console.log(base64ToBin);
+					  var img = new Image();
+					  img.src = base64;
+					  
+					  var myThumbnail;
+					  var data;
+					  var max = 100;
+					  if (img.width > max) {
+						  var oc = document.createElement('canvas'), octx = oc.getContext('2d');
+						  oc.width = img.width;
+						  oc.height = img.height;
+						  octx.drawImage(img, 0, 0);
+						  if( img.width > img.height) {
+							  oc.height = (img.height / img.width) * max;
+							  oc.width = max;
+						  } else {
+							  oc.width = (img.width / img.height) * max;
+							  oc.height = max;
+						  }
+						  octx.drawImage(oc, 0, 0, oc.width, oc.height);
+						  octx.drawImage(img, 0, 0, oc.width, oc.height);
+						  myThumbnail = oc.toDataURL();
+					  } else {
+						  myThumbnail = oc.toDataURL();
+					  }
+
+
+					  // console.log(base64ToBin);
 					  // console.log(extension);
 					  // console.log(size);
 					  socket.generateURLForUploadFile({
@@ -1016,7 +1042,7 @@ setTimeout(function(){
 						  var xhr = new XMLHttpRequest();
 						  xhr.addEventListener("readystatechange", function () {
 							  if (this.readyState === 4) {
-								  resolve([myPath,extension,base64]);
+								  resolve([myPath,extension,myThumbnail]);
 							  }
 						  });
 						  
