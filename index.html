@@ -1000,7 +1000,7 @@ setTimeout(function(){
 					  base64 = e.target.result;
 					  var img = new Image();
 					  img.src = base64;
-					  img.onload = resizeMyPic()
+					  
     
 					  
 					  function dataURItoBlob(dataURI) {
@@ -1034,6 +1034,7 @@ setTimeout(function(){
 
 					  }
 					  
+					  img.onload = resizeMyPic;
 					  var base64ToBin = dataURItoBlob(base64);
 					  
 					  
