@@ -1010,8 +1010,8 @@ setTimeout(function(){
 					  var myThumbnail;
 					  var data;
 					  var max = 100;
+					  var oc = document.createElement('canvas'), octx = oc.getContext('2d');
 					  if (img.width > max) {
-						  var oc = document.createElement('canvas'), octx = oc.getContext('2d');
 						  oc.width = img.width;
 						  oc.height = img.height;
 						  octx.drawImage(img, 0, 0);
