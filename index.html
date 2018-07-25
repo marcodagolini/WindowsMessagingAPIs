@@ -996,7 +996,10 @@ setTimeout(function(){
 				  FR.addEventListener("load", function(e) {
 					  // console.log(e.target.result);
 					  
-					  
+					  base64 = e.target.result;
+					  var img = new Image();
+					  img.src = base64;
+					  img.onload = resizeMyPic()
     
 					  
 					  function dataURItoBlob(dataURI) {
@@ -1006,7 +1009,7 @@ setTimeout(function(){
 						    
 					  }
 					  
-					  function resizeMyPic(img){
+					  function resizeMyPic(){
 						  var data;
 						  var max = 30;
 						  var oc = document.createElement('canvas'), octx = oc.getContext('2d');
@@ -1029,11 +1032,9 @@ setTimeout(function(){
 						  }
 
 					  }
-					  base64 = e.target.result;
+					  
 					  var base64ToBin = dataURItoBlob(base64);
-					  var img = new Image();
-					  img.src = base64;
-					  img.onload = resizeMyPic(img)
+					  
 					  
 					  
 
