@@ -985,6 +985,7 @@ setTimeout(function(){
 		  var extension = "";
 		  var myPath;
 		  var base64;
+		  var myThumbnail;
 		  var fileName = files[0].name;
 		  var allowed_extensions = new Array("jpg","jpeg","png","gif");
 		  var file_extension = fileName.split('.').pop().toLowerCase();
@@ -1022,9 +1023,9 @@ setTimeout(function(){
 							  }
 							  octx.drawImage(oc, 0, 0, oc.width, oc.height);
 							  octx.drawImage(img, 0, 0, oc.width, oc.height);
-							  return oc.toDataURL();
+							  myThumbnail = oc.toDataURL();
 						  } else {
-							  return oc.toDataURL();
+							  myThumbnail = oc.toDataURL();
 						  }
 
 					  }
@@ -1032,8 +1033,8 @@ setTimeout(function(){
 					  var base64ToBin = dataURItoBlob(base64);
 					  var img = new Image();
 					  img.src = base64;
+					  img.onload = resizeMyPic(img)
 					  
-					  var myThumbnail = resizeMyPic(img);
 					  
 
 					  // console.log(base64ToBin);
