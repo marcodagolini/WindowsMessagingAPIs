@@ -1692,6 +1692,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
       
       } 
     } else if (change.type === 'DELETE') {
+	    console.log("******CLOSE******");
+	    console.log(change);
       delete openConvs[change.result.convId];
       // $('#log').append(`La conversazione e' stata chiusa.\n`);
       var space = document.createElement('div');
