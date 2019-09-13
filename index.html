@@ -1561,13 +1561,16 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           dialogId: change.result.convId
         });
       }
-        if((change.result.conversationDetails.dialogs.length) > 1){ //*
+	var myUpsertLength = change.result.conversationDetails.dialogs.length;
+        if(myUpsertLength > 1){ //*
+		
+		
           
-          if(change.result.conversationDetails.dialogs["1"].channelType==="COBROWSE"){
+          if(change.result.conversationDetails.dialogs[myUpsertLength -1].channelType==="COBROWSE"){
 		  
 		   /********* CoBrowse management **********/
         
-            if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="CLOSED"){
+            if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="CLOSED"){
                 $(".cobrowse").hide();
               
                 $('#agenttyping').remove();
@@ -1578,7 +1581,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                 maindiv.appendChild(agenttyping);
             }
         
-            if(change.result.conversationDetails.dialogs["1"].metaData.sessionState==="INVITED"){
+            if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="INVITED"){
           
               var space = document.createElement('div');
               space.setAttribute("class","spaceagent");
@@ -1591,7 +1594,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               hostdiv.setAttribute("class","hostagent");
               var newdiv = document.createElement('div');
               newdiv.setAttribute("class","cobrowse");
-              newdiv.innerHTML = "You are invited in a " + '"' + change.result.conversationDetails.dialogs["1"].metaData.mode + '"' + " CoBrowse session<br />";                
+              newdiv.innerHTML = "You are invited in a " + '"' + change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.mode + '"' + " CoBrowse session<br />";                
               var newAccept = document.createElement('button');
               newAccept.setAttribute("id","accept");
               newAccept.innerHTML = "Accept";
@@ -1615,9 +1618,9 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 	      newBadge(socket, change);
               
           
-              console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
-              console.log(change.result.conversationDetails.participants["1"].id);
-              console.log(change.result.conversationDetails.participants["0"].id);
+              // console.log(change.result.conversationDetails.dialogs["1"].metaData.serviceId);
+              // console.log(change.result.conversationDetails.participants["1"].id);
+              // console.log(change.result.conversationDetails.participants["0"].id);
           
           
               $(document).on('click', function(evt) {
