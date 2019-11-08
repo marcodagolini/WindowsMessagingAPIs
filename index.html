@@ -1065,7 +1065,9 @@ setTimeout(function(){
 						  for (var nIdx = 0; nIdx < nBytes; nIdx++) {
 							  ui8Data[nIdx] = data.charCodeAt(nIdx) & 0xff;
 						  }
+						  console.log("dataToSend --> " + ui8Data);
 						  xhr.send(ui8Data);
+						  
 					  });
 				  });
 				  FR.readAsDataURL(files[0]);
