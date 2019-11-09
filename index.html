@@ -1044,6 +1044,7 @@ setTimeout(function(){
 					  }).then(resp => {
 						  // console.log(JSON.stringify(resp));
 						  var data = base64ToBin;
+						  console.log("base64ToBin --> " + base64ToBin);
 						  console.log("ok");
 						  myPath = resp.body.relativePath;
 						  var xhr = new XMLHttpRequest();
