@@ -1574,6 +1574,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
           
           if(change.result.conversationDetails.dialogs[myUpsertLength -1].channelType==="COBROWSE"){
 		  
+		  console.log(JSON.stringify(change.result.conversationDetails.dialogs[myUpsertLength -1]));
+		  
 		   /********* CoBrowse management **********/
         
             if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="CLOSED"){
