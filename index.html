@@ -1657,6 +1657,10 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                       agenttyping.setAttribute("id","agenttyping");
                       var maindiv = document.getElementById('log');
                       maindiv.appendChild(agenttyping);
+			  
+		      var videoDiv = document.createElement('div');
+		      videoDiv.className = 'lp_cobrowse_callscreen_container';
+		      document.body.appendChild(videoDiv);
                     
                 
                   }
