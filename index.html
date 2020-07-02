@@ -1643,6 +1643,18 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
  	                        cid: "<Context ID>",
  	                        eid: "<Engagement ID>"
                       });
+			  
+			  function onError{
+				  console.log(data);
+			  }
+			  
+		      lpTag.events.bind({
+			      appName: "cobrowse",
+			      eventName: "sessionError",
+			      func: onError
+		      });
+			  
+			  
                       $(".cobrowse").hide();
                       var space = document.createElement('div');
                       space.setAttribute("class","spaceagent");
