@@ -1648,8 +1648,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                   if($(evt.target).is('#accept')) {
 			  
 			  console.log(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.serviceId);
-			  console.log(change.result.conversationDetails.participants[1]);
-			  console.log(change.result.conversationDetails.participants[0]);
+			  console.log(change.result.conversationDetails.participantsDetails[1].id);
+			  console.log(change.result.conversationDetails.participantsDetails[0].id);
 			  console.log(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.mode);
                 
                       lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
