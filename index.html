@@ -1577,6 +1577,18 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 		  console.log(JSON.stringify(change.result.conversationDetails.dialogs[myUpsertLength -1]));
 		  
 		   /********* CoBrowse management **********/
+		  
+	     if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="ACCEPTED"){
+		     
+		      var videoDiv = document.createElement('div');
+		      videoDiv.className = 'lp_cobrowse_callscreen_container';
+		      document.body.appendChild(videoDiv);
+		     
+	     }
+		  
+		 
+		  
+		  
         
             if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="CLOSED"){
                 $(".cobrowse").hide();
@@ -1646,15 +1658,6 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
  	                        eid: "<Engagement ID>"
                       });
 			  
-			  function onError(data){
-				  console.log(JSON.stringify(data));
-			  }
-			  
-		      lpTag.events.bind({
-			      appName: "cobrowse",
-			      eventName: "sessionError",
-			      func: onError
-		      });
 			  
 			  
                       $(".cobrowse").hide();
@@ -1672,9 +1675,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
                       var maindiv = document.getElementById('log');
                       maindiv.appendChild(agenttyping);
 			  
-		      var videoDiv = document.createElement('div');
-		      videoDiv.className = 'lp_cobrowse_callscreen_container';
-		      document.body.appendChild(videoDiv);
+		      
                     
                 
                   }
