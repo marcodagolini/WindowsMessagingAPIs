@@ -1649,7 +1649,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
               $(document).on('click', function(evt) {
                   if($(evt.target).is('#accept')) {
 			  
-			  console.log(JSON.parse(change.result.conversationDetails));
+			  console.log(JSON.stringify(change.result.conversationDetails));
 			  // console.log(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.serviceId);
 			  // console.log(change.result.conversationDetails.participantsDetails[1].id);
 			  // console.log(change.result.conversationDetails.participantsDetails[0].id);
