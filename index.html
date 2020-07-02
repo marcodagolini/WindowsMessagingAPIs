@@ -1655,7 +1655,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 			  
 			  
 			  
-			  /****
+
                 
                       lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", {
  	                        serviceId: change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.serviceId,
@@ -1671,11 +1671,7 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 			      eid: "<Engagement ID>"
                       });
 		      
-		      ***/
-			  
-			  lpTag.events.publish("lpCoBrowse", "cobrowseAccepted", 
-			  {"ssid":"2Uq2lhaJSJ2vVn4uODDgjA","svid":"NkZmJiNDg3MmRlYTA1Mzg5","scid":"3","cid":1539723050,"eid":1539723150,"agentId":"fb28a3e2-c175-520b-9a97-d74b6af97aa8","serviceId":"39385e04e368be3102cd5f4330a1370be4bf8eefe1f43526b5d2826721ffce56#fb85c2e3-8851-45d1-b71e-16b3d1646299","chatId":"fb85c2e3-8851-45d1-b71e-16b3d1646299","visitorName":"Giuseppe Lattuada","mode":"VIDEO_CALL","context":"LIVEENGAGE","channelSegment":"fb28a3e2-c175-520b-9a97-d74b6af97aa8","visitorAlias":"Giuseppe Lattuada","type":"call"}
-			  );
+
 			  
 			  
                       $(".cobrowse").hide();
