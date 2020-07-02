@@ -1643,8 +1643,8 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
  	                        eid: "<Engagement ID>"
                       });
 			  
-			  function onError{
-				  console.log(data);
+			  function onError(data){
+				  console.log(JSON.stringify(data));
 			  }
 			  
 		      lpTag.events.bind({
