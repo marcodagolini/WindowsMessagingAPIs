@@ -1581,10 +1581,11 @@ function handleConversationNotification(socket,notificationBody,openConvs) {
 		   /********* CoBrowse management **********/
 		  
 	     if(change.result.conversationDetails.dialogs[myUpsertLength -1].metaData.sessionState==="ACCEPTED"){
-		     
-		      var videoDiv = document.createElement('div');
-		      videoDiv.className = 'lp_cobrowse_callscreen_container';
-		      document.body.appendChild(videoDiv);
+		     var videoDiv = document.createElement('div');
+		     videoDiv.className = 'lp_cobrowse_callscreen_container';
+		     videoDiv.setAttribute("width","100%");
+		     videoDiv.setAttribute("height","100%");
+		     document.body.appendChild(videoDiv);
 		     
 	     }
 		  
